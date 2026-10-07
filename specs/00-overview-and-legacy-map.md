@@ -17,11 +17,15 @@ Not covered: behaviour in detail. Each row of the legacy map names the specifica
 
 ## What this Driver is
 
-- One command-line program, `arbol-codex-driver`, written in TypeScript. Its command line is its only interface, and Arbol holds none of its code (DRV-0).
+- One command-line program, `arbol-codex-driver`, written in typed Python on pinned CPython 3.14 (SYL-95). Its command line is its only interface, and Arbol holds none of its code (DRV-0).
 - It serves one vendor family, `chatgpt` ([CDX-1](01-subscriptions.md)).
 - Every Subscription has its own home for the tool. Account operations and inference runs both go through `codex app-server`, started in that home and spoken to over standard input and output.
 - A run is given what it needs in the request: system prompt text, working folders, conversation, and the Subscription, model and effort where the caller names them. What is left out comes from the Driver's settings file.
 - It has no socket, no launch job, no database connection and no knowledge of Chat Sessions, routes or repositories.
+
+## Python migration, 7 October 2026
+
+SYL-95 ports the implemented base, Subscriptions, fresh runs, continuity and stopping/recovery to independent standard-library Python modules on pinned CPython 3.14. Strict mypy, Ruff and standard-library unittest replace active TypeScript development checks. The shared conformance wrappers retain their exact implemented scenario/part scopes. A standalone packaged development candidate includes its interpreter, modules, fixtures and checks; a fully working numbered Build remains pending SYL-92/SYL-94. Public CLI, recognized unimplemented refusals, clean account homes and compatible state format 1 are preserved and checked against the retained TypeScript baseline. CDX-D1 authentication is unchanged.
 
 ## Requirements
 
