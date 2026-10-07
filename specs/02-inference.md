@@ -83,6 +83,8 @@ A run with all tools off and no working folder uses a thread the tool does not s
 
 Observed with the installed tool: a saved thread is a file under the home's `sessions` folder. In a new process it must be resumed before a turn can be started on it. After a resume the model knew a word given in the first turn and the command it had run then. The tool restores the thread's effort but not its service tier. A thread that is not saved cannot be resumed, read or forked. `thread/delete` removes a saved thread completely. Items inserted with `thread/inject_items` were used by the model in three real turns on 6 October 2026: plain messages; a tool call with its result; and a picture together with a tool call under a name the tool has none for (`Bash`, the `claude` tool's own name for a command).
 
+Observed on 7 October 2026, SYL-88 on `test-chatgpt`, `gpt-5.6-luna` at low effort: a second run resumed and recalled the first word and actual terminal output; editing the first message rebuilt with `history_differs` and retained the earlier tool result; changing the system prompt rebuilt with `system_prompt_changed` and followed the new prompt. The rebuilt raw history stores its terminal `function_call` with name `shell`, as `probe.continuity` confirms. Asked for the historical tool name, the model answered `exec_command`: its visible description can use its own terminal name although the stored inserted name is `shell`. `thread/read` shows no inserted turns. Evidence: `research/continuity-2026-10-07.json` and `research/continuity-protocol-2026-10-07.json`.
+
 Observed in version 1: a new unsaved thread for every attempt; the earlier conversation written into the prompt under the headings "Earlier conversation in this Chat Session" and "Current request", after the system prompt; all earlier images attached again on every turn.
 
 <!-- sources:
@@ -98,7 +100,7 @@ A rebuilt thread is a new saved thread into which the Driver inserts the history
 | History item | Items |
 |---|---|
 | A message of the user | `{ "type": "message", "role": "user", "content": [ … ] }`: an `input_text` part with the text, then one `input_image` part per picture, whose `image_url` is a `data:` address with the picture's media type and base64 data |
-| A message of the assistant | `{ "type": "message", "role": "assistant", "content": [ { "type": "output_text", "text": … } ] }` |
+| A message of the assistant | `{ "type": "message", "role": "assistant", "content": [ { "type": "output_text", "text": … }, … ] }`: any pictures supplied with that message follow as `input_image` parts, by the same rule as a user message. If the tool refuses these parts, the text fallback carries the pictures |
 | A tool call | `{ "type": "function_call", "name", "arguments", "call_id" }`, then `{ "type": "function_call_output", "call_id", "output" }` |
 
 For a tool call:
@@ -137,7 +139,7 @@ What the Driver sends, by name. A request that takes parameters needs `params`, 
 | `account/read` | `{}` |
 | `model/list` | `{}`, and again with the cursor of the answer for as long as there is one |
 | `thread/start` | `cwd`, `model`, `approvalPolicy`, `sandbox`; `serviceTier` where the request names one; `developerInstructions` where the request has a system prompt; `config` with the owner's MCP servers under `mcp_servers` (CDX-3); `ephemeral: true` only for a run without tools and without a working folder |
-| `thread/resume` | `threadId` |
+| `thread/resume` | `threadId`, `model` with the validated model selected for this run, so the thread response reports the current model instead of its previous one |
 | `thread/inject_items` | `threadId`, `items` |
 | `turn/start` | `threadId`, `input`, `model`, `effort`, `summary: "detailed"`, `approvalPolicy`, `sandboxPolicy`; `serviceTier` where the request names one |
 | `turn/interrupt` | `threadId`, `turnId` |
@@ -233,21 +235,21 @@ arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner.cancel
 | CDX-2.4 | check the request's model and effort against `model/list` before starting a turn | DRV-2.2 | New | `C40`, `run.validation`, `catalog.pages` (tool catalog without an inference fallback) |
 | CDX-2.5 | answer every request of the tool it does not know with an error | DRV-2.3 | Kept | `app-server.unknown-request`, `run.unknown-request` |
 | CDX-2.6 | abandon a handshake request that is not answered within 30 seconds and fail the run | DRV-2.3 | Kept | `app-server.failures`, `app-server.start-cancel` (handshake/request failures with explicit short unit-test timeouts; run requests use the 30-second contract bound) |
-| CDX-2.7 | use a saved thread for every run that has tools or a working folder, and a thread the tool does not save otherwise | DRV-2.12 | Changed | `run.lifecycle`, `run.images`, `live.run`, `live.no-tools` (saved fresh thread with tools/folder; ephemeral completion otherwise) |
-| CDX-2.8 | resume a thread only through `thread/resume` in the run's own process, and rebuild when the resume is refused | DRV-2.12 | Changed | contract, probe |
-| CDX-2.9 | for a rebuild, insert the earlier messages with their images and the tool calls into the new thread with `thread/inject_items` before the turn, and fall back to one labelled text before the new message when the tool refuses the request | DRV-2.11 | Changed | unit, live |
+| CDX-2.7 | use a saved thread for every run that has tools or a working folder, and a thread the tool does not save otherwise | DRV-2.12 | Changed | `run.lifecycle`, `run.images`, `C14`, `continuity.run`, `live.run`, `live.no-tools`, `live.continuity` (saved runs with tools/folder; ephemeral completion otherwise) |
+| CDX-2.8 | resume a thread only through `thread/resume` in the run's own process, and rebuild when the resume is refused | DRV-2.12 | Changed | `C14`, `continuity.run`, `probe.continuity`, `live.continuity` |
+| CDX-2.9 | for a rebuild, insert the earlier messages with their images and the tool calls into the new thread with `thread/inject_items` before the turn, and fall back to one labelled text before the new message when the tool refuses the request | DRV-2.11 | Changed | `C14`, `history.native`, `history.labelled`, `history.images`, `continuity.run`, `probe.continuity`, `live.continuity` |
 | CDX-2.10 | send the system prompt as `developerInstructions` and nothing of its own in the instruction fields | DRV-2.1 | Changed | `C10`, `run.lifecycle`, `probe.run-protocol`, `live.run` |
-| CDX-2.11 | send model, effort, service tier, approval and sandbox settings with every `turn/start`, also on a resumed thread | DRV-2.1 | New | `run.lifecycle`, `run.images`, `probe.run-protocol`, `live.run` (fresh turns; resumed turns pending SYL-88) |
+| CDX-2.11 | send model, effort, service tier, approval and sandbox settings with every `turn/start`, also on a resumed thread | DRV-2.1 | New | `run.lifecycle`, `run.images`, `continuity.run`, `probe.run-protocol`, `probe.continuity`, `live.run`, `live.continuity` |
 | CDX-2.12 | map the tool's notifications to events by the table above, fail the run on a notification that names its thread and another turn, report one that names the thread of a sub-agent of the run as CDX-3 says, and pass over one that names any other thread, with one `notice` | DRV-2.3 | Changed | `C10`, `C11`, `C12`, `C13`, `run.protocol`, `run.tools`, `run.notices` (main-thread mapping and identity; sub-agent routing pending SYL-90) |
 | CDX-2.13 | emit `text` from the completed message item, so that a caller that missed deltas still receives the whole text | DRV-2.4 | New | `C10`, `run.protocol`, `run.text`, `live.run` |
 | CDX-2.14 | after `turn/completed`, wait for commands still running and for sub-agents still at work until the tool reports them ended, and up to 2 seconds for any other open call, then close the rest itself, before emitting `finished` | DRV-2.6 | New | `run.tools`, `run.outcomes` (late shell results and interrupted closures); runner cleanup covered by `run.failures`; sub-agent waits pending SYL-90 |
 | CDX-2.15 | report as usage the sum of the per-request counts since the run started, with cached and reasoning counts, and the model the tool reports | DRV-2.15 | Changed | `C13`, `run.usage`, `run.notices`, `live.run`, `live.no-tools` |
 | CDX-2.16 | end every run by closing the process's input, and end the process group by signal when the process has not exited after 2 seconds | DRV-2.19 | Changed | `run.lifecycle`, `run.failures`, `live.run`, `live.no-tools` (fresh-run EOF cleanup; complete stop/process-group coverage pending SYL-89) |
 | CDX-2.17 | on stop send `turn/interrupt` for the run's turn and for the active turn of every sub-agent, give those requests and the wait for the turns' end 2 seconds, then end the process as in CDX-2.16 | DRV-2.16 | Changed | contract, probe |
-| CDX-2.18 | write an entry to the map only for a completed run on a saved thread | DRV-2.12 | New | contract |
-| CDX-2.19 | write message images to a temporary folder for the run and remove it when the run has ended | DRV-2.23 | Kept | `run.request`, `run.images` (private current-message files removed after the run) |
-| CDX-2.20 | use no request the tool marks as experimental in a run | CDX-0.5 | New | `probe.run-protocol`, `run.lifecycle`, `run.images` (fresh-run request names against the installed stable schema) |
-| CDX-2.21 | insert a history with one `thread/inject_items` request, in the item forms, with the made-up call identifiers and the result texts stated above, and send the text form of DRV-2 where the tool refuses the request | DRV-2.36 | New | unit, live |
+| CDX-2.18 | write an entry to the map only for a completed run on a saved thread | DRV-2.12 | New | `C14`, `continuity.map`, `continuity.run`, `live.continuity` |
+| CDX-2.19 | write message images to a temporary folder for the run and remove it when the run has ended | DRV-2.23 | Kept | `run.request`, `run.images`, `history.images`, `continuity.run` (private current/fallback-history files removed after the run) |
+| CDX-2.20 | use no request the tool marks as experimental in a run | CDX-0.5 | New | `probe.run-protocol`, `probe.continuity`, `run.lifecycle`, `run.images`, `continuity.run` (request names and fields checked against the installed stable schema) |
+| CDX-2.21 | insert a history with one `thread/inject_items` request, in the item forms, with the made-up call identifiers and the result texts stated above, and send the text form of DRV-2 where the tool refuses the request | DRV-2.36 | New | `history.native`, `history.results`, `history.labelled`, `C14`, `continuity.run`, `probe.continuity`, `live.continuity` |
 
 ## Not established
 
@@ -255,7 +257,7 @@ arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner.cancel
 - What the tool does with an effort the model does not list; one such turn completed without any notice.
 - Whether two processes can resume the same thread at once. A lock file per loaded thread exists.
 - How image inputs behave in a real vendor turn. On 7 October 2026, SYL-86 confirmed the current-message form `localImage { path }` with `probe.run-protocol` against the installed tool's generated stable `UserInput` schema and exercised private files with `run.images`; no live image turn has yet been sent.
-- How large a history one `thread/inject_items` request accepts, and a failed call among the inserted items. The checks inserted at most six items with plain text results.
+- How large a history one `thread/inject_items` request accepts. SYL-88 inserted nine items in its no-prompt check, including a failed shell call with output, nonzero exit and error text, and pictures on user and assistant messages. `probe.continuity` confirms the stored native forms; no live failed-call or history-image turn has been sent.
 
 ## Known problems in version 1
 
@@ -276,6 +278,8 @@ arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner._run_one_cycle
 
 | ID | Question | Proposed default | Outcome |
 |---|---|---|---|
+| CDX-D19 | Which model is reported when a resumed turn selects a different model? | Send the validated model with thread/resume as well as turn/start. The resume response then supplies the current model for started and the initial usage state; later model/rerouted notifications still replace it | Decided 7 October 2026 during SYL-88, a technical choice; continuity.run and probe.continuity |
+| CDX-D18 | How are notifications replayed during a resume kept out of the new run? | Drain notifications already queued before sending turn/start. Keep startup warnings and deprecation notices for the event stream; discard restored turn status and prior token usage. Notifications received from turn/start onward stay in their ordered queue, including those before its response. On a resumed thread, a delayed usage replay that has no turn identifier or names a known earlier turn is also passed over; other notifications for a different turn still fail the run | Decided 7 October 2026 during SYL-88, a technical choice; continuity.run and probe.continuity |
 | CDX-D15 | How are inference notifications kept in order across startup and a slow event consumer? | Keep one ordered notification queue in the JSONL transport, including notifications received before turn/start answers. Map notifications directly after the accepted turn identifies its thread and turn. Assign gapless sequence numbers synchronously and serialize stdout writes through one promise chain; a failed write is observed by the runner. Never emit finished from the mapper: cleanup and closing unfinished calls precede that event | Decided 7 October 2026 during SYL-86, a technical choice; C10, C42, run.protocol and run.lifecycle |
 | CDX-D16 | May inference use the model catalog's built-in fallback? | No. Read model/list without its subscription-command fallback and validate the chosen model, effort and service tier before thread/start. An unavailable named model or unsupported explicit effort is refused; no other model is put in its place. A failed turn is not started again by the Driver | Decided 7 October 2026 during SYL-86, a technical choice; C40, run.validation and run.failures |
 | CDX-D17 | How are tool diagnostics retained without forwarding raw stderr? | Drain stderr into an in-memory UTF-8 tail bounded to 64 KiB. On a failed transport, use the common error helper to retain at most the final 1 KiB as the diagnostic excerpt; never persist the tail or write raw tool stderr to the command's stderr. The event writer owns stdout and serializes its writes | Decided 7 October 2026 during SYL-86, a technical choice; app-server.run-stream, run.failures and errors |
