@@ -1,7 +1,7 @@
 ---
 role: authored
 spec: CDX-4
-status: accepted
+status: implemented
 ---
 # Codex Driver · 04 Errors and limits
 
@@ -115,24 +115,30 @@ arbol:drivers/codex/arbol_driver_codex/turn.py#_cli_version
 arbol:drivers/codex/arbol_driver_codex/executor.py#verify_executable
 -->
 
+## SYL-92 verification, 7 October 2026
+
+SYL-92 passed the complete 38-scenario shared registry for both Python Drivers. Codex also passed 128 unit methods, Ruff and strict mypy from source; its standalone CPython 3.14.8 development candidate passed the same units and all 38 scenarios, and its relocated copy passed metadata and unit checks under a minimal environment. A fresh packaged `dev probe` passed against codex-cli 0.159.2 with zero inference requests. The packaged build gate sent exactly one no-tools ready message through `test-chatgpt`; it completed and reported tokens and usage before/after. The extended five-turn `dev live-check` orchestration and refusal gates passed offline, but the extended vendor run was not requested. Contract and state format remain 1. The first numbered Codex Build is the separate SYL-94 task.
+
+Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/research/conformance-2026-10-07/verification.json`, `coverage-audit.json`, `packaged-probe.json` and `packaged-build-check.txt` in that folder. Dated migration and TypeScript evidence below remains historical; unobserved real vendor failures remain unobserved. The coverage audit retains every former Verified by cell before this update.
+
 ## Requirements
 
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
-| CDX-4.1 | decide the error code of a failed turn from `codexErrorInfo` by the mapping table, first matching row | DRV-4.4 | Changed | `C26`; `RunErrors.test_every_structured_class_and_exact_retry_policy`, `RunErrors.test_connection_statuses_and_first_row_precedence`, `RunErrorEvents.test_final_error_notification_and_turn_failure_both_use_classifier` |
-| CDX-4.2 | read the vendor's answer in the message of an error of class `other` to recognise an unsupported model and an unsupported effort | DRV-4.4 | New | `C26`; `RunErrors.test_other_vendor_json_model_and_effort_refusals` (recorded vendor JSON bodies; synthetic unsupported values) |
-| CDX-4.3 | use the wording lists only for the class `other` or a missing class, and mark the error as decided by wording | DRV-4.4 | Changed | `C26`; `RunErrors.test_structured_classes_never_use_wording_fallback`, `RunErrors.test_exact_wording_lists_removed_fragments_and_tool_version` |
-| CDX-4.4 | emit a `notice` for every `error` notification whose `willRetry` is true | DRV-4.12 | New | `C28`; `RunErrorEvents.test_each_retry_emits_notice_and_first_credential_refusal_is_remembered`; fresh `probe.errors` (unreachable proxy; retries continue until caller stop) |
-| CDX-4.5 | stop the run at the first retry notification with status 401 or 403 and finish it as `credential_rejected` | DRV-4.8 | New | `C4`, `C28`; `ErrorRuns.test_rejected_retry_before_turn_start_reply_interrupts_accepted_turn`, `ErrorRuns.test_rejected_unknown_child_retry_is_replayed_after_spawn_discovery` |
-| CDX-4.6 | keep the latest `account/rateLimits/updated` of a run and store it as the Subscription's usage report when the run ends, without losing values the notification lacks | DRV-4.13 | New | `C30`; `RunUsage.test_sparse_notifications_preserve_stored_fields_and_latest_values`, `RunUsageStorage.test_persist_preserves_concurrent_fields_and_compatible_record`, `RunUsageStorage.test_late_report_does_not_restore_account_or_overwrite_newer_usage`; fresh `live.errors-usage` on `test-chatgpt` |
-| CDX-4.7 | on a `rate_limited` failure, ask the tool once for the account's limits before ending the process and take the wait from the exhausted window | DRV-4.5 | New | `C27`; `RunUsage.test_wait_requires_current_vendor_exhaustion_and_reset_without_cache_guessing`; reached-limit failures remain synthetic, not observed live |
-| CDX-4.8 | treat every notification as a sign of life | DRV-4.9 | New | `C29`; `RunClockTests.test_any_notification_resets_idle_and_zero_disables_it`, `RunClockTests.test_total_limit_is_independent_of_notifications_and_work`; fresh `probe.errors` |
-| CDX-4.9 | report a process that ends before `turn/completed` as `tool_failed`, with at most 1 KiB from the end of its log | DRV-4.2 | Changed | `C26` (exit), `C42`; `AppServerTests.test_malformed_oversized_boolean_id_exit_and_internal_request_timeout`, `AppServerTests.test_authentication_rejection_is_specific_and_diagnostics_are_bounded`; `RunErrors.test_safe_bounded_messages_and_details_without_raw_vendor_response` |
-| CDX-4.10 | read the tool's version from the handshake and fail the run on a version below the oldest supported one | DRV-4.14 | Changed | `C26` (old handshake), `C31`; `AppServerTests.test_handshake_version_and_effective_configuration_are_enforced`; fresh probe/live `started.toolVersion` |
+| CDX-4.1 | decide the error code of a failed turn from `codexErrorInfo` by the mapping table, first matching row | DRV-4.4 | Changed | Codex Python: `C26`, `RunErrorEvents.test_final_error_notification_and_turn_failure_both_use_classifier`, `RunErrors.test_connection_statuses_and_first_row_precedence`, `RunErrors.test_every_structured_class_and_exact_retry_policy` |
+| CDX-4.2 | read the vendor's answer in the message of an error of class `other` to recognise an unsupported model and an unsupported effort | DRV-4.4 | New | Codex Python: `C26`, `RunErrors.test_other_vendor_json_model_and_effort_refusals` |
+| CDX-4.3 | use the wording lists only for the class `other` or a missing class, and mark the error as decided by wording | DRV-4.4 | Changed | Codex Python: `C26`, `RunErrors.test_exact_wording_lists_removed_fragments_and_tool_version`, `RunErrors.test_structured_classes_never_use_wording_fallback` |
+| CDX-4.4 | emit a `notice` for every `error` notification whose `willRetry` is true | DRV-4.12 | New | Codex Python: `C28`, `RunErrorEvents.test_each_retry_emits_notice_and_first_credential_refusal_is_remembered` |
+| CDX-4.5 | stop the run at the first retry notification with status 401 or 403 and finish it as `credential_rejected` | DRV-4.8 | New | Codex Python: `C4`, `C28`, `ErrorRuns.test_rejected_retry_before_turn_start_reply_interrupts_accepted_turn`, `ErrorRuns.test_rejected_unknown_child_retry_is_replayed_after_spawn_discovery` |
+| CDX-4.6 | keep the latest `account/rateLimits/updated` of a run and store it as the Subscription's usage report when the run ends, without losing values the notification lacks | DRV-4.13 | New | Codex Python: `C30`, `RunUsage.test_sparse_notifications_preserve_stored_fields_and_latest_values`, `RunUsageStorage.test_late_report_does_not_restore_account_or_overwrite_newer_usage`, `RunUsageStorage.test_persist_preserves_concurrent_fields_and_compatible_record` |
+| CDX-4.7 | on a `rate_limited` failure, ask the tool once for the account's limits before ending the process and take the wait from the exhausted window | DRV-4.5 | New | Codex Python: `C27`, `RunUsage.test_wait_requires_current_vendor_exhaustion_and_reset_without_cache_guessing` |
+| CDX-4.8 | treat every notification as a sign of life | DRV-4.9 | New | Codex Python: `C29`, `RunClockTests.test_any_notification_resets_idle_and_zero_disables_it`, `RunClockTests.test_total_limit_is_independent_of_notifications_and_work` |
+| CDX-4.9 | report a process that ends before `turn/completed` as `tool_failed`, with at most 1 KiB from the end of its log | DRV-4.2 | Changed | Codex Python: `C26`, `C42`, `AppServerTests.test_authentication_rejection_is_specific_and_diagnostics_are_bounded`, `AppServerTests.test_malformed_oversized_boolean_id_exit_and_internal_request_timeout`, `RunErrors.test_safe_bounded_messages_and_details_without_raw_vendor_response` |
+| CDX-4.10 | read the tool's version from the handshake and fail the run on a version below the oldest supported one | DRV-4.14 | Changed | Codex Python: `C26`, `C31`, `AppServerTests.test_handshake_version_and_effective_configuration_are_enforced` |
 
 ## Python migration verification on 7 October 2026
 
-SYL-95 preserved the then-implemented generic failed-turn result, account RPC rejection, request timeouts, bounded transport diagnostics and vendor-version preflight in Python. SYL-90 subsequently verified advanced tools; SYL-91 adds the complete error mapping, retry interruption, run-derived limit reports and run clocks, with `C4` and `C26`–`C30` in the errors wrapper. Complete development checks remain SYL-92, and the first working numbered Codex Build remains SYL-94.
+SYL-95 preserved the then-implemented generic failed-turn result, account RPC rejection, request timeouts, bounded transport diagnostics and vendor-version preflight in Python. SYL-90 subsequently verified advanced tools; SYL-91 adds the complete error mapping, retry interruption, run-derived limit reports and run clocks, with `C4` and `C26`–`C30` in the errors wrapper. SYL-92 subsequently completed the development checks; the first working numbered Codex Build remains SYL-94.
 
 Current names of the form `Class.method` refer to unittest methods under `tests/`, run on pinned CPython 3.14.8 from source, the standalone development candidate and its relocated copy. Evidence: `research/python-migration-2026-10-07/verification.json`, `research/python-migration-2026-10-07/packaged-unit.txt`, `research/python-migration-2026-10-07/scoped-conformance-base.txt`, `research/python-migration-2026-10-07/scoped-conformance-runs.txt`, `research/python-migration-2026-10-07/no-prompt-probes.json` and `research/python-migration-2026-10-07/standalone-rehearsal.json`. The real migration probes sent no prompts. Dated vendor failure and retry observations in this document remain historical schema/probe evidence and do not establish fresh Python live handling; unobserved vendor failures below remain unobserved.
 
