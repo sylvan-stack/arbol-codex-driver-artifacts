@@ -33,6 +33,41 @@ SYL-92 passed the complete 38-scenario shared registry for both Python Drivers. 
 
 Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/research/conformance-2026-10-07/verification.json`, `coverage-audit.json`, `packaged-probe.json` and `packaged-build-check.txt` in that folder. Dated migration and TypeScript evidence below remains historical; unobserved real vendor failures remain unobserved. The coverage audit retains every former Verified by cell before this update.
 
+## SYL-94 numbered Build verification, 7 October 2026
+
+Codex Build `1`, package version `1.0.0`, is the first working numbered Python
+Build and the production default. It was built from a clean checkout of
+`19fb51de21b074f62984fe28ad2450c3b1b09268`, using the repository's
+`arbol-build.json` with locked uv setup, Ruff, strict mypy and standalone
+packaging. The Build's own CPython 3.14.8 ran all 128 packaged unit tests; its
+direct executable passed all 38 shared conformance scenarios, including
+numbered `info` and `started` identity. The final `dev.build-check` passed with
+exactly one no-tools ready request on `test-chatgpt`, using `gpt-5.6-luna` with
+low effort. Its report retains actual tokens, tool/source/runtime provenance
+and usage before and after. Contract and state format remain `1`.
+
+Default and explicitly named launcher invocations both report Build `1` and
+package version `1.0.0`. The direct executable also runs from an unrelated
+folder with only HOME, PATH and LANG, without a source checkout or external
+Python/uv/Node on PATH. Package and registry source records agree, and the
+pinned standalone interpreter and packaged file digests passed verification.
+The test state has no active run or temporary residue after the live gate.
+
+An intentionally failing first check reserved Build `2`, retained its failed
+record and log, and spent no inference quota. Build `1` stayed the default;
+explicit selection of Build `2` was refused and listed only Build `1` as
+available. The production build tool and launchers required no changes.
+Extended vendor live checks were not run; previously unobserved real vendor
+failures remain unobserved. Earlier candidate and migration records stay
+historical.
+
+Acceptance names and raw records:
+`~/Artifacts/arbol-codex-driver/research/first-working-build-2026-10-07/verification.json`,
+`coverage-audit.json`, `working-build.log`, `failed-build.log` and
+`dev-build-check.json`. The numbered folder and launcher remain installed at
+`~/Library/Application Support/Arbol/builds/arbol-codex-driver/1/` and
+`~/.local/bin/arbol-codex-driver`.
+
 ## Requirements
 
 | ID | The Codex Driver must… | Refines | Origin | Verified by |

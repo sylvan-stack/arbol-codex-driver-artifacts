@@ -15,6 +15,6 @@ Conventions (shape of a specification, requirement identifiers, origin, checks, 
 | [CDX-3](03-tools-and-permissions.md) | Tools and permissions | DRV-3 | implemented |
 | [CDX-4](04-errors-and-limits.md) | Errors and limits | DRV-4 | implemented |
 
-Current implementation verification: `research/conformance-2026-10-07/verification.json` (SYL-92, complete shared suite and standalone package); the first numbered Codex Build remains SYL-94.
+Current numbered Build verification: `research/first-working-build-2026-10-07/verification.json` (SYL-94, working Build `1`, package `1.0.0`, all 128 units and 38 shared scenarios, one test-account message, and failed Build `2` preserving the default). Earlier complete-suite and candidate verification remains in `research/conformance-2026-10-07/verification.json` (SYL-92).
 
 Evidence the specifications rest on is in `research/`: the [inventory of the version 1 Driver](../research/v1-driver-inventory.md) and the [record of probes against the installed tool](../research/tool-probes-2026-10-05.md).
