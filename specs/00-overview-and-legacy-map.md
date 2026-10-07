@@ -31,11 +31,11 @@ SYL-95 ports the implemented base, Subscriptions, fresh runs, continuity and sto
 
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
-| CDX-0.1 | find the `codex` executable from `toolPath` in its settings file or else on the search path, read its version by running it, and report both | DRV-0.6 | Changed | `base.info`, `base.tool-cache`, `base.tool-missing`, `base.tool-old`, `probe.base-info` (codex-cli 0.159.2 on 7 October 2026; zero prompts) |
-| CDX-0.2 | work with every tool version from the oldest supported one upward, and judge compatibility by the tool's answers, never by the size or checksum of one build | DRV-0.6 | Changed | `base.tool-old` (version boundary and later versions, no binary pin) |
-| CDX-0.3 | need nothing but the tool and its state directory to start: no database, no other Arbol service, no file from an Artifact Corpus | DRV-0.8 | Changed | `C32` (info), `base.packaged-info`, `C10`, `run.lifecycle`, `live.run` (isolated base and fresh-run executable; continuity and complete lifecycle coverage pending) |
-| CDX-0.4 | take the system prompt as text in the request and add nothing to it | DRV-0.2 | Changed | `C10`, `run.request`, `run.lifecycle` (system prompt passed unchanged as developerInstructions) |
-| CDX-0.5 | use a request the tool marks as experimental only where a specification names it and says why | DRV-0.6 | New | `probe.run-protocol`, `run.lifecycle`, `run.images` (stable-schema fresh-run requests; native continuity and owner tools pending SYL-88/SYL-90) |
+| CDX-0.1 | find the `codex` executable from `toolPath` in its settings file or else on the search path, read its version by running it, and report both | DRV-0.6 | Changed | SYL-95 Python: `C31`, `test_foundation.Foundation`, `test_app_server.AppServerTests` (implemented scope; SYL-90/91/92/94 remain pending); prior verification: `base.info`, `base.tool-cache`, `base.tool-missing`, `base.tool-old`, `probe.base-info` (codex-cli 0.159.2 on 7 October 2026; zero prompts) |
+| CDX-0.2 | work with every tool version from the oldest supported one upward, and judge compatibility by the tool's answers, never by the size or checksum of one build | DRV-0.6 | Changed | SYL-95 Python: `C31`, `test_foundation.Foundation`, `test_app_server.AppServerTests` (implemented scope; SYL-90/91/92/94 remain pending); prior verification: `base.tool-old` (version boundary and later versions, no binary pin) |
+| CDX-0.3 | need nothing but the tool and its state directory to start: no database, no other Arbol service, no file from an Artifact Corpus | DRV-0.8 | Changed | SYL-95 Python: `C6`, `test_foundation.Foundation`, `test_app_server.AppServerTests` (implemented scope; SYL-90/91/92/94 remain pending); prior verification: `C32` (info), `base.packaged-info`, `C10`, `run.lifecycle`, `live.run` (isolated base and fresh-run executable; continuity and complete lifecycle coverage pending) |
+| CDX-0.4 | take the system prompt as text in the request and add nothing to it | DRV-0.2 | Changed | SYL-95 Python: `C10`, `test_foundation.Foundation`, `test_app_server.AppServerTests` (implemented scope; SYL-90/91/92/94 remain pending); prior verification: `C10`, `run.request`, `run.lifecycle` (system prompt passed unchanged as developerInstructions) |
+| CDX-0.5 | use a request the tool marks as experimental only where a specification names it and says why | DRV-0.6 | New | SYL-95 Python: `C31`, `test_foundation.Foundation`, `test_app_server.AppServerTests` (implemented scope; SYL-90/91/92/94 remain pending); prior verification: `probe.run-protocol`, `run.lifecycle`, `run.images` (stable-schema fresh-run requests; native continuity and owner tools pending SYL-88/SYL-90) |
 
 ## Legacy map
 
@@ -138,6 +138,10 @@ Compared on 5 October 2026 with `codex-cli` 0.159.2. Nothing version 1 passes ha
 | Its own executor through `environment/add` | That request exists only in the experimental part of the protocol |
 
 The app-server itself is marked experimental by the tool. CDX-2 to CDX-4 are written against its generated schema and probes of the installed tool, and CDX-0.2 exists because that schema can change between versions.
+
+## Python migration verification, 7 October 2026
+
+SYL-95 verification is recorded in the requirement-level `~/Artifacts/arbol/driver-contract/python-migration-coverage-2026-10-07.json` and the Driver records `research/python-migration-2026-10-07/verification.json`. Python check names identify the copied standard-library unittest suites and the unchanged shared scenarios. Prior Driver unit/probe/live names refer to historical TypeScript evidence; unchanged shared build-tool and runner names remain active. Claude passes the complete 38-scenario suite; Codex passes its five original scoped groups (29 scenario invocations, with the same exclusions), and remains a development candidate. No historical live result is treated as fresh Python evidence, and previously unobserved vendor failures stay unobserved.
 
 ## Decisions
 
