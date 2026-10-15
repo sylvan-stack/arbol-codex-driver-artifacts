@@ -27,11 +27,11 @@ Observed with the installed tool: the process exits with code 0 about 20 ms afte
 
 Observed in version 1: two processes per turn, the app-server and a separate executor behind a bridge, each started through a launch job. The app-server was stopped by signal; commands the executor had started were left running.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/session.py#control_argv
-arbol:drivers/codex/arbol_driver_codex/session.py#Session.start
-arbol:drivers/codex/arbol_driver_codex/tool_process.py#ToolProcess._cleanup
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#control_argv`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.start`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/tool_process.py#ToolProcess._cleanup`
 
 ### Configuration of the home
 
@@ -41,10 +41,10 @@ Observed with the installed tool: a fresh home without such a file clones a plug
 
 Observed in version 1: the configuration belonged to the Leather Bag. Arbol passed overrides on the command line, checked what took effect, and refused the turn when the file held anything it could not represent.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/session.py#validate_config
-arbol:drivers/codex/arbol_driver_codex/session.py#control_argv
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#control_argv`
 
 ### Handshake and checks before the turn
 
@@ -62,10 +62,10 @@ Observed with the installed tool: without a login a turn is accepted and fails o
 
 Observed in version 1: no account check and no model check. The request timeout was 30 seconds, and unknown requests from the tool were answered with an error.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/app_server.py
-arbol:drivers/codex/arbol_driver_codex/session.py#Session.start
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/app_server.py`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.start`
 
 ### Threads and continuity
 
@@ -87,11 +87,11 @@ Historical TypeScript live observation on 7 October 2026, SYL-88 on `test-chatgp
 
 Observed in version 1: a new unsaved thread for every attempt; the earlier conversation written into the prompt under the headings "Earlier conversation in this Chat Session" and "Current request", after the system prompt; all earlier images attached again on every turn.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/protocol.py#render_prompt
-arbol:drivers/codex/arbol_driver_codex/images.py#prepare_images
-arbol:drivers/codex/arbol_driver_codex/session.py#Session.start
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/protocol.py#render_prompt`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/images.py#prepare_images`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.start`
 
 ### Building a thread from a history
 
@@ -122,10 +122,10 @@ Observed with the installed tool: `baseInstructions` replaces the tool's built-i
 
 Observed in version 1: the system prompt was the first part of the user's input, and the tool's instruction fields carried one fixed sentence.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/protocol.py#render_prompt
-arbol:drivers/codex/arbol_driver_codex/session.py#Session.start
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/protocol.py#render_prompt`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.start`
 
 ### The requests in full
 
@@ -186,11 +186,11 @@ Observed on 6 October 2026, one real run: the agent left a command of 40 seconds
 
 Observed in version 1: each notification was first rewritten into the record shape of the tool's retired non-interactive mode and then mapped. Text and reasoning were emitted only when an item was complete, and command output only when the command had finished.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/app_server.py#exec_events
-arbol:drivers/codex/arbol_driver_codex/protocol.py#map_exec_event
-arbol:drivers/codex/arbol_driver_codex/session.py#Session.events
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/app_server.py#exec_events`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/protocol.py#map_exec_event`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.events`
 
 ### Usage
 
@@ -200,9 +200,9 @@ Observed with the installed tool: one report in a text turn and three in a turn 
 
 Observed in version 1: only the per-request input and output counts were used, each emitted as an increment for Root to add up.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/protocol.py#usage_from
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/protocol.py#usage_from`
 
 ### Stopping a run
 
@@ -223,9 +223,9 @@ Historical TypeScript live observation on 7 October 2026 during SYL-89, `codex-c
 
 Observed in version 1: stop never asked the tool; it ended the app-server by signal.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner.cancel
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/turn.py#TurnRunner.cancel`
 
 ## SYL-92 verification, 7 October 2026
 
@@ -285,10 +285,10 @@ Not to be reproduced. The legacy map in [CDX-0](00-overview-and-legacy-map.md) l
 - **A wrong model, a wrong effort or a missing login surfaced late**, as a vendor error in the middle of a turn.
 - **Usage dropped what the tool reported**: cached input, reasoning output, and the model that actually ran.
 
-<!-- sources:
-arbol:product-spec/03-turn-execution.md#Known problems and lessons
-arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner._run_one_cycle
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:product-spec/03-turn-execution.md#Known problems and lessons`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/turn.py#TurnRunner._run_one_cycle`
 
 ## Decisions
 

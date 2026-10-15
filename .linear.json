@@ -1,0 +1,42 @@
+{
+  "workspace": "https://linear.app/sylvan-stack",
+  "team": "Sylvan Stack",
+  "project": {
+    "name": "Arbol Codex Driver",
+    "url": "https://linear.app/sylvan-stack/project/arbol-codex-driver-75ade373c5e3",
+    "id": "P-SYL-3"
+  },
+  "note": "Local files are the originals. Linear documents are copies republished from them.",
+  "documents": {
+    "specs/00-overview-and-legacy-map.md": {
+      "title": "Codex Driver · 00 Overview and legacy map",
+      "id": "5ddfff03-09a3-43be-956a-3165ced16840",
+      "url": "https://linear.app/sylvan-stack/document/codex-driver-00-overview-and-legacy-map-b74be4fa4d1f",
+      "published": "2026-10-08"
+    },
+    "specs/01-subscriptions.md": {
+      "title": "Codex Driver · 01 Subscriptions",
+      "id": "5ba3648b-000b-41fb-9a34-edd0e51a84a2",
+      "url": "https://linear.app/sylvan-stack/document/codex-driver-01-subscriptions-9f52a5f9d032",
+      "published": "2026-10-08"
+    },
+    "specs/02-inference.md": {
+      "title": "Codex Driver · 02 Inference",
+      "id": "e8dc8d01-8a60-4cf0-ae66-8d20f6bd4ae7",
+      "url": "https://linear.app/sylvan-stack/document/codex-driver-02-inference-72492596a4f4",
+      "published": "2026-10-08"
+    },
+    "specs/03-tools-and-permissions.md": {
+      "title": "Codex Driver · 03 Tools and permissions",
+      "id": "004665fb-4d96-4996-bd5d-2dd4df85cd00",
+      "url": "https://linear.app/sylvan-stack/document/codex-driver-03-tools-and-permissions-ce46dd571df4",
+      "published": "2026-10-08"
+    },
+    "specs/04-errors-and-limits.md": {
+      "title": "Codex Driver · 04 Errors and limits",
+      "id": "8e417600-4185-4949-a1ea-4ea3659859af",
+      "url": "https://linear.app/sylvan-stack/document/codex-driver-04-errors-and-limits-a7ab93eece9f",
+      "published": "2026-10-08"
+    }
+  }
+}

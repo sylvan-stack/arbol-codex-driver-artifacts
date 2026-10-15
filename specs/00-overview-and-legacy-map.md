@@ -116,9 +116,9 @@ Fate is one of: **Kept** (same behaviour, rewritten), **Changed** (same purpose,
 | System prompt placed in the user's input | The tool's instruction fields were not used | Changed: passed as instructions | CDX-2 |
 | `images.py` | Wrote image attachments to a temporary folder and passed them as local images. All images of earlier messages were attached again on every turn | Kept for the current message; earlier images are sent again only when the thread is rebuilt | CDX-2 |
 
-<!-- sources:
-arbol:product-spec/12-lessons-and-invariants.md#Decisions for the successor's design
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:product-spec/12-lessons-and-invariants.md#Decisions for the successor's design`
 
 ### Reading the tool's output
 

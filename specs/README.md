@@ -7,6 +7,8 @@ How `arbol-codex-driver` meets the [Driver Contract](../../arbol/driver-contract
 
 Conventions (shape of a specification, requirement identifiers, origin, checks, status, decisions) are defined once in the [contract's README](../../arbol/driver-contract/README.md#conventions). Identifiers here start with `CDX`; the specification number matches the contract's.
 
+Source Refs name enabled repositories only. Evidence from the frozen version 1 repository or corpus uses ordinary Markdown links or `arbol_deprecated_v1:path#symbol` locators, never machine-readable source declarations or provenance edges. Active references to the Driver Contract remain Source Refs.
+
 | Spec | Title | Refines | Status |
 |---|---|---|---|
 | [CDX-0](00-overview-and-legacy-map.md) | Overview and legacy map | DRV-0 | implemented |

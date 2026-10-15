@@ -39,11 +39,11 @@ Observed on 6 October 2026, without a login: with nothing switched off the tool 
 
 Observed in version 1: 27 features switched off and 2 switched on by command-line overrides, every saved MCP server disabled per thread, and a separate executor process behind a bridge that filtered each request. The executor was `codex exec-server`, a part of the tool itself: Arbol started one per turn and told the app-server, with the experimental request `environment/add`, to send its commands and file operations there.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/session.py#control_argv
-arbol:drivers/codex/arbol_driver_codex/session.py#validate_config
-arbol:drivers/codex/arbol_driver_codex/executor.py
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#control_argv`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/executor.py`
 
 ### The owner's own skills and MCP servers
 
@@ -66,11 +66,11 @@ Observed with the installed tool on 6 October 2026, one real run under these set
 
 Observed in version 1: the same two settings on every turn. The approval requests the tool still sent were declined, answered with an empty grant, or rejected as unsupported.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/session.py#tool_policy
-arbol:drivers/codex/arbol_driver_codex/app_server.py
-arbol:product-spec/06-tools-and-permissions.md#Defaults and remaining decisions
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#tool_policy`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/app_server.py`
+- `arbol_deprecated_v1:product-spec/06-tools-and-permissions.md#Defaults and remaining decisions`
 
 ### A request that arrives nonetheless
 
@@ -83,9 +83,9 @@ None is expected under these settings. Should the tool send one all the same, th
 
 Observed with the installed tool: an unanswered request stayed open for 45 seconds without any notification.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/app_server.py
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/app_server.py`
 
 ### Sub-agents
 
@@ -170,11 +170,11 @@ Not to be reproduced.
 - **A second process and a bridge** between the tool and its own executor, built on requests the tool marks as experimental, with a list of allowed methods that had to follow every version of the tool.
 - **The agent was told otherwise.** The instructions given to the agent said that Arbol's permission setting governed its sandbox.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/executor.py
-arbol:drivers/codex/arbol_driver_codex/system_prompt.py#render_codex_system_prompt
-arbol:product-spec/06-tools-and-permissions.md#Known problems and lessons
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/executor.py`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/system_prompt.py#render_codex_system_prompt`
+- `arbol_deprecated_v1:product-spec/06-tools-and-permissions.md#Known problems and lessons`
 
 ## Decisions
 

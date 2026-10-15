@@ -1,2 +1,8 @@
 generated/
 .DS_Store
+
+# Results of tests, probes and checks stay on this machine (owner, 15 October 2026).
+research/**/*.json
+research/**/*.txt
+research/**/*.log
+research/tool-probes-*.md

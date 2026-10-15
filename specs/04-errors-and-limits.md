@@ -53,11 +53,11 @@ Observed on 6 October 2026, with the vendor made unreachable through a proxy add
 
 Observed in version 1: the class was not read. The message was searched for fragments, rate limits first, then a too-new model, then login failures.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/rate_limit.py#is_rate_limit_text
-arbol:drivers/codex/arbol_driver_codex/turn.py#TurnRunner._run_one_cycle
-arbol:drivers/codex/arbol_driver_codex/protocol.py#map_exec_event
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/rate_limit.py#is_rate_limit_text`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/turn.py#TurnRunner._run_one_cycle`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/protocol.py#map_exec_event`
 
 ### The wording lists
 
@@ -71,10 +71,10 @@ Used only by the last-but-one row above. They are version 1's, without the bare 
 
 A wait is read from the text as in CLD-4: "retry in", "try again in" or "wait", a number, and its unit.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/rate_limit.py#extract_recovery_seconds
-arbol:drivers/codex/arbol_driver_codex/rate_limit.py#AUTH_ERROR_INDICATORS
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/rate_limit.py#extract_recovery_seconds`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/rate_limit.py#AUTH_ERROR_INDICATORS`
 
 ### The tool's own retries
 
@@ -110,10 +110,10 @@ The Driver reads the version from the answer to the handshake of every process. 
 
 Observed in version 1: the version was never read, and the hint for a model that needs a newer tool always said "version unknown". One exact build was accepted, by checksum.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/turn.py#_cli_version
-arbol:drivers/codex/arbol_driver_codex/executor.py#verify_executable
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/turn.py#_cli_version`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/executor.py#verify_executable`
 
 ## SYL-92 verification, 7 October 2026
 
@@ -164,10 +164,10 @@ Not to be reproduced.
 - **The tool's limit notifications were ignored.**
 - **One build of the tool was accepted**, and its version was never read.
 
-<!-- sources:
-arbol:drivers/codex/arbol_driver_codex/rate_limit.py#is_rate_limit_text
-arbol:drivers/codex/arbol_driver_codex/executor.py#verify_executable
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/rate_limit.py#is_rate_limit_text`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/executor.py#verify_executable`
 
 ## Decisions
 

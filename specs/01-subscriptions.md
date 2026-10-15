@@ -25,10 +25,10 @@ Not offered in the first release: key-billed OpenAI accounts and the cloud-provi
 
 Observed in version 1: one built-in ChatGPT account. Two routes drew on it: the vendor tool route, and a direct client for the ChatGPT backend that is retired.
 
-<!-- sources:
-arbol:daemons/core/arbol_core/subscriptions.py#DEFAULT_SUBSCRIPTIONS
-arbol:product-spec/05-intelligence-providers.md#Concept model
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:daemons/core/arbol_core/subscriptions.py#DEFAULT_SUBSCRIPTIONS`
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Concept model`
 
 ### Home and environment
 
@@ -40,13 +40,13 @@ When an app-server starts, its answer to the opening handshake names the home it
 
 Observed in version 1: the tool route injected no credential and did not redirect the tool's home. A turn ran with the home the service inherited, normally the Leather Bag's own `~/.codex`, login and configuration included. Because that configuration was not Arbol's, a turn was refused when it contained settings Arbol could not represent. The account bound to the route served only to attribute usage and to select a model list.
 
-<!-- sources:
-arbol:product-spec/05-intelligence-providers.md#Account profiles for the Claude tool
-arbol:product-spec/05-intelligence-providers.md#Can two accounts of one vendor run at the same time, isolated?
-arbol:daemons/core/arbol_core/subscriptions.py#DEFAULT_IP_BINDINGS
-arbol:drivers/codex/arbol_driver_codex/session.py#codex_home
-arbol:drivers/codex/arbol_driver_codex/session.py#validate_config
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Account profiles for the Claude tool`
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Can two accounts of one vendor run at the same time, isolated?`
+- `arbol_deprecated_v1:daemons/core/arbol_core/subscriptions.py#DEFAULT_IP_BINDINGS`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#codex_home`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
 
 ### Signing in and out
 
@@ -70,13 +70,13 @@ The existing login in the Leather Bag's own `~/.codex` is not taken over. A Subs
 
 Observed in version 1: no in-app sign-in existed. The Leather Bag ran the tool's login in a terminal; "Check login" then copied the newest of two credential files from the home directory into Arbol's Keychain. The copy went stale as soon as the tool renewed its login, and Arbol's recovery was to copy again. Signing out in Arbol deleted the copy and left the tool logged in, so the route kept working.
 
-<!-- sources:
-arbol:daemons/core/arbol_core/universe_import.py#read_universe_auth
-arbol:daemons/core/arbol_core/universe_import.py#import_from_auth_json
-arbol:daemons/core/arbol_core/rpc/subscription.py#_login
-arbol:daemons/core/arbol_core/orchestration/agent_attempt_execution.py#AgentAttemptExecutionService._refresh_bound_subscription_token
-arbol:product-spec/05-intelligence-providers.md#Sign-in and sign-out
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:daemons/core/arbol_core/universe_import.py#read_universe_auth`
+- `arbol_deprecated_v1:daemons/core/arbol_core/universe_import.py#import_from_auth_json`
+- `arbol_deprecated_v1:daemons/core/arbol_core/rpc/subscription.py#_login`
+- `arbol_deprecated_v1:daemons/core/arbol_core/orchestration/agent_attempt_execution.py#AgentAttemptExecutionService._refresh_bound_subscription_token`
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Sign-in and sign-out`
 
 ### Status check
 
@@ -86,9 +86,9 @@ Observed with the installed tool: without `refreshToken` the request is answered
 
 Observed in version 1: the accounts page's Test passed for a ChatGPT route when the row said logged in, without contacting the vendor or the tool.
 
-<!-- sources:
-arbol:product-spec/05-intelligence-providers.md#Intelligence Provider settings
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Intelligence Provider settings`
 
 ### Usage
 
@@ -112,11 +112,11 @@ Observed with the installed tool: the probed account had one window, the weekly 
 
 Observed in version 1: usage was read from an undocumented address of the ChatGPT backend with the copied token, with request headers imitating the vendor tool at a fixed version, over a connection to a fixed network address. The shown values were the same: primary and secondary window, plan, a link to the vendor's limits page.
 
-<!-- sources:
-arbol:daemons/core/arbol_core/universe_usage.py#normalize
-arbol:daemons/core/arbol_core/universe_usage.py#build_headers
-arbol:daemons/core/arbol_core/rpc/subscription.py#_codex_usage
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:daemons/core/arbol_core/universe_usage.py#normalize`
+- `arbol_deprecated_v1:daemons/core/arbol_core/universe_usage.py#build_headers`
+- `arbol_deprecated_v1:daemons/core/arbol_core/rpc/subscription.py#_codex_usage`
 
 ### Model catalog
 
@@ -136,11 +136,11 @@ Observed with the installed tool: the list is one page of eight models when hidd
 
 Observed in version 1: the list was read from the ChatGPT backend with the copied token. The backend reveals newer model families only to a recent enough client, so Arbol reported the version of the installed tool; reporting a newer one offered models the tool then rejected in the middle of a turn. Review-only and non-selectable entries were dropped. Asking the tool itself removes the version question: the tool lists what it can run.
 
-<!-- sources:
-arbol:daemons/core/arbol_core/provider_models.py#fetch_codex_models
-arbol:daemons/core/arbol_core/provider_models.py#installed_codex_client_version
-arbol:daemons/core/arbol_core/provider_models.py#_arbol_is_special_purpose_codex_model
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:daemons/core/arbol_core/provider_models.py#fetch_codex_models`
+- `arbol_deprecated_v1:daemons/core/arbol_core/provider_models.py#installed_codex_client_version`
+- `arbol_deprecated_v1:daemons/core/arbol_core/provider_models.py#_arbol_is_special_purpose_codex_model`
 
 ## SYL-92 verification, 7 October 2026
 
@@ -213,12 +213,12 @@ Not to be reproduced.
 - **The vendor's backend was imitated.** Usage and model list were read from undocumented addresses with the tool's headers and a version number that had to be kept in step by hand.
 - **The Leather Bag's configuration decided whether a turn could start.** A custom model provider, a saved permission or network profile and similar settings in `~/.codex` made Arbol refuse the turn.
 
-<!-- sources:
-arbol:product-spec/05-intelligence-providers.md#Can two accounts of one vendor run at the same time, isolated?
-arbol:product-spec/05-intelligence-providers.md#Known problems and lessons
-arbol:daemons/core/arbol_core/provider_models.py#_arbol_fetch_codex_models_payload
-arbol:drivers/codex/arbol_driver_codex/session.py#validate_config
--->
+Historical evidence (frozen version 1; ordinary locators, not Source Refs):
+
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Can two accounts of one vendor run at the same time, isolated?`
+- `arbol_deprecated_v1:product-spec/05-intelligence-providers.md#Known problems and lessons`
+- `arbol_deprecated_v1:daemons/core/arbol_core/provider_models.py#_arbol_fetch_codex_models_payload`
+- `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
 
 ## Decisions
 
