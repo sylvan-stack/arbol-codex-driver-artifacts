@@ -1,11 +1,11 @@
 ---
 role: authored
 spec: CDX-2
-status: implemented
+status: accepted
 ---
 # Codex Driver · 02 Inference
 
-How the Codex Driver meets [DRV-2](../../arbol/driver-contract/02-inference.md) with `codex app-server`. Every run is one app-server process, started in the Subscription's home, given one thread and one turn, and ended when the turn is over. It matters because the installed tool behaves differently from what version 1 assumed in ways that decide the design: interrupting a turn does not stop the command it runs, a missing login is noticed only after fifteen seconds of retries, and neither model nor effort is checked before the vendor rejects them.
+How the Codex Driver meets [DRV-2](../../arbol/driver-contract/02-inference.md) with `codex app-server`. Every run is one app-server process, started in the tool's default home, `~/.codex`, given one thread and one turn, and ended when the turn is over. It matters because the installed tool behaves differently from what version 1 assumed in ways that decide the design: interrupting a turn does not stop the command it runs, a missing login is noticed only after fifteen seconds of retries, and neither model nor effort is checked before the vendor rejects them.
 
 Everything stated here about the installed tool was observed on 5 October 2026 with `codex-cli` 0.159.2 and is recorded in the [probe record](../research/tool-probes-2026-10-05.md).
 
@@ -19,7 +19,7 @@ Not covered: the contract (DRV-2); sandbox and approval settings, and which part
 
 ### One process per run
 
-A run starts one `codex app-server` process with the Subscription's home as `CODEX_HOME`, the request's working folder as its working directory, the environment of [CDX-1](01-subscriptions.md), and the request's extra search-path folders appended to the search path. The process is in a process group of its own. It speaks one JSON object per line on standard input and output; its log goes to standard error, of which the Driver keeps the last 64 KiB for error reports.
+A run starts one `codex app-server` process with no `CODEX_HOME`, so in `~/.codex` ([CDX-1](01-subscriptions.md)), with the settings of the run as options on its command line (below), the request's working folder as its working directory, the environment of [CDX-1](01-subscriptions.md), and the request's extra search-path folders appended to the search path. The process is in a process group of its own. It speaks one JSON object per line on standard input and output; its log goes to standard error, of which the Driver keeps the last 64 KiB for error reports.
 
 When the turn is over, the Driver closes the process's standard input. The process then exits within a fraction of a second and takes every command it started with it. This is how every run ends, whatever its outcome, because it is the one way of ending that was seen to leave nothing running.
 
@@ -33,11 +33,26 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#Session.start`
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/tool_process.py#ToolProcess._cleanup`
 
-### Configuration of the home
+### Settings of a run
 
-Before the first start in a home the Driver writes the tool's configuration file there, and rewrites it whenever its own version of that file changes. The file holds housekeeping and one switch: it switches off the check for updates and analytics, sets web search to `live`, and switches off the tool's own memories. It switches no other part of the tool off (CDX-3). After the handshake the Driver reads the effective configuration back and compares the settings it relies on. A run does not start when the tool reports the file as invalid, ignores a setting in it, or shows another value than the one written.
+The Driver writes no configuration file. The tool reads the owner's `~/.codex/config.toml` as it does when started by hand. The Driver gives the few settings it needs as options of the run's `codex app-server` command, which take precedence over that file for this one process (CDX-D28):
 
-Observed with the installed tool: a fresh home without such a file clones a plug-in catalogue of 88 MB at start; with plug-in features switched off in the file, it does not. A file the tool cannot read does not stop it: it warns and continues with its defaults. Unknown keys are ignored with a warning.
+| Option | What it does |
+|---|---|
+| `--disable memories` | Switches the tool's own memories off (CDX-3) |
+| `-c check_for_update_on_startup=false` | No check for updates |
+| `-c analytics.enabled=false` | No analytics |
+| `-c web_search="live"` | Web search on, with live results (CDX-3) |
+
+These are housekeeping and one switch. The Driver switches no other part of the tool off and gives no other setting. `cli_auth_credentials_store` is not given: where the owner's sign-in is kept is the owner's setting, and a run told to look elsewhere would not find it. After the handshake the Driver reads the effective configuration back and compares the settings it gives. A run does not start when the tool refuses an option, ignores one or shows another value than the one given. The Driver compares nothing else of the owner's configuration and refuses none of it.
+
+For example, a run starts `codex app-server --disable memories -c check_for_update_on_startup=false -c analytics.enabled=false -c 'web_search="live"'` without `CODEX_HOME`. The tool reads the owner's `config.toml` with its `developer_instructions`, the hooks of `hooks.json`, the plug-ins, skills, MCP servers and `AGENTS.md`, and runs the owner's `notify` when a turn ends (CDX-3).
+
+Observed until 19 October 2026: before the first start in a Subscription's home the Driver wrote the tool's configuration file there, with the same settings and `cli_auth_credentials_store = "file"`, and rewrote it whenever its own version of that file changed.
+
+Observed on 19 October 2026 in the help of `codex-cli` 0.162.1: `codex app-server` takes `-c key=value`, which overrides a value of `~/.codex/config.toml`, and `--disable <feature>`, the same as `-c features.<feature>=false`.
+
+Observed with the installed tool: a fresh home without a configuration file clones a plug-in catalogue of 88 MB at start; with plug-in features switched off in the file, it does not. A file the tool cannot read does not stop it: it warns and continues with its defaults. Unknown keys are ignored with a warning.
 
 Observed in version 1: the configuration belonged to the Leather Bag. Arbol passed overrides on the command line, checked what took effect, and refused the turn when the file held anything it could not represent.
 
@@ -50,7 +65,7 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 | Step | Request | What the Driver does with the answer |
 |---|---|---|
-| 1 | `initialize` with the Driver's name and version | Compares `codexHome` with the Subscription's home (CDX-1.3). Notes the tool's version |
+| 1 | `initialize` with the Driver's name and version | Compares `codexHome` with `~/.codex` (CDX-1.3). Notes the tool's version |
 | 2 | `initialized` (notification) | |
 | 3 | `config/read` | The comparison described above |
 | 4 | `account/read` | No ChatGPT account: the run is refused with `not_signed_in` and the Subscription moves to `needs_attention` |
@@ -114,7 +129,7 @@ The tool answers `{}`. Inserted items are history for the model and not turns: `
 
 ### The turn
 
-`turn/start` carries the thread, the input, and on every turn, resumed or not: model, effort, service tier, and the approval and sandbox settings of CDX-3. The system prompt of the request is sent as `developerInstructions` when the thread is started, so the tool's own base prompt, which describes its tools, stays in place. The Driver asks for reasoning summaries. The owner's own MCP servers go into the transient `config` of `thread/start` or `thread/resume` for a run with tools (CDX-3).
+`turn/start` carries the thread, the input, and on every turn, resumed or not: model, effort, service tier, and the approval and sandbox settings of CDX-3. The system prompt of the request is sent as `developerInstructions` when the thread is started, so the tool's own base prompt, which describes its tools, stays in place. The Driver asks for reasoning summaries. It hands no MCP server to the tool: the tool has the owner's own from `~/.codex` (CDX-3). Observed until 19 October 2026: the owner's MCP servers went into the transient `config` of `thread/start` or `thread/resume` for a run with tools.
 
 Images of the message are written to a temporary folder as files and passed as local images; the folder is removed when the run has ended.
 
@@ -138,8 +153,8 @@ What the Driver sends, by name. A request that takes parameters needs `params`, 
 | `config/read` | `{}` |
 | `account/read` | `{}` |
 | `model/list` | `{}`, and again with the cursor of the answer for as long as there is one |
-| `thread/start` | `cwd`, `model`, `approvalPolicy`, `sandbox`; `serviceTier` where the request names one; `developerInstructions` where the request has a system prompt; `config` with the owner's MCP servers under `mcp_servers` (CDX-3); `ephemeral: true` only for a run without tools and without a working folder |
-| `thread/resume` | `threadId`, `model` with the validated model selected for this run, so the thread response reports the current model instead of its previous one; transient `config` with the owner's MCP servers under `mcp_servers` for a run with tools |
+| `thread/start` | `cwd`, `model`, `approvalPolicy`, `sandbox`; `serviceTier` where the request names one; `developerInstructions` where the request has a system prompt; `ephemeral: true` only for a run without tools and without a working folder |
+| `thread/resume` | `threadId`, `model` with the validated model selected for this run, so the thread response reports the current model instead of its previous one |
 | `thread/inject_items` | `threadId`, `items` |
 | `turn/start` | `threadId`, `input`, `model`, `effort`, `summary: "detailed"`, `approvalPolicy`, `sandboxPolicy`; `serviceTier` where the request names one |
 | `turn/interrupt` | `threadId`, `turnId` |
@@ -237,8 +252,8 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
-| CDX-2.1 | start one app-server process per run, in a process group of its own, with the Subscription's home, the request's working folder and the environment of CDX-1 | DRV-2.21 | Changed | Codex Python: `C18`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup`, `Lifecycle.test_control_signals_eof_and_peer_stop_interrupt_once_then_cleanup` |
-| CDX-2.2 | write the configuration of a home itself, read the effective configuration back after the handshake, and refuse the run when the tool reports the file invalid, ignores a setting or shows another value | DRV-3.25 | Changed | Codex Python: `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup`, `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` |
+| CDX-2.1 | start one app-server process per run, in a process group of its own, in `~/.codex`, with the request's working folder and the environment of CDX-1 | DRV-2.21 | Changed | unit; contract |
+| CDX-2.2 | give the settings of a run as options of its `codex app-server` command and write no configuration file, read the effective configuration back after the handshake, and refuse the run when the tool refuses an option, ignores one or shows another value | DRV-3.25 | Changed | unit; probe |
 | CDX-2.3 | check the account with `account/read` before starting a turn, and refuse the run with `not_signed_in` when the home holds no ChatGPT account | DRV-2.2 | New | Codex Python: `C40`, `Accounts.test_unsigned_refusals_and_malformed_state_do_not_start_vendor_or_disclose_contents`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
 | CDX-2.4 | check the request's model and effort against `model/list` before starting a turn | DRV-2.2 | New | Codex Python: `C40`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers`, `Requests.test_request_defaults_and_ignored_settings_effort_provenance` |
 | CDX-2.5 | answer every request of the tool it does not know with an error | DRV-2.3 | Kept | Codex Python: `C25`, `C35`, `AppServerTests.test_fragmented_utf8_early_notifications_burst_and_unknown_request`, `AppServerTests.test_predicate_errors_settle_only_affected_waiter` |
@@ -273,6 +288,7 @@ Evidence: `research/python-migration-2026-10-07/verification.json`, `research/py
 - What the tool does with an effort the model does not list; one such turn completed without any notice.
 - Whether two processes can resume the same thread at once. A lock file per loaded thread exists.
 - How image inputs behave in a real vendor turn. On 7 October 2026, SYL-86 confirmed the current-message form `localImage { path }` with `probe.run-protocol` against the installed tool's generated stable `UserInput` schema and exercised private files with `run.images`; no live image turn has yet been sent.
+- Whether `config/read` reports a value given with `-c` or `--disable` as the effective one. The tool's help says so; no probe has read one back yet.
 - How large a history one `thread/inject_items` request accepts. SYL-88 inserted nine items in its no-prompt check, including a failed shell call with output, nonzero exit and error text, and pictures on user and assistant messages. `probe.continuity` confirms the stored native forms; no live failed-call or history-image turn has been sent.
 
 ## Known problems in version 1
@@ -294,6 +310,7 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 | ID | Question | Proposed default | Outcome |
 |---|---|---|---|
+| CDX-D28 | Which settings replace the Driver's own `config.toml` now that a run uses `~/.codex` (DRV-D42), and how are they given? | Four options on the command line of `codex app-server`, which the tool offers for exactly this: `--disable memories`, `-c check_for_update_on_startup=false`, `-c analytics.enabled=false` and `-c web_search="live"`. They act on that one process and are written nowhere, and `config/read` checks them as before. `cli_auth_credentials_store = "file"` is not carried over: the owner's own setting says where the sign-in is kept, and forcing another store would make a run miss it. No setting is given in the environment | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
 | CDX-D20 | How does stop stay bounded and clean up a run after its caller or Driver disappears? | Use one deadline 2 seconds after the first stop for all interrupt requests and turn completions. Send interrupts concurrently for the main turn and every announced active sub-agent turn, including one first reported before that deadline; never interrupt a turn already reported complete. Keep draining vendor notifications during stop even when event output has failed. Event backpressure is interruptible so it cannot delay process cleanup. Give final event writes only the remaining stop budget; if the caller still accepts no output at that deadline, close event output and end cancelled after cleanup. Before closing app-server input, collect verified process and process-group owners for its commands and descendants in the run's scratch folder; a vendor command identifier is not an operating-system process identity. Close input and give it only what remains until the original stop time plus 2 seconds; ordinary completion allows 2 seconds after input closes. On stop, end verified remaining groups at the original 2-second deadline without a fresh EOF or signal grace period, within the 15-second total bound. Publish the launcher's process identifier and start time in scratch before exec, and record the app-server owner as soon as it starts, so killed-run cleanup can use the recovery election and conditional map removal of DRV-D40. Cleanup runs outside the Subscription lock | Decided 7 October 2026 during SYL-89, a technical choice; `C15`, `C16`, `C17`, `C33` (Codex scope), `C38`, `stop.paths`, `stop.recovery`, `stop.backpressure`, `probe.stopping`, `live.stopping`; current Python migration checks: `Lifecycle.test_control_signals_eof_and_peer_stop_interrupt_once_then_cleanup`, `Lifecycle.test_active_nested_and_late_discovered_children_are_interrupted_and_attributed`, `Lifecycle.test_accepted_turn_before_rpc_reply_is_interrupted`, `Lifecycle.test_ignored_interrupt_and_stop_during_normal_eof_use_same_force_anchor`, `Lifecycle.test_blocked_output_cleanup_and_final_deadline_for_signal_and_control` and guarded process-group tests. Earlier probe/live names are historical TypeScript evidence |
 | CDX-D19 | Which model is reported when a resumed turn selects a different model? | Send the validated model with thread/resume as well as turn/start. The resume response then supplies the current model for started and the initial usage state; later model/rerouted notifications still replace it | Decided 7 October 2026 during SYL-88, a technical choice; continuity.run and probe.continuity; current Python migration checks: `Continuity.test_resume_overrides_and_delayed_restored_usage_do_not_count_previous_thread`. Earlier probe/live names are historical TypeScript evidence |
 | CDX-D18 | How are notifications replayed during a resume kept out of the new run? | Drain notifications already queued before sending turn/start. Keep startup warnings and deprecation notices for the event stream; discard restored turn status and prior token usage. Notifications received from turn/start onward stay in their ordered queue, including those before its response. On a resumed thread, a delayed usage replay that has no turn identifier or names a known earlier turn is also passed over; other notifications for a different turn still fail the run | Decided 7 October 2026 during SYL-88, a technical choice; continuity.run and probe.continuity; current Python migration checks: `Continuity.test_resume_overrides_and_delayed_restored_usage_do_not_count_previous_thread` and `AppServerTests.test_fragmented_utf8_early_notifications_burst_and_unknown_request`. Earlier probe/live names are historical TypeScript evidence |

@@ -11,11 +11,11 @@ Source Refs name enabled repositories only. Evidence from the frozen version 1 r
 
 | Spec | Title | Refines | Status |
 |---|---|---|---|
-| [CDX-0](00-overview-and-legacy-map.md) | Overview and legacy map | DRV-0 | implemented |
-| [CDX-1](01-subscriptions.md) | Subscriptions | DRV-1 | implemented |
-| [CDX-2](02-inference.md) | Inference | DRV-2 | implemented |
-| [CDX-3](03-tools-and-permissions.md) | Tools and permissions | DRV-3 | implemented |
-| [CDX-4](04-errors-and-limits.md) | Errors and limits | DRV-4 | implemented |
+| [CDX-0](00-overview-and-legacy-map.md) | Overview and legacy map | DRV-0 | accepted |
+| [CDX-1](01-subscriptions.md) | Subscriptions | DRV-1 | accepted |
+| [CDX-2](02-inference.md) | Inference | DRV-2 | accepted |
+| [CDX-3](03-tools-and-permissions.md) | Tools and permissions | DRV-3 | accepted |
+| [CDX-4](04-errors-and-limits.md) | Errors and limits | DRV-4 | accepted |
 
 Current numbered Build verification: `research/first-working-build-2026-10-07/verification.json` (SYL-94, working Build `1`, package `1.0.0`, all 128 units and 38 shared scenarios, one test-account message, and failed Build `2` preserving the default). Earlier complete-suite and candidate verification remains in `research/conformance-2026-10-07/verification.json` (SYL-92).
 

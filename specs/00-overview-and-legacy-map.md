@@ -1,13 +1,13 @@
 ---
 role: authored
 spec: CDX-0
-status: implemented
+status: accepted
 sources:
   - arbol-codex-driver:research/v1-driver-inventory.md
 ---
 # Codex Driver · 00 Overview and legacy map
 
-The Codex Driver is the Arbol 2 [Driver](../../arbol/GLOSSARY.md#driver) for the `codex` command-line tool. This specification says what it is in one page and where every part of the version 1 code went: carried over, changed, moved to the caller or dropped. It matters because version 1 solved this route by taking the tool apart: it pinned one exact build, ran the tool's command executor as a second process behind a bridge of its own, and refused every approval question. Most of that answered problems a Driver-owned home and the tool's current protocol no longer pose.
+The Codex Driver is the Arbol 2 [Driver](../../arbol/GLOSSARY.md#driver) for the `codex` command-line tool. This specification says what it is in one page and where every part of the version 1 code went: carried over, changed, moved to the caller or dropped. It matters because version 1 solved this route by taking the tool apart: it pinned one exact build, ran the tool's command executor as a second process behind a bridge of its own, and refused every approval question. Most of that answered problems the tool's current protocol no longer poses.
 
 ## Scope
 
@@ -19,7 +19,7 @@ Not covered: behaviour in detail. Each row of the legacy map names the specifica
 
 - One command-line program, `arbol-codex-driver`, written in typed Python on pinned CPython 3.14 (SYL-95). Its command line is its only interface, and Arbol holds none of its code (DRV-0).
 - It serves one vendor family, `chatgpt` ([CDX-1](01-subscriptions.md)).
-- Every Subscription has its own home for the tool. Account operations and inference runs both go through `codex app-server`, started in that home and spoken to over standard input and output.
+- The tool runs in its default home, `~/.codex`, as when the Leather Bag starts it by hand, and on the owner's own sign-in of `codex` ([DRV-0](../../arbol/driver-contract/00-overview-and-boundary.md#the-vendor-tools-home), decided 19 October 2026). Account operations and inference runs both go through `codex app-server`, started there and spoken to over standard input and output. Observed until 19 October 2026: every Subscription had a home of its own for the tool, in the state directory.
 - A run is given what it needs in the request: system prompt text, working folders, conversation, and the Subscription, model and effort where the caller names them. What is left out comes from the Driver's settings file.
 - It has no socket, no launch job, no database connection and no knowledge of Chat Sessions, routes or repositories.
 
@@ -99,8 +99,8 @@ Fate is one of: **Kept** (same behaviour, rewritten), **Changed** (same purpose,
 | Version 1 part | What it did | Fate | Specified in |
 |---|---|---|---|
 | `executor.resolve_executable` and the identity checks | Accepted exactly one build of the tool, by file size and SHA-256, and one layout of its helper program. Any update of the tool failed every turn until the Driver was rebuilt | Dropped | CDX-0.2 |
-| `session.control_argv` | Started `codex app-server` with 27 features switched off, 2 switched on and notification commands cleared, as command-line overrides | Dropped. Decided 6 October 2026 (DRV-D26): the features stay as the tool ships them. The Driver writes only housekeeping settings into the configuration of the Subscription's home | CDX-1.5, CDX-3 |
-| `session.validate_config` and the start refusals | Refused a turn when the Leather Bag's own configuration held anything Arbol could not represent: another model provider, a permission or network profile, saved environments, a start-up override file | Dropped. In a home the Driver writes, there is no foreign configuration to refuse | CDX-1.5 |
+| `session.control_argv` | Started `codex app-server` with 27 features switched off, 2 switched on and notification commands cleared, as command-line overrides | Changed. Decided 6 October 2026 (DRV-D26): the features stay as the tool ships them or as the owner set them. The Driver gives only the memory switch and housekeeping settings, as options on the command line of the run (CDX-D28). Observed until 19 October 2026: it wrote them into the configuration of the Subscription's home | CDX-1.5, CDX-2, CDX-3 |
+| `session.validate_config` and the start refusals | Refused a turn when the Leather Bag's own configuration held anything Arbol could not represent: another model provider, a permission or network profile, saved environments, a start-up override file | Dropped. The owner's configuration is the run's own (DRV-D42), and the Driver refuses none of it | CDX-1.5 |
 | The turn environment | The service's whole environment passed through, with two folders added to the search path | Changed: an allow-list | CDX-1.4 |
 | A second process per turn: `codex exec-server`, the tool's own helper that carries out shell commands and file operations, started by Arbol and reached through Arbol's own bridge (`executor.py`, `tool_process.py`). It is a part of the `codex` tool and unrelated to the retired `universe` route | Made Arbol, instead of the app-server, the owner of the process that runs the agent's commands, and filtered every request between the two. Depends on requests the tool lists only as experimental, and accepted one version of the tool only | Dropped. Decided 5 October 2026 (CDX-D8): the app-server runs its tools itself, as it does for anyone who uses `codex` | CDX-3 |
 | `system_prompt.py` and the instruction templates | Built the system prompt from template files in the Artifact Corpus | Caller. The Driver receives the finished text | CDX-0.4 |

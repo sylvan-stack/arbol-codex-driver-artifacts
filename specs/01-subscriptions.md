@@ -1,15 +1,15 @@
 ---
 role: authored
 spec: CDX-1
-status: implemented
+status: accepted
 ---
 # Codex Driver · 01 Subscriptions
 
-How the Codex Driver meets [DRV-1](../../arbol/driver-contract/01-subscriptions.md) with the `codex` command-line tool. It serves one vendor family, ChatGPT accounts, and does all account work through the tool's app-server running in a home that belongs to one Subscription. It matters because version 1 had no account handling on this route at all: a turn ran as whoever was logged in to the tool on the machine, whatever Arbol showed.
+How the Codex Driver meets [DRV-1](../../arbol/driver-contract/01-subscriptions.md) with the `codex` command-line tool. It serves one vendor family, ChatGPT accounts, and does all account work through the tool's app-server running in the tool's default home, `~/.codex`, on the owner's own sign-in of `codex` (DRV-D42). It matters because version 1 had no account handling on this route at all: a turn ran as whoever was logged in to the tool on the machine, whatever Arbol showed. The Driver runs on that same sign-in again, but it checks it, reports it and offers its sign-in.
 
 ## Scope
 
-Covered: the `chatgpt` family, the home and environment each Subscription gives the tool, sign-in and sign-out, status checks, usage, the model catalog.
+Covered: the `chatgpt` family, the home and environment the tool is given, sign-in and sign-out, status checks, usage, the model catalog.
 
 Not covered: the contract itself (DRV-1); threads, turns and the configuration a run starts the app-server with (CDX-2); approvals and sandbox settings (CDX-3); recognising a rate limit or a rejected login in the output of a run (CDX-4).
 
@@ -19,7 +19,9 @@ Not covered: the contract itself (DRV-1); threads, turns and the configuration a
 
 | Family | Vendor | Sign-in | Settings |
 |---|---|---|---|
-| `chatgpt` | OpenAI | The vendor tool's own ChatGPT login | None |
+| `chatgpt` | OpenAI | The owner's own sign-in of `codex`, in `~/.codex/auth.json` | None |
+
+The family has one Subscription, `chatgpt`. `subscriptions create` refuses a second with `invalid_input`: `codex` has no tested way to run as another account than the one signed in to `~/.codex`, and changing `auth.json` would change the account of every other `codex` on the Mac ([DRV-0](../../arbol/driver-contract/00-overview-and-boundary.md#the-vendor-tools-home)).
 
 Not offered in the first release: key-billed OpenAI accounts and the cloud-provider logins the tool's protocol also lists.
 
@@ -32,11 +34,15 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 ### Home and environment
 
-Every Subscription has a folder of its own in the Driver's state directory, created readable by the owner only. The Driver passes it to the tool as `CODEX_HOME` for every child process it starts for that Subscription. The tool keeps its login and its configuration there. The Driver writes the configuration in that folder itself and never reads the login the tool stores there.
+The Driver starts every child process of `chatgpt` in the tool's default home, `~/.codex`, as the Leather Bag starts `codex` by hand. It sets no `CODEX_HOME`. The tool keeps the owner's sign-in and configuration there. The Driver writes nothing in that folder: no configuration file of its own, no copy, no change. The settings it needs for a run are options of that run's command line (CDX-2). It never reads the sign-in the tool stores there.
 
-The environment of a child process starts from an allow-list of inherited variables (home, path, user, locale, temporary directory, proxy and certificate settings). Nothing named `OPENAI_*` or `CODEX_*` is inherited. `CODEX_HOME` is then set to the Subscription's home.
+The environment of a child process starts from an allow-list of inherited variables (home, path, user, locale, temporary directory, proxy and certificate settings). Nothing named `OPENAI_*` or `CODEX_*` is inherited, so an inherited `CODEX_HOME` is removed.
 
-When an app-server starts, its answer to the opening handshake names the home it uses. The Driver compares that with the Subscription's home and stops the process when they differ.
+When an app-server starts, its answer to the opening handshake names the home it uses. The Driver compares that with `~/.codex` and stops the process when they differ.
+
+Only the test Subscription `test-chatgpt` of probes and live checks keeps a home of its own, in the test state directory and readable by the owner only. It is passed as `CODEX_HOME`, so a probe never starts the tool in `~/.codex` ([DRV-D44](../../arbol/driver-contract/05-conformance.md#decisions)).
+
+Observed until 19 October 2026: every Subscription had a folder of its own in the state directory, passed to the tool as `CODEX_HOME`. The Driver wrote the tool's configuration there, and the tool kept the Subscription's login there.
 
 Observed in version 1: the tool route injected no credential and did not redirect the tool's home. A turn ran with the home the service inherited, normally the Leather Bag's own `~/.codex`, login and configuration included. Because that configuration was not Arbol's, a turn was refused when it contained settings Arbol could not represent. The account bound to the route served only to attribute usage and to select a model list.
 
@@ -50,7 +56,7 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 ### Signing in and out
 
-Proposed. The Driver starts an app-server in the Subscription's home and asks it to log in.
+Proposed. The Driver starts an app-server in `~/.codex` and asks it to log in. Signing `chatgpt` in is signing `codex` in on this Mac, for every session of it.
 
 | Contract step | App-server exchange |
 |---|---|
@@ -58,7 +64,7 @@ Proposed. The Driver starts an app-server in the Subscription's home and asks it
 | Sign-in from another device | Request `account/login/start` with type `chatgptDeviceCode`. The answer carries a verification address and a user code; the Driver returns `open_url` with both |
 | Completion | Notification `account/login/completed` with `success` true: the Driver reads the account and returns `done`. With `success` false: `failed`, carrying the tool's error text |
 | Cancel, replacement, time-out | Request `account/login/cancel` with the login identifier, then the app-server is stopped |
-| Sign-out | Request `account/logout` |
+| Sign-out, removal | Refused for `chatgpt` with `invalid_input`, and the message says to sign out in `codex` itself ([DRV-D43](../../arbol/driver-contract/01-subscriptions.md#decisions)). `account/logout` would sign out every `codex` on the Mac, the owner's own included. In the home of the test Subscription the request stays `account/logout` |
 
 The app-server stays running while a sign-in is pending, because it is the tool that receives the vendor's callback. The Driver holds no ChatGPT credential and renews none; the tool does both.
 
@@ -66,7 +72,9 @@ Only one sign-in on this machine can be pending at a time, across all homes, bec
 
 Observed with the installed tool on 5 October 2026: the authorisation address is on `auth.openai.com` and the tool listens on `127.0.0.1:1455` while the sign-in is pending. The tool does not open a browser itself, so the caller's window can show the page. A second sign-in started in another home succeeded and ended the first with "Login cancelled". The device-code answer carries the address `https://auth.openai.com/codex/device` and a code of the form `XXXX-XXXXX`.
 
-The existing login in the Leather Bag's own `~/.codex` is not taken over. A Subscription is signed in once, in its own home.
+`chatgpt` uses the owner's own sign-in in `~/.codex` where it is: nothing is copied. When `codex` is signed in already, `sign-in` starts no login: it reads the account and answers `done` (CDX-D27). For example, the owner has signed `codex` in by hand; `arbol-codex-driver subscriptions sign-in chatgpt` then answers `done` with the account's e-mail address and plan, and `auth.json` stays as it is.
+
+Observed until 19 October 2026: the existing login in `~/.codex` was not taken over, and a Subscription was signed in once, in its own home (CDX-D2).
 
 Observed in version 1: no in-app sign-in existed. The Leather Bag ran the tool's login in a terminal; "Check login" then copied the newest of two credential files from the home directory into Arbol's Keychain. The copy went stale as soon as the tool renewed its login, and Arbol's recovery was to copy again. Signing out in Arbol deleted the copy and left the tool logged in, so the route kept working.
 
@@ -153,11 +161,11 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
 | CDX-1.1 | offer the family `chatgpt` (vendor login, no settings), with one Subscription from the start, named `chatgpt`, which is the default | DRV-1.1 | Kept | Codex Python: `C1`, `C10`, `Accounts.test_local_concurrent_creation_update_preserves_owner_settings_and_remove_isolated` |
-| CDX-1.2 | set `CODEX_HOME` to the Subscription's home for every child process of that Subscription, and create that home readable by the owner only | DRV-1.2 | Changed | Codex Python: `C8`, `C39`, `Accounts.test_local_concurrent_creation_update_preserves_owner_settings_and_remove_isolated`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup` |
-| CDX-1.3 | stop an app-server whose handshake answer names another home than the Subscription's | DRV-1.2 | New | Codex Python: `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` |
+| CDX-1.2 | set no `CODEX_HOME` for a child process of `chatgpt`, so that the tool runs in `~/.codex` on the owner's own sign-in; pass a home of its own, readable by the owner only, only for the test Subscription of probes and live checks; refuse to create a second Subscription of the family with `invalid_input` | DRV-1.2 | Changed | unit; contract |
+| CDX-1.3 | stop an app-server whose handshake answer names another home than `~/.codex`, or than its own home for the test Subscription | DRV-1.2 | New | unit |
 | CDX-1.4 | build each child's environment from an allow-list; no inherited `OPENAI_*` or `CODEX_*` variable reaches the tool | DRV-0.5 | Changed | Codex Python: `C8`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup`, `Foundation.test_arguments_settings_environment_and_error_sanitization` |
-| CDX-1.5 | write the configuration in a Subscription's home itself, and never copy the Leather Bag's own `~/.codex` or write to it. Read from it only what CDX-3.14 names | DRV-0.4 | Changed | Codex Python: `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup` |
-| CDX-1.6 | sign in and out only through the app-server's `account/login/start`, `account/login/cancel` and `account/logout`, and hold no ChatGPT credential itself | DRV-1.8 | Changed | Codex Python: `C2`, `C5`, `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials` |
+| CDX-1.5 | write nothing in `~/.codex`: no configuration file of its own, no copy, no change. Give the settings a run needs as options of its command line (CDX-2.2), and read nothing there but what CDX-3.14 names | DRV-0.4 | Changed | contract; probe |
+| CDX-1.6 | sign in only through the app-server's `account/login/start` and `account/login/cancel`, and hold no ChatGPT credential itself. Refuse sign-out and removal of `chatgpt` with `invalid_input`; send `account/logout` only in the home of the test Subscription | DRV-1.8 | Changed | unit; contract |
 | CDX-1.7 | offer both the sign-in on this machine and the device-code sign-in, the second when `sign-in` is called with `--by-code` | DRV-1.5 | New | Codex Python: `C2`, `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials` |
 | CDX-1.8 | keep the app-server of a pending sign-in running until the tool reports completion, the attempt is cancelled or it times out, and leave no process behind afterwards | DRV-0.10 | New | Codex Python: `C2`, `C6`, `AppServerTests.test_cancelled_request_leaves_transport_available_and_preabort_sends_nothing`, `AppServerTests.test_cleanup_survives_capture_failure_and_ends_ignoring_descendant`, `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` |
 | CDX-1.9 | never read, copy or log the login the tool stores in a home | DRV-1.3 | Changed | Codex Python: `C7`, `Accounts.test_unsigned_refusals_and_malformed_state_do_not_start_vendor_or_disclose_contents` |
@@ -208,7 +216,7 @@ Not established:
 
 Not to be reproduced.
 
-- **The route ran as the machine's login.** No credential was injected and the tool's home was not redirected. Two ChatGPT accounts could not run side by side, signing out in Arbol did not stop the route, and the usage shown could belong to another account than the one doing the work.
+- **The route ran as the machine's login.** No credential was injected and the tool's home was not redirected. Two ChatGPT accounts could not run side by side, signing out in Arbol did not stop the route, and the usage shown could belong to another account than the one doing the work. Since 19 October 2026 the Driver runs on that login again, by the owner's decision (DRV-D42). What is not reproduced is the rest: the Driver reports the account `codex` is signed in with, reads the usage of that account, and refuses a sign-out it cannot carry out.
 - **A rotating login was copied.** See DRV-1.
 - **The vendor's backend was imitated.** Usage and model list were read from undocumented addresses with the tool's headers and a version number that had to be kept in step by hand.
 - **The Leather Bag's configuration decided whether a turn could start.** A custom model provider, a saved permission or network profile and similar settings in `~/.codex` made Arbol refuse the turn.
@@ -224,7 +232,8 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 | ID | Question | Proposed default | Outcome |
 |---|---|---|---|
-| CDX-D14 | How are account RPCs, sign-in races and configuration checked? | One JSONL app-server per operation, with a 30-second request bound, buffered login notifications and a process group of its own. Write the Driver configuration, verify it with config/read, and compare real home paths in initialize. Publish a sign-in reservation with an attempt token and by-code flag under the Subscription lock; a replacement sets stopReason before signalling. Local sign-ins in one state directory choose the latest process identity among simultaneous reservations; the vendor reports a local login ended from another state directory or program. Each network answer updates only the login state and checkedAt revision it originally checked. The five-minute sign-in bound covers startup, login and the final account read | Decided 7 October 2026 during SYL-81, a technical choice. No credentials are read by the Driver and no direct vendor HTTP client is used; current Python checks: `C2`, `C6`, `AppServerTests.test_timeout_and_cancellation_include_blocked_stdin_drain`, `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` and `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials`. Earlier probe/live names are historical TypeScript evidence |
-| CDX-D1 | Where does the tool keep a Subscription's login: its file in the home, or the system keychain? | The file, as the tool does by default: it is proven to be per home. The keychain would match the rule that secrets live only there, and is preferred once a probe shows it is also per home | Decided 6 October 2026, left to Claude by the owner: the file. `codex` keeps a Subscription's login in `auth.json` in its home, readable by the owner only, as it does for everyone who uses it. No move to the keychain is planned (SYL-35) |
-| CDX-D2 | Should an existing login in `~/.codex` be taken over? | No. Copying it reproduces version 1's stale-copy defect; the Leather Bag signs in once per Subscription | Decided 6 October 2026 by the owner: the proposed default. A Subscription is signed in properly, which the Driver also needs to report the account's limits (SYL-63) |
+| CDX-D27 | `codex` is already signed in in `~/.codex` when `sign-in` is called for `chatgpt`. Does the Driver start a login? | No. It first sends `account/read`. With a ChatGPT account in `~/.codex` it stores the account's details and answers `done` at once, so a sign-in through Arbol never replaces the owner's own. Only without one does it start `account/login/start`. The other choice starts a login every time, and a sign-in with another ChatGPT account would change the account of every `codex` on the Mac | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
+| CDX-D14 | How are account RPCs, sign-in races and configuration checked? | One JSONL app-server per operation, with a 30-second request bound, buffered login notifications and a process group of its own. Write the Driver configuration, verify it with config/read, and compare real home paths in initialize. Publish a sign-in reservation with an attempt token and by-code flag under the Subscription lock; a replacement sets stopReason before signalling. Local sign-ins in one state directory choose the latest process identity among simultaneous reservations; the vendor reports a local login ended from another state directory or program. Each network answer updates only the login state and checkedAt revision it originally checked. The five-minute sign-in bound covers startup, login and the final account read | Decided 7 October 2026 during SYL-81, a technical choice. Changed on 19 October 2026 by DRV-D42: no configuration is written; the run's options are verified with config/read (CDX-D28), and the home compared in initialize is `~/.codex`. No credentials are read by the Driver and no direct vendor HTTP client is used; current Python checks: `C2`, `C6`, `AppServerTests.test_timeout_and_cancellation_include_blocked_stdin_drain`, `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` and `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials`. Earlier probe/live names are historical TypeScript evidence |
+| CDX-D1 | Where does the tool keep a Subscription's login: its file in the home, or the system keychain? | The file, as the tool does by default: it is proven to be per home. The keychain would match the rule that secrets live only there, and is preferred once a probe shows it is also per home | Decided 6 October 2026, left to Claude by the owner: the file. `codex` keeps a Subscription's login in `auth.json` in its home, readable by the owner only, as it does for everyone who uses it. No move to the keychain is planned (SYL-35). Since 19 October 2026 (DRV-D42) the login of `chatgpt` is the owner's own, kept where the owner's setup of `codex` keeps it; the Driver gives no `cli_auth_credentials_store` (CDX-D28) |
+| CDX-D2 | Should an existing login in `~/.codex` be taken over? | No. Copying it reproduces version 1's stale-copy defect; the Leather Bag signs in once per Subscription | Decided 6 October 2026 by the owner: the proposed default. A Subscription is signed in properly, which the Driver also needs to report the account's limits (SYL-63). Superseded on 19 October 2026 by DRV-D42: `chatgpt` uses the owner's own sign-in in `~/.codex` where it is. Nothing is copied, so version 1's stale copy does not return |
 | CDX-D3 | Which sign-in does the caller offer first? | The sign-in on this machine; the device code as the alternative, for a machine that cannot open the vendor's page | Decided 6 October 2026 by the owner: the proposed default (SYL-64) |

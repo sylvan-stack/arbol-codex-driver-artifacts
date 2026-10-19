@@ -1,7 +1,7 @@
 ---
 role: authored
 spec: CDX-4
-status: implemented
+status: accepted
 ---
 # Codex Driver · 04 Errors and limits
 
@@ -106,7 +106,7 @@ A tool call that is running stops the idle clock (DRV-4.10). For this tool a too
 
 ### The tool's version
 
-The Driver reads the version from the answer to the handshake of every process. A version below the oldest supported one, 0.159.2, fails the run with `tool_unsupported`, naming both versions. So does a home whose configuration the tool reports as invalid or does not apply (CDX-2.2), since that means the Driver's configuration does not fit this version of the tool.
+The Driver reads the version from the answer to the handshake of every process. A version below the oldest supported one, 0.159.2, fails the run with `tool_unsupported`, naming both versions. So does a setting given for the run that the tool refuses, reports as invalid or does not apply (CDX-2.2), since that means the Driver's settings do not fit this version of the tool. Observed until 19 October 2026: the same held for the configuration file the Driver wrote into a Subscription's home.
 
 Observed in version 1: the version was never read, and the hint for a model that needs a newer tool always said "version unknown". One exact build was accepted, by checksum.
 

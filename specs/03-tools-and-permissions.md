@@ -1,17 +1,17 @@
 ---
 role: authored
 spec: CDX-3
-status: implemented
+status: accepted
 ---
 # Codex Driver · 03 Tools and permissions
 
-How the Codex Driver meets [DRV-3](../../arbol/driver-contract/03-tools-and-permissions.md): how the `codex` tool is started so that the agent works unrestricted, with the owner's own skills and MCP servers, with nothing of the tool switched off but its memories, and with nothing asking for permission, and what a run without tools is on a tool that cannot be started without its tools. It matters because the tool's two settings, sandbox and approval policy, combine in ways that are easy to get wrong: one combination refuses silently.
+How the Codex Driver meets [DRV-3](../../arbol/driver-contract/03-tools-and-permissions.md): how the `codex` tool is started so that the agent works unrestricted, with everything the owner set up for `codex`, with nothing of the tool switched off but its memories, and with nothing asking for permission, and what a run without tools is on a tool that cannot be started without its tools. It matters because the tool's two settings, sandbox and approval policy, combine in ways that are easy to get wrong: one combination refuses silently.
 
 Everything stated about the installed tool was observed on 5 October 2026 with `codex-cli` 0.159.2 and is recorded in the [probe record](../research/tool-probes-2026-10-05.md).
 
 ## Scope
 
-Covered: the parts of the tool, of which the Driver switches off only its memories; the owner's own skills and MCP servers; the settings that make a run unrestricted; a request of the tool that arrives nonetheless; sub-agents; the run without tools; what this Driver cannot carry.
+Covered: the parts of the tool, of which the Driver switches off only its memories; the owner's own setup of `codex`; the settings that make a run unrestricted; a request of the tool that arrives nonetheless; sub-agents; the run without tools; what this Driver cannot carry.
 
 Not covered: the contract (DRV-3); the process, threads and events of a run (CDX-2).
 
@@ -21,17 +21,17 @@ Not covered: the contract (DRV-3); the process, threads and events of a run (CDX
 
 The tool's own two capabilities are always there: running shell commands, which is `shell` in contract terms, and changing files by patch, `apply_patch`. The app-server runs them itself; there is no separate executor process.
 
-Beyond them the Driver switches one part of the tool off: its own memories, with the feature switch `memories = false` in the home's configuration (DRV-3.25). It writes no other feature switch, so every other part is as the tool ships it.
+Beyond them the Driver switches one part of the tool off: its own memories, with the option `--disable memories` on the run's command line (DRV-3.25, CDX-2). It gives no other feature switch, so every other part is as the tool ships it or as the owner set it in `~/.codex`.
 
 | Part of the tool | State | How |
 |---|---|---|
 | `shell`, `apply_patch` | On | Built in |
-| Web search | On | The configuration key `web_search`, set to `live` |
-| Sub-agents, plug-ins and the applications connected to the account, the MCP servers the tool adds for them, image generation, browser and computer use, hooks, skill search, tool suggestions, goals | On | As the tool ships them |
-| The tool's own memories | Off | The feature switch `memories`, written as `false` |
-| Whatever else the tool itself ships switched off | Off | As the tool ships it. The Driver switches nothing on |
+| Web search | On | The option `-c web_search="live"` |
+| Sub-agents, plug-ins and the applications connected to the account, the MCP servers the tool adds for them, image generation, browser and computer use, hooks, skill search, tool suggestions, goals | On | As the tool ships them, and as the owner set them up in `~/.codex`: the owner's plug-ins, and the hooks of `~/.codex/hooks.json` with the trust the owner gave them |
+| The tool's own memories | Off | The option `--disable memories`, for the run only |
+| Whatever else the tool itself ships switched off | Off, unless the owner switched it on | As the tool ships it or as the owner set it. The Driver switches nothing on |
 
-The Driver's configuration file keeps two settings that are housekeeping and no concern of the agent: the check for updates and analytics are off (CDX-2).
+Two further options of the run are housekeeping and no concern of the agent: the check for updates and analytics are off (CDX-2). Observed until 19 October 2026: these settings and the memory switch were written into the configuration file of the Subscription's home.
 
 Observed with the installed tool: `codex features list` shows 152 features, 43 of them stable and on. Four are stable and off as shipped, among them `memories`. A fresh home with plug-ins on clones a plug-in catalogue of 88 MB at its first start, and the tool adds two MCP servers by itself. Without the separate executor, commands and patches ran inside the app-server process. Asked for its tools on 6 October 2026 in the signed-in test account, the model named, among others, `exec_command` and `exec` for commands, `apply_patch`, `write_stdin`, a web tool, six tools for sub-agents (`spawn_agent`, `wait_agent`, `send_message`, `interrupt_agent`, `list_agents`, `followup_task`), two for asking the person, and tools for goals, pictures and MCP resources. A web search it then made arrived as an item `webSearch` with its query.
 
@@ -45,16 +45,24 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/executor.py`
 
-### The owner's own skills and MCP servers
+### The owner's own setup
 
-A run with tools has the skills and the MCP servers the owner set up for `codex` (DRV-3.31).
+A run with tools has everything the owner set up for `codex` (DRV-3.31), because the tool runs in `~/.codex` ([CDX-1](01-subscriptions.md)):
 
-| What | Where the owner keeps it | How a run gets it |
-|---|---|---|
-| Skills | The folder `~/.agents/skills` | The tool finds that folder by itself, whatever its home |
-| MCP servers | The tables `[mcp_servers]` in the file `~/.codex/config.toml` | The Driver reads those tables when a run starts and hands them to the tool in the `config` of `thread/start` or `thread/resume`. They are written nowhere |
+| What | Where the owner keeps it |
+|---|---|
+| Settings, among them `developer_instructions` and `notify` | The file `~/.codex/config.toml` |
+| Hooks, with the trust the owner gave them | The file `~/.codex/hooks.json`, and `hooks.state` in `~/.codex/config.toml` |
+| Plug-ins | The tables `[plugins]` in `~/.codex/config.toml`, and the folder `~/.codex/plugins` |
+| Skills | The folders `~/.agents/skills` and `~/.codex/skills` |
+| MCP servers, with their sign-ins | The tables `[mcp_servers]` in `~/.codex/config.toml` |
+| Instructions | The file `~/.codex/AGENTS.md` |
 
-The tables can hold secrets of the owner's, such as a key in a server's environment. The Driver passes the tables on as they are and never writes, logs or reports them (DRV-0.3). Nothing else of the owner's own `~/.codex` reaches a run: no other setting of that file, and not the login. A missing configuration file or missing tables means there are no owner servers. An unreadable or malformed file, a non-table `mcp_servers` value, or values that cannot be represented in JSON refuse the run with `invalid_input` and a fixed message containing no file contents or parser excerpt. Owner table strings are removed from every emitted event and text output, including tool inputs and results, vendor diagnostic messages and stderr excerpts. The event and result shapes stay the same; matching literal private values become `[redacted]`. Assistant history fingerprints use the redacted text delivered to the caller. The Driver does not read the tool’s credential files to discover additional values.
+The tool reads all of it itself, as when it is started by hand. The Driver hands nothing over and writes nothing there. Only the settings of CDX-2 differ, for that run only. The owner's `notify`, the Computer Use program that `codex` tells when a turn has ended, runs for a Driver run as for any other (CDX-D29).
+
+The tables `[mcp_servers]` can hold secrets of the owner's, such as a key in a server's environment, and the tool may repeat one in what it reports. So that none reaches an event (DRV-0.3), the Driver reads those tables, and nothing else of `~/.codex`, at the start of a run with tools, only to learn which strings to hide (CDX-D30). Owner table strings are removed from every emitted event and text output, including tool inputs and results, vendor diagnostic messages and stderr excerpts. The event and result shapes stay the same; matching literal private values become `[redacted]`. Assistant history fingerprints use the redacted text delivered to the caller. A missing, unreadable or malformed file leaves nothing to hide, and the run goes on: what the tool does with such a file is the tool's own matter. The Driver does not read the tool’s credential files to discover additional values.
+
+Observed until 19 October 2026: of the owner's setup a run had only the skills of `~/.agents/skills`, which the tool found by itself, and the MCP servers, whose tables the Driver read when a run started and handed to the tool in the `config` of `thread/start` or `thread/resume`. An unreadable or malformed file refused the run with `invalid_input`. No hook, plug-in, other setting or instruction file of the owner's reached a run.
 
 Observed with the installed tool on 6 October 2026: in a new home, with nothing linked, the tool listed 40 skills from the owner's `~/.agents/skills`. The owner's `~/.codex/skills` was empty. A server handed over in the `config` of `thread/start` was started, and the home's configuration file stayed as it was.
 
@@ -129,13 +137,13 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
 | CDX-3.1 | run commands and patches through the app-server itself, without a separate executor process | DRV-3.20 | Changed | Codex Python: `C11`, `C35`, `MapperTools.test_patch_kinds_and_vendor_failure_leave_run_completed` |
-| CDX-3.2 | write `memories = false` and no other feature switch into the configuration of a home, so that every other part of the tool is as the tool ships it, and set `web_search` to `live` | DRV-3.25 | Changed | Codex Python: `C35`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup` |
+| CDX-3.2 | give `--disable memories` and no other feature switch on the run's command line, so that every other part of the tool is as the tool ships it or as the owner set it, and give `-c web_search="live"` | DRV-3.25 | Changed | unit; probe |
 | CDX-3.3 | send the sandbox `danger-full-access` and the approval policy `never` when the thread of a run with tools is started and with every turn | DRV-3.21 | Changed | Codex Python: `C11`, `C35`, `Continuity.test_resume_overrides_and_delayed_restored_usage_do_not_count_previous_thread` |
 | CDX-3.9 | answer a command approval or a file-change approval that arrives nonetheless with `accept` and every other request of the tool with an error, and emit a `notice` | DRV-3.22 | Changed | Codex Python: `C25`, `C35`, `MapperTools.test_child_request_notice_without_turn_replays_after_spawn_discovery` |
 | CDX-3.11 | for a run without tools, send the sandbox `read-only` and the approval policy `never`, use an empty folder of its own when the request names no working folder, and report a tool call that occurs nonetheless without failing the run | DRV-2.20 | Changed | Codex Python: `C19`, `C35` |
 | CDX-3.12 | set `parentCallId` on every event that reports what a sub-agent did, and keep a sub-agent's text out of the answer: a sub-agent's work is every notification that names a thread announced by a `subAgentActivity` item or by the `receiverThreadIds` of a successfully completed `collabAgentToolCall` of tool `spawnAgent`; the parent identifier is the call that announced that thread | DRV-3.24 | New | Codex Python: `C35`, `Lifecycle.test_active_nested_and_late_discovered_children_are_interrupted_and_attributed`, `MapperTools.test_child_post_turn_output_notices_and_retry_keep_parent_attribution`, `MapperTools.test_child_request_notice_without_turn_replays_after_spawn_discovery` |
 | CDX-3.13 | emit no question from the agent, for as long as the tool offers such questions only in its experimental mode | DRV-3.26 | Kept | Codex Python: `C25`, `C33`, `C35` |
-| CDX-3.14 | hand the `[mcp_servers]` tables of the owner's `~/.codex/config.toml` to the tool in the `config` of `thread/start` or `thread/resume` for a run with tools, and write, log and report them nowhere; read nothing else of the owner's `~/.codex` and write nothing there | DRV-3.31 | New | Codex Python: `C9`, `C37`, `EventPrivacy.test_every_event_and_text_output_scrubs_nested_private_values`, `EventPrivacy.test_split_values_and_open_suffixes_are_hidden_in_all_delta_streams`, `OwnerDiagnostics.test_transient_owner_payload_keeps_exact_json_values_and_home_unmodified`, `OwnerSetup.test_malformed_unreadable_and_non_json_tables_have_nonsecret_errors`, `OwnerSetup.test_preserves_mcp_tables_and_reads_no_other_owner_file`, `ToolRuns.test_resume_forwards_changed_owner_mcp_in_memory_without_polluting_saved_state` |
+| CDX-3.14 | give a run with tools the owner's whole setup of `codex` by starting the tool in `~/.codex`, and hand no MCP server over in `thread/start` or `thread/resume`; read there only the `[mcp_servers]` tables of `config.toml`, only to remove their strings from events and text output, and write nothing there | DRV-3.31 | New | contract; unit |
 | CDX-3.15 | keep a run going after its turn has completed while a sub-agent's turn is still active, and stop a sub-agent with a `turn/interrupt` for its own thread and turn | DRV-3.32 | New | Codex Python: `C15`, `C35`, `Lifecycle.test_active_nested_and_late_discovered_children_are_interrupted_and_attributed`, `ToolRuns.test_late_noncommand_child_tool_closes_after_completed_turns_and_background_work` |
 
 CDX-3.4 to CDX-3.8 and CDX-3.10 described levels of asking and approval questions. They were withdrawn on 6 October 2026 with DRV-D12, and their numbers are not used again.
@@ -156,12 +164,12 @@ The fresh Python `live.tools` uses `test-chatgpt`, `gpt-5.6-luna` at its lowest 
 
 - A sub-agent the agent does not wait for in a real completed run, and what `collabAgentToolCall` items other than `wait` and `spawnAgent` carry. Stopping an active child command was verified historically on 7 October 2026 by the TypeScript `live.stopping` check; current synthetic late-child waits are covered by `Lifecycle.test_main_completion_waits_for_late_child_and_closes_spawn_once`. SYL-90 now records a fresh Python live check of an ordinary completed child and background command in `live.tools`; a fresh real child-stop check remains separate.
 - How long the first start in a new home takes for the caller, while the tool fetches its plug-in catalogue. Later starts in the signed-in test account answered `initialize` after 0.2 seconds and had a thread started after about one second more, most of it the account and model requests.
-- Skills the owner keeps in `~/.codex/skills`. A link from the home to that folder works, but the tool then writes its five bundled skills into the owner's folder. The folder is empty today.
-- How the owner signs an MCP server in for a Subscription's home, where a server needs that.
 - Whether the shell and patch tools, web search and sub-agents can be taken away for one run. Until they can, the lock-down above is what a run without tools gets on this Driver.
 - Whether the tool ever sends an approval request under `never`. Version 1 received some.
 - How a request for extra permissions is granted. Until that is known it is answered with an error.
 - The shape of a patch that changes or deletes a file; only a new file was seen.
+
+Two questions of earlier drafts went with DRV-D42 on 19 October 2026: the skills the owner keeps in `~/.codex/skills`, and how an MCP server that needs a sign-in is signed in for a Subscription's home. A run now has both as the owner set them up.
 
 ## Known problems in version 1
 
@@ -180,8 +188,10 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 | ID | Question | Proposed default | Outcome |
 |---|---|---|---|
-| CDX-D22 | How do owner MCP servers reach a resumed run, and how is invalid owner configuration reported? | Read the owner tables once at the start of a tools-enabled run and send the same transient config with either thread/start or thread/resume. Missing setup is empty; invalid setup fails with a fixed nonsecret invalid_input message. Scrub owner table strings from vendor diagnostics without changing tool results | Decided 7 October 2026 during SYL-90, a technical choice. The installed stable ThreadStartParams and ThreadResumeParams schemas both accept config; no experimental protocol or persistent copy is needed. Its diagnostic-only redaction scope is superseded by CDX-D25 below |
-| CDX-D25 | How is DRV-0.3 enforced when the vendor repeats a private owner MCP value outside a diagnostic? | Redact the known literal owner-table strings recursively in all emitted event values and keys, and in text output; preserve JSON shapes and use the redacted answer for continuity fingerprints. Credential files remain unread. Transient requests to the vendor retain the original MCP values | Decided 7 October 2026 during SYL-92, a technical correction: diagnostic-only scrubbing allowed a private value to appear in an ordinary event, contrary to DRV-0.3. C7 checks these surfaces |
+| CDX-D29 | Does the owner's `notify` in `~/.codex/config.toml` run for a Driver run? Today it tells the Computer Use program each time a turn has ended | Yes, as the owner set it: a run has everything the owner set up for `codex` (DRV-D42), and the Driver gives no `-c notify=[]`. The cost: the program is told of every turn of an Arbol run, as of every turn of the owner's own sessions. The other choice clears `notify` for each run with `-c notify=[]` | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
+| CDX-D30 | The Driver no longer hands the owner's MCP tables to the tool (DRV-D42). Does it still remove their strings from events and text output (CDX-D25)? | Yes. It reads the tables `[mcp_servers]` of `~/.codex/config.toml`, and nothing else there, at the start of a run with tools, only to learn which strings to hide, and passes them nowhere. A file it cannot read leaves nothing to hide and refuses no run. The other choice reads nothing of `~/.codex`, and a key the tool repeats in a message would then reach the caller | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
+| CDX-D22 | How do owner MCP servers reach a resumed run, and how is invalid owner configuration reported? | Read the owner tables once at the start of a tools-enabled run and send the same transient config with either thread/start or thread/resume. Missing setup is empty; invalid setup fails with a fixed nonsecret invalid_input message. Scrub owner table strings from vendor diagnostics without changing tool results | Decided 7 October 2026 during SYL-90, a technical choice. The installed stable ThreadStartParams and ThreadResumeParams schemas both accept config; no experimental protocol or persistent copy is needed. Its diagnostic-only redaction scope is superseded by CDX-D25 below. Superseded on 19 October 2026 by DRV-D42: the tool reads the owner's MCP servers from `~/.codex` itself, the Driver hands none over, and invalid owner setup no longer refuses a run |
+| CDX-D25 | How is DRV-0.3 enforced when the vendor repeats a private owner MCP value outside a diagnostic? | Redact the known literal owner-table strings recursively in all emitted event values and keys, and in text output; preserve JSON shapes and use the redacted answer for continuity fingerprints. Credential files remain unread. Transient requests to the vendor retain the original MCP values | Decided 7 October 2026 during SYL-92, a technical correction: diagnostic-only scrubbing allowed a private value to appear in an ordinary event, contrary to DRV-0.3. C7 checks these surfaces. Since 19 October 2026 the Driver reads the owner tables only for this redaction; whether it stays is CDX-D30 |
 | CDX-D21 | How are child threads tracked when the tool reports spawning through collabAgentToolCall? | A successfully completed spawnAgent item announces every receiverThreadIds thread, attributed to that item's call identifier. Buffer foreign-thread notifications only while a known spawnAgent call is in progress, replay matching announced receivers, and pass over the rest with the existing single notice. Track these children for waiting and concurrent interruption like subAgentActivity children. Keep the tool name spawnAgent and emit its call completion once | Decided 7 October 2026 during SYL-89, a technical choice after the first live stopping check exposed this second form; `stop.collaboration-spawn`, `live.stopping`; current Python checks: `Mapper.test_collaboration_concurrent_receivers_and_nested_spawn_discovery` and `Lifecycle.test_active_nested_and_late_discovered_children_are_interrupted_and_attributed`. The earlier live result is historical TypeScript evidence |
 | CDX-D8 | Drop version 1's second process per turn, the `codex exec-server` that Arbol started and bridged so that it owned the execution of the agent's commands? | Yes. The app-server runs its tools itself, as it does for anyone who uses `codex`, under the sandbox and approval settings of the request. Given up: Arbol filtering each request between the two | Decided 5 October 2026 by the owner: the proposed default (SYL-10) |
 | CDX-D9 | Which level does a caller use for this route by default? | The caller's choice (DRV-D13) | Decided 6 October 2026 by the owner: there are no levels. Every run with tools is unrestricted, as in version 1 (DRV-D12, SYL-44) |
