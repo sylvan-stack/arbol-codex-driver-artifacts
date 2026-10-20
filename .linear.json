@@ -1,41 +1,41 @@
 {
-  "workspace": "https://linear.app/sylvan-stack",
+  "workspace": "https://linear.app/amorphius",
   "team": "Sylvan Stack",
   "project": {
     "name": "Arbol Codex Driver",
-    "url": "https://linear.app/sylvan-stack/project/arbol-codex-driver-75ade373c5e3",
-    "id": "P-SYL-3"
+    "url": "https://linear.app/amorphius/project/arbol-codex-driver-468a5c06c014",
+    "id": "P-SYL-6"
   },
   "note": "Local files are the originals. Linear documents are copies republished from them.",
   "documents": {
     "specs/00-overview-and-legacy-map.md": {
       "title": "Codex Driver · 00 Overview and legacy map",
-      "id": "5ddfff03-09a3-43be-956a-3165ced16840",
-      "url": "https://linear.app/sylvan-stack/document/codex-driver-00-overview-and-legacy-map-b74be4fa4d1f",
+      "id": "be464450-b564-4319-a266-8e5c48b55a3d",
+      "url": "https://linear.app/amorphius/document/codex-driver-00-overview-and-legacy-map-a03fe6e9a89b",
       "published": "2026-10-08"
     },
     "specs/01-subscriptions.md": {
       "title": "Codex Driver · 01 Subscriptions",
-      "id": "5ba3648b-000b-41fb-9a34-edd0e51a84a2",
-      "url": "https://linear.app/sylvan-stack/document/codex-driver-01-subscriptions-9f52a5f9d032",
+      "id": "ab9575c8-2d3b-43ee-ac95-a95f664fab32",
+      "url": "https://linear.app/amorphius/document/codex-driver-01-subscriptions-56a5b387a94b",
       "published": "2026-10-08"
     },
     "specs/02-inference.md": {
       "title": "Codex Driver · 02 Inference",
-      "id": "e8dc8d01-8a60-4cf0-ae66-8d20f6bd4ae7",
-      "url": "https://linear.app/sylvan-stack/document/codex-driver-02-inference-72492596a4f4",
+      "id": "3e08e1aa-7934-4dd9-8603-5a0b61149bdd",
+      "url": "https://linear.app/amorphius/document/codex-driver-02-inference-dfaa70ae8a1a",
       "published": "2026-10-08"
     },
     "specs/03-tools-and-permissions.md": {
       "title": "Codex Driver · 03 Tools and permissions",
-      "id": "004665fb-4d96-4996-bd5d-2dd4df85cd00",
-      "url": "https://linear.app/sylvan-stack/document/codex-driver-03-tools-and-permissions-ce46dd571df4",
+      "id": "508ca236-f11e-4445-a352-c75f95394c03",
+      "url": "https://linear.app/amorphius/document/codex-driver-03-tools-and-permissions-667cbb440b8e",
       "published": "2026-10-08"
     },
     "specs/04-errors-and-limits.md": {
       "title": "Codex Driver · 04 Errors and limits",
-      "id": "8e417600-4185-4949-a1ea-4ea3659859af",
-      "url": "https://linear.app/sylvan-stack/document/codex-driver-04-errors-and-limits-a7ab93eece9f",
+      "id": "36818739-2720-4d57-9074-f613388cd217",
+      "url": "https://linear.app/amorphius/document/codex-driver-04-errors-and-limits-1ef5e3887047",
       "published": "2026-10-08"
     }
   }
