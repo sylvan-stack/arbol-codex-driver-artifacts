@@ -17,6 +17,7 @@ How this Driver meets the [Driver Contract](../arbol/driver-contract/README.md) 
 - [`v1-driver-inventory.md`](research/v1-driver-inventory.md): what the version 1 Driver does, read from the deprecated source, with Source Refs.
 - [`tool-probes-2026-10-05.md`](research/tool-probes-2026-10-05.md): what the installed tool does, observed in real runs: handshake, account requests, model list, turns, approvals, stopping, threads, errors, configuration.
 - [`probe-scripts-2026-10-06/`](research/probe-scripts-2026-10-06/README.md): the scripts behind the probes of 6 October 2026 and the raw records of one real run, kept as records of what was run against the installed `codex`.
+- [`app-server-rate-limit-schema-2026-10-26.md`](research/app-server-rate-limit-schema-2026-10-26.md): whether a rate-limit window of the app server names what it counts, probed for DRV-1.27: it does not, so `resource` stays absent.
 
 ## Conventions
 

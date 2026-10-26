@@ -113,10 +113,13 @@ One request `account/rateLimits/read` to an app-server in the home. The answer c
 | `plan` | The plan type in the answer, else the one from the status check |
 | `detailsUrl` | `https://chatgpt.com/codex/settings/usage` |
 | `extra` | Whether ordinary use is still allowed, the reason a limit was reached, the credit balance, and the limits listed per limit identifier, as the tool reports them |
+| `resource` | Absent. The app server's `RateLimitWindow` carries `usedPercent`, `windowDurationMins` and `resetsAt` and names no unit, so the Driver does not guess what a window counts (DRV-1.27, CDX-D31). The credit balance beside the windows is the account's, not a window's unit, and stays in `extra` |
 
 When the tool cannot produce an answer, the outcome is `unavailable` with the tool's message.
 
 Observed with the installed tool: the probed account had one window, the weekly one, in the place called primary, used to 100 percent, with the second place empty. With credits on the account, runs continued and the credit balance fell; no limit error occurred.
+
+Observed on 26 October 2026 with `codex-cli` 0.162.1, in the protocol schema the tool generates without a prompt ([the probe record](../research/app-server-rate-limit-schema-2026-10-26.md)): no field of a rate-limit window or snapshot names what the window counts.
 
 Observed in version 1: usage was read from an undocumented address of the ChatGPT backend with the copied token, with request headers imitating the vendor tool at a fixed version, over a connection to a fixed network address. The shown values were the same: primary and secondary window, plan, a link to the vendor's limits page.
 
@@ -175,6 +178,7 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 | CDX-1.13 | make no request of its own to a ChatGPT or OpenAI address | DRV-1.19 | Changed | Codex Python: `C41`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup` |
 | CDX-1.14 | let only one sign-in on this machine be pending across all its Subscriptions, and report a sign-in ended by another login on the machine as `failed` with that reason | DRV-1.5 | New | Codex Python: `C2`, `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials` |
 | CDX-1.15 | read a usage window's kind from its length | DRV-1.17 | New | Codex Python: `C41`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
+| CDX-1.16 | leave `resource` absent on every usage window while the app server names no unit for a window, and never guess it (CDX-D31) | DRV-1.27 | New | Codex Python: `C41`, `C30`, `Foundation.test_usage_windows_carry_no_resource_the_app_server_does_not_state`; probe: `research/app-server-rate-limit-schema-2026-10-26.md` |
 
 ## Python migration verification on 7 October 2026
 
@@ -237,3 +241,4 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 | CDX-D1 | Where does the tool keep a Subscription's login: its file in the home, or the system keychain? | The file, as the tool does by default: it is proven to be per home. The keychain would match the rule that secrets live only there, and is preferred once a probe shows it is also per home | Decided 6 October 2026, left to Claude by the owner: the file. `codex` keeps a Subscription's login in `auth.json` in its home, readable by the owner only, as it does for everyone who uses it. No move to the keychain is planned (SYL-35). Since 19 October 2026 (DRV-D42) the login of `chatgpt` is the owner's own, kept where the owner's setup of `codex` keeps it; the Driver gives no `cli_auth_credentials_store` (CDX-D28) |
 | CDX-D2 | Should an existing login in `~/.codex` be taken over? | No. Copying it reproduces version 1's stale-copy defect; the Leather Bag signs in once per Subscription | Decided 6 October 2026 by the owner: the proposed default. A Subscription is signed in properly, which the Driver also needs to report the account's limits (SYL-63). Superseded on 19 October 2026 by DRV-D42: `chatgpt` uses the owner's own sign-in in `~/.codex` where it is. Nothing is copied, so version 1's stale copy does not return |
 | CDX-D3 | Which sign-in does the caller offer first? | The sign-in on this machine; the device code as the alternative, for a machine that cannot open the vendor's page | Decided 6 October 2026 by the owner: the proposed default (SYL-64) |
+| CDX-D31 | Does a Codex usage window say what it counts (DRV-1.27)? | No. The app server's `RateLimitWindow` has `usedPercent`, `windowDurationMins` and `resetsAt` only, and the snapshot's `credits` is the account's credit balance, not a window's unit; the tool speaks of "usage" and names no token, message or request count anywhere in its usage answer. So `resource` stays absent rather than guessed; the mapping is revisited when a schema field names a unit | Decided 26 October 2026 during SYL-292, a technical choice; the probe is [`research/app-server-rate-limit-schema-2026-10-26.md`](../research/app-server-rate-limit-schema-2026-10-26.md) on `codex-cli` 0.162.1 |
