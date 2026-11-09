@@ -21,6 +21,14 @@ Not covered: the contract (DRV-2); sandbox and approval settings, and which part
 
 A run starts one `codex app-server` process with no `CODEX_HOME`, so in `~/.codex` ([CDX-1](01-subscriptions.md)), with the settings of the run as options on its command line (below), the request's working folder as its working directory, the environment of [CDX-1](01-subscriptions.md), and the request's extra search-path folders appended to the search path. The process is in a process group of its own. It speaks one JSON object per line on standard input and output; its log goes to standard error, of which the Driver keeps the last 64 KiB for error reports.
 
+For an Arbol chat, the request's `rootId` and `chatSessionId` add `ARBOL_ROOT` and `ARBOL_CHAT` to that run's app-server environment after the CDX-1.4 allow-list is applied. The Driver uses the formats and refusal of DRV-2.37. Neither variable is inherited; without `rootId` neither is set. Account operations receive neither variable.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/run_request.py#read_run_request
+arbol-codex-driver:src/arbol_codex_driver/run.py#run
+arbol-codex-driver:src/arbol_codex_driver/app_server.py#AppServer.start
+-->
+
 When the turn is over, the Driver closes the process's standard input. The process then exits within a fraction of a second and takes every command it started with it. This is how every run ends, whatever its outcome, because it is the one way of ending that was seen to leave nothing running.
 
 Observed with the installed tool: the process exits with code 0 about 20 ms after its input closes or after a termination signal, also in the middle of a turn, and writes nothing more. Two processes on one home ran turns at the same time without errors.
@@ -273,6 +281,7 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 | CDX-2.19 | write message images to a temporary folder for the run and remove it when the run has ended | DRV-2.23 | Kept | Codex Python: `Continuity.test_native_history_and_visible_text_fallback_preserve_tools_images_and_system_prompt`, `Foundation.test_history_native_pairing_shell_fields_and_private_ordered_images` |
 | CDX-2.20 | use no request the tool marks as experimental in a run | CDX-0.5 | New | Codex Python: `C10`, `C14`, `C19`, `Continuity.test_native_history_and_visible_text_fallback_preserve_tools_images_and_system_prompt` |
 | CDX-2.21 | insert a history with one `thread/inject_items` request, in the item forms, with the made-up call identifiers and the result texts stated above, and send the text form of DRV-2 where the tool refuses the request | DRV-2.36 | New | Codex Python: `C14`, `Continuity.test_native_history_and_visible_text_fallback_preserve_tools_images_and_system_prompt`, `Foundation.test_history_native_pairing_shell_fields_and_private_ordered_images`, `Foundation.test_migration_golden_vectors_and_nonmutating_stream_snapshots` |
+| CDX-2.22 <!-- 47e9c30b-447e-4a73-940d-51eec5b6d3af --> | refuse malformed Arbol identity before tool launch and add only the two validated identity variables to the run's clean app-server environment | DRV-2.37 | New | contract and live shell check; pending qualification |
 
 ## Python migration verification on 7 October 2026
 
