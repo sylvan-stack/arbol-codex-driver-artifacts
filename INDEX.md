@@ -23,4 +23,4 @@ How this Driver meets the [Driver Contract](../arbol/driver-contract/README.md) 
 
 - Every artifact goes into a chapter folder, never directly into the corpus root. `README.md`, `INDEX.md` and a `GLOSSARY.md` are the exceptions.
 - List a chapter here when it is created.
-- Tasks are tracked in Linear, not in this corpus: project [Arbol Codex Driver](https://linear.app/amorphius/project/arbol-codex-driver-468a5c06c014) in the Linear workspace amorphius. Specifications are copied there as documents; `.linear.json` maps each file to its copy. The files here are the originals. There is no `plans/` chapter.
+- Tasks are tracked as Sagas, Arcs and Beats in `~/Artifacts/forester/sagas/`, not in this corpus. The files here are the originals.
