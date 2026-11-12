@@ -9,6 +9,10 @@ sources:
 
 The Codex Driver is the Arbol 2 [Driver](../../arbol/GLOSSARY.md#driver) for the `codex` command-line tool. This specification says what it is in one page and where every part of the version 1 code went: carried over, changed, moved to the caller or dropped. It matters because version 1 solved this route by taking the tool apart: it pinned one exact build, ran the tool's command executor as a second process behind a bridge of its own, and refused every approval question. Most of that answered problems the tool's current protocol no longer poses.
 
+## Current qualification policy · 12 November 2026
+
+The owner's correction requires only real existing profiles for current qualification and prohibits test profiles. Build and opt-in live checks select an already registered, signed-in real Subscription and its existing native state directly, verify that selection before inference, and preserve its native credential binding and normal vendor behavior. They never create or alias a profile, copy authentication or start sign-in. Full source/package gates, a genuine ready-message completion and actual usage observations remain required. Application/runtime and Build registries stay disposable. This supersedes the mandatory test-account selection in the earlier qualification prose and CDX-D26 for current runs; prior decisions, source/Build evidence and test-account results below retain their historical scope. See the [current shared qualification rule](../../arbol/driver-contract/05-conformance.md) and the code repository's `TESTS.md` for the existing real selection.
+
 ## Scope
 
 Covered: what this Driver is, its requirements beyond [DRV-0](../../arbol/driver-contract/00-overview-and-boundary.md), the fate of each part of version 1, what the installed tool offers that version 1 did not use.

@@ -7,6 +7,10 @@ status: accepted
 
 How the Codex Driver meets [DRV-1](../../arbol/driver-contract/01-subscriptions.md) with the `codex` command-line tool. It serves one vendor family, ChatGPT accounts, and does all account work through the tool's app-server running in the tool's default home, `~/.codex`, on the owner's own sign-in of `codex` (DRV-D42). It matters because version 1 had no account handling on this route at all: a turn ran as whoever was logged in to the tool on the machine, whatever Arbol showed. The Driver runs on that same sign-in again, but it checks it, reports it and offers its sign-in.
 
+## Current qualification selection · 12 November 2026
+
+Current qualification uses only an already registered, signed-in real Subscription and its existing native state/home binding. Test profiles are prohibited. Verify the actual existing profile before live launches; do not create, alias, copy or sign in a profile, and do not redirect its credentials into disposable state. Normal vendor refresh and ordinary uniquely identified run/continuity metadata remain allowed. Keep application databases, runtime, Build registries and raw evidence private and separate. This supersedes the mandatory `test-chatgpt`/test-state selection in earlier qualification instructions while retaining those earlier descriptions, decisions and observations as history. The active shared rule is [DRV-5](../../arbol/driver-contract/05-conformance.md); current CLI selection is documented in the code repository's `TESTS.md`.
+
 ## Scope
 
 Covered: the `chatgpt` family, the home and environment the tool is given, sign-in and sign-out, status checks, usage, the model catalog.
