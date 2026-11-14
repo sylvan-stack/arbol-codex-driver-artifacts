@@ -5,7 +5,7 @@ role: authored
 
 ## run
 
-Reason: Let native Codex load owner setup, using MCP tables only for transient privacy scrubbing without forwarding or config refusal.
+Reason: Use native thread/resume refusal as conversation existence authority instead of reading native session directories.
 
-Origins: CDX-1.5, CDX-1.9, CDX-3.14, CDX-3.3, CDX-3.11, DRV-0.3, DRV-3.31 · Intention i-a479617a · 2026-11-14
+Origins: CDX-1.5, CDX-1.9, CDX-2.7, CDX-2.8, CDX-2.9, CDX-2.18 · Intention i-4fe40ad7 · 2026-11-14
 
