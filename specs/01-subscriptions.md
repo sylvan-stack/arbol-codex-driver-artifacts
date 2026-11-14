@@ -274,6 +274,11 @@ arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.record
 arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#parse_record
 arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.remove
 arbol-codex-driver:src/arbol_codex_driver/state.py#State
+arbol-codex-driver:src/arbol_codex_driver/identity_protocol.py#PrivateDirectory
+arbol-codex-driver:src/arbol_codex_driver/identity_protocol.py#canonical_bytes
+arbol-codex-driver:src/arbol_codex_driver/identity_protocol.py#parse_bytes
+arbol-codex-driver:src/arbol_codex_driver/payload.py#verify_payload
+arbol-codex-driver:src/arbol_codex_driver/payload.py#verify_authority
 -->
 
 #### Requirements
@@ -293,3 +298,8 @@ ABR-34 waits for ABR-40 **and ABR-41**. Current source CLI dispatch at `cli.py#m
 Writer inventory for ABR-34 includes State initialization/atomic deletion, Subscription reserve/finish/reap/set_tool/merge, usage/run_report, Runs recovery and Chats settlement plus ordinary CLI/error/final cleanup. Map every actual helper spawn to custody or an explicit no-Driver-metadata-write disposition. ABR-41's native subprocess remains under its existing vendor cleanup contract; any Driver-owned watcher that writes metadata participates in this protocol.
 
 ABR-40 actual-review correction: consume DRV-6's exact `-ISB` bootstrap/D.importRoots and normal/helper `ARBOL_DRIVER_ADMISSION_FD`/`ARBOL_DRIVER_ADMISSION_CONTEXT` wire. Validate registry/boot/epoch/own and parent process identity, exact payload/entry/acceptance and the offer/ready/go/started acknowledged handoff before any Driver state access. Each child opens its own independent lease; no inherited main lock or exclusive-maintenance receipt substitutes. Source/helper declarations and candidate state never become qualified Browser authority.
+
+
+### ABR-34 static foundation checkpoint · 14 November 2026
+
+Published source `841c86b61c52aafc525c2721cf44cbe257436275` supplies only the first three accepted producer-plan leaves: bounded canonical identity values/private descriptor-relative durable file primitives, complete immutable M/D payload verification, and explicit registry gate/platform/scoped acceptance verification. These modules remain unconnected to CLI/state dispatch. They do not emit a Subscription proof, capability, acceptance, maintenance receipt or runtime qualification. Admission/bootstrap, lifetime/format/writer/offline operations and packaging remain future source work. Ruff, strict source-scoped mypy and source AST/diff checks passed without importing or executing the product; tests, providers, native profiles/credentials, normal Builds, gates, state conversion, installation and boot were not run. CDX-1.17 remains accepted/pending qualification; Source Refs above identify this partial foundation only. Indexed Mycel Origin/retrieval verification remains unavailable and no ingest/embedding occurred.
