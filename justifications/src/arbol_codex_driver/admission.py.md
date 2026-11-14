@@ -5,9 +5,9 @@ role: authored
 
 ## <before _read>
 
-Reason: Provide a preregistered independent helper handoff API without changing retained runners
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Frames
 
@@ -17,9 +17,9 @@ Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
 
 ## Frames.__init__
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Frames._read
 
@@ -77,9 +77,9 @@ Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
 
 ## Registry.control
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Registry.custody_loss
 
@@ -125,27 +125,27 @@ Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
 
 ## Session
 
-Reason: Provide a preregistered independent helper handoff API without changing retained runners
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Session.__enter__
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Session.__exit__
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Session.abandon
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## _check_parent
 
@@ -221,7 +221,49 @@ Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
 
 ## Session.spawn_helper
 
-Reason: Provide a preregistered independent helper handoff API without changing retained runners
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
-Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## <before current_session>
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## Session.<before Session.finish>
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## Session._close_owned
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## Session._settle_handoffs
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## Session._spawn_helper
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## Session.finish
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## current_session
+
+Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+
+Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
