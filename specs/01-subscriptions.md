@@ -246,3 +246,22 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 | CDX-D2 | Should an existing login in `~/.codex` be taken over? | No. Copying it reproduces version 1's stale-copy defect; the Leather Bag signs in once per Subscription | Decided 6 October 2026 by the owner: the proposed default. A Subscription is signed in properly, which the Driver also needs to report the account's limits (SYL-63). Superseded on 19 October 2026 by DRV-D42: `chatgpt` uses the owner's own sign-in in `~/.codex` where it is. Nothing is copied, so version 1's stale copy does not return |
 | CDX-D3 | Which sign-in does the caller offer first? | The sign-in on this machine; the device code as the alternative, for a machine that cannot open the vendor's page | Decided 6 October 2026 by the owner: the proposed default (SYL-64) |
 | CDX-D31 | Does a Codex usage window say what it counts (DRV-1.27)? | No. The app server's `RateLimitWindow` has `usedPercent`, `windowDurationMins` and `resetsAt` only, and the snapshot's `credits` is the account's credit balance, not a window's unit; the tool speaks of "usage" and names no token, message or request count anywhere in its usage answer. So `resource` stays absent rather than guessed; the mapping is revisited when a schema field names a unit | Decided 26 October 2026 during SYL-292, a technical choice; the probe is [`research/app-server-rate-limit-schema-2026-10-26.md`](../research/app-server-rate-limit-schema-2026-10-26.md) on `codex-cli` 0.162.1 |
+
+## Browser lifetime proof refinement · 14 November 2026
+
+The shared [revision-1 local proof](../../arbol/driver-contract/01-subscriptions.md#local-subscription-lifetime-proof--browser-amendment-14-november-2026) and [format-2 maintenance boundary](../../arbol/driver-contract/06-state-and-simultaneous-calls.md#identity-format-2-and-maintenance-boundary--14-november-2026) are specified technical means for BRW-1.11/.14. This amendment is unimplemented and has no historical qualification credit.
+
+The default canonical selector is `chatgpt`; identity must materialize its witness independently from the format-file birth/ctime used by the current implicit record. The strict `parse_record` whitelist remains the old public/private record shape; use the format-2 sidecar. Preserve the production single-account limit and refusal to sign out/remove `chatgpt`, including force. Existing isolated historical test selectors are not authorized provider qualification profiles. Identity is local even when signed out and does not call app-server or read `~/.codex`.
+
+ABR-34 must inspect `state.py`, `subscriptions.py`, `cli.py`, `arguments.py` and every auth/usage/run completion writer before deriving its exact territory. The existing `Subscriptions.remove` and sign-in progress protocol must map successful permitted removal/ambiguous crash to the sidecar journal without transplanting proof. Capability is per exact Build, not inferred from contract number.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.record
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#parse_record
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.remove
+arbol-codex-driver:src/arbol_codex_driver/state.py#State
+-->
+
+| ID | Requirement | Refines | Origin | Verified by |
+|---|---|---|---|---|
+| CDX-1.17 | implement revision-1 local capture/compare and format-2 lifetime evidence with the Driver-specific rules above; preserve ordinary catalogue/auth/refusal behavior | DRV-0.17, DRV-1.28–1.30, DRV-6.17–6.20 | BRW-D32 | pending ABR-38; application ABR-19/21 |

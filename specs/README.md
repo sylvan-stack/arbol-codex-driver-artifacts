@@ -20,3 +20,7 @@ Source Refs name enabled repositories only. Evidence from the frozen version 1 r
 Current numbered Build verification: `research/first-working-build-2026-10-07/verification.json` (SYL-94, working Build `1`, package `1.0.0`, all 128 units and 38 shared scenarios, one test-account message, and failed Build `2` preserving the default). Earlier complete-suite and candidate verification remains in `research/conformance-2026-10-07/verification.json` (SYL-92).
 
 Evidence the specifications rest on is in `research/`: the [inventory of the version 1 Driver](../research/v1-driver-inventory.md) and the [record of probes against the installed tool](../research/tool-probes-2026-10-05.md).
+
+## Browser producer amendment · 14 November 2026
+
+[CDX-1.17](01-subscriptions.md#browser-lifetime-proof-refinement--14-november-2026) and shared DRV-0.17/DRV-1.28–1.30/DRV-6.17–6.20 add the unimplemented revision-1 Subscription lifetime producer. Earlier package/Build evidence remains valid only for its recorded scope and supplies no identity-format-2 pass. Producer implementation and qualification are ABR-34/ABR-38 of the Arbol Browser Saga; no installed migration occurs in the specification amendment.
