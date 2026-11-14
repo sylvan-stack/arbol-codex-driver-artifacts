@@ -276,6 +276,8 @@ arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.remove
 arbol-codex-driver:src/arbol_codex_driver/state.py#State
 -->
 
+#### Requirements
+
 | ID | Requirement | Refines | Origin | Verified by |
 |---|---|---|---|---|
 | CDX-1.17 | implement revision-1 local capture/compare and format-2 lifetime evidence with the Driver-specific rules above; preserve ordinary catalogue/auth/refusal behavior | DRV-0.17, DRV-1.28–1.30, DRV-6.17–6.20 | BRW-D32 | pending ABR-38; application ABR-19/21 |
