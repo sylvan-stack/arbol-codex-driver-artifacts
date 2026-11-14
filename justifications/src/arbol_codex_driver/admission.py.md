@@ -5,9 +5,9 @@ role: authored
 
 ## <before _read>
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Provide a preregistered independent helper handoff API without changing retained runners
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
 
 ## Frames
 
@@ -125,9 +125,9 @@ Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
 
 ## Session
 
-Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
+Reason: Provide a preregistered independent helper handoff API without changing retained runners
 
-Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
 
 ## Session.__enter__
 
@@ -212,4 +212,16 @@ Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
 Reason: Implement exact normal main/helper child handshake and independent admitted writer lease
 
 Origins: DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-ce8e1912 · 2026-11-14
+
+## Session._check
+
+Reason: Provide a preregistered independent helper handoff API without changing retained runners
+
+Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
+
+## Session.spawn_helper
+
+Reason: Provide a preregistered independent helper handoff API without changing retained runners
+
+Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
 
