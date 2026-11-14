@@ -95,7 +95,55 @@ Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-07f84efc · 2026-
 
 ## verify_payload
 
-Reason: Validate the complete fixed-root immutable producer payload and canonical M/D declaration
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-07f84efc · 2026-11-14
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## <before registry_identity>
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## Authority
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## _launcher
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## _provider
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## _registered_root
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## _required
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## registry_identity
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+
+## verify_authority
+
+Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+
+Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
 
