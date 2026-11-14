@@ -44,6 +44,12 @@ The environment of a child process starts from an allow-list of inherited variab
 
 When an app-server starts, its answer to the opening handshake names the home it uses. The Driver compares that with `~/.codex` and stops the process when they differ.
 
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/environment.py#clean_environment
+arbol-codex-driver:src/arbol_codex_driver/app_server.py#AppServer.start
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.app_server_home
+-->
+
 Only the test Subscription `test-chatgpt` of probes and live checks keeps a home of its own, in the test state directory and readable by the owner only. It is passed as `CODEX_HOME`, so a probe never starts the tool in `~/.codex` ([DRV-D44](../../arbol/driver-contract/05-conformance.md#decisions)).
 
 Observed until 19 October 2026: every Subscription had a folder of its own in the state directory, passed to the tool as `CODEX_HOME`. The Driver wrote the tool's configuration there, and the tool kept the Subscription's login there.
@@ -77,6 +83,14 @@ Only one sign-in on this machine can be pending at a time, across all homes, bec
 Observed with the installed tool on 5 October 2026: the authorisation address is on `auth.openai.com` and the tool listens on `127.0.0.1:1455` while the sign-in is pending. The tool does not open a browser itself, so the caller's window can show the page. A second sign-in started in another home succeeded and ended the first with "Login cancelled". The device-code answer carries the address `https://auth.openai.com/codex/device` and a code of the form `XXXX-XXXXX`.
 
 `chatgpt` uses the owner's own sign-in in `~/.codex` where it is: nothing is copied. When `codex` is signed in already, `sign-in` starts no login: it reads the account and answers `done` (CDX-D27). For example, the owner has signed `codex` in by hand; `arbol-codex-driver subscriptions sign-in chatgpt` then answers `done` with the account's e-mail address and plan, and `auth.json` stays as it is.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.create
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.sign_in
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.sign_out
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.remove
+arbol-codex-driver:src/arbol_codex_driver/cli.py#main
+-->
 
 Observed until 19 October 2026: the existing login in `~/.codex` was not taken over, and a Subscription was signed in once, in its own home (CDX-D2).
 

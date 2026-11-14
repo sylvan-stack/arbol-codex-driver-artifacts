@@ -56,6 +56,11 @@ These are housekeeping and one switch. The Driver switches no other part of the 
 
 For example, a run starts `codex app-server --disable memories -c check_for_update_on_startup=false -c analytics.enabled=false -c 'web_search="live"'` without `CODEX_HOME`. The tool reads the owner's `config.toml` with its `developer_instructions`, the hooks of `hooks.json`, the plug-ins, skills, MCP servers and `AGENTS.md`, and runs the owner's `notify` when a turn ends (CDX-3).
 
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/app_server.py#AppServer.start
+arbol-codex-driver:src/arbol_codex_driver/app_server.py#validate_driver_config
+-->
+
 Observed until 19 October 2026: before the first start in a Subscription's home the Driver wrote the tool's configuration file there, with the same settings and `cli_auth_credentials_store = "file"`, and rewrote it whenever its own version of that file changed.
 
 Observed on 19 October 2026 in the help of `codex-cli` 0.162.1: `codex app-server` takes `-c key=value`, which overrides a value of `~/.codex/config.toml`, and `--disable <feature>`, the same as `-c features.<feature>=false`.
@@ -101,6 +106,12 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 The Driver's map (DRV-2) names, for a chat session and a Subscription, the tool's thread and what it covers. An entry is written only after a completed run on a saved thread, and removed when a run on that thread ends any other way. The Driver resumes when every check of DRV-6 holds and `thread/resume` succeeds. A thread that is gone leads to a rebuild with the reason `conversation_gone`, any other refusal of the resume with `resume_refused`.
 
 For a rebuild the Driver inserts the earlier messages into the new thread with `thread/inject_items`, as messages of the user and of the assistant in their order, before it starts the turn. A tool call of the history is inserted as a `function_call` item followed by a `function_call_output` item with its result, under the name it was reported with, also when the other Driver reported it. A command in a terminal is therefore inserted under the name `shell`. That is not a name of the installed tool's own, which calls its command tools `exec_command` and `exec`; the model was seen to use calls inserted this way. A picture of an earlier message is inserted with that message, as `input_image` content. The thread then holds them as if the tool had saved that conversation itself. Where a tool version refuses the request, the fallback is version 1's way: the first input is one text with a heading and the earlier messages, each labelled with its role, then a heading and the new message.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/continuity.py#Chats.select
+arbol-codex-driver:src/arbol_codex_driver/continuity.py#Chats.settle
+arbol-codex-driver:src/arbol_codex_driver/run.py#run
+-->
 
 A run with all tools off and no working folder uses a thread the tool does not save.
 

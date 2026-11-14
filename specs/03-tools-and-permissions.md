@@ -62,6 +62,13 @@ The tool reads all of it itself, as when it is started by hand. The Driver hands
 
 The tables `[mcp_servers]` can hold secrets of the owner's, such as a key in a server's environment, and the tool may repeat one in what it reports. So that none reaches an event (DRV-0.3), the Driver reads those tables, and nothing else of `~/.codex`, at the start of a run with tools, only to learn which strings to hide (CDX-D30). Owner table strings are removed from every emitted event and text output, including tool inputs and results, vendor diagnostic messages and stderr excerpts. The event and result shapes stay the same; matching literal private values become `[redacted]`. Assistant history fingerprints use the redacted text delivered to the caller. A missing, unreadable or malformed file leaves nothing to hide, and the run goes on: what the tool does with such a file is the tool's own matter. The Driver does not read the tool’s credential files to discover additional values.
 
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/owner_setup.py#owner_mcp_config
+arbol-codex-driver:src/arbol_codex_driver/owner_setup.py#diagnostic_values
+arbol-codex-driver:src/arbol_codex_driver/owner_setup.py#DiagnosticScrubber
+arbol-codex-driver:src/arbol_codex_driver/run.py#run
+-->
+
 Observed until 19 October 2026: of the owner's setup a run had only the skills of `~/.agents/skills`, which the tool found by itself, and the MCP servers, whose tables the Driver read when a run started and handed to the tool in the `config` of `thread/start` or `thread/resume`. An unreadable or malformed file refused the run with `invalid_input`. No hook, plug-in, other setting or instruction file of the owner's reached a run.
 
 Observed with the installed tool on 6 October 2026: in a new home, with nothing linked, the tool listed 40 skills from the owner's `~/.agents/skills`. The owner's `~/.codex/skills` was empty. A server handed over in the `config` of `thread/start` was started, and the home's configuration file stayed as it was.
