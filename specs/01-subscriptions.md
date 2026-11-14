@@ -279,6 +279,12 @@ arbol-codex-driver:src/arbol_codex_driver/identity_protocol.py#canonical_bytes
 arbol-codex-driver:src/arbol_codex_driver/identity_protocol.py#parse_bytes
 arbol-codex-driver:src/arbol_codex_driver/payload.py#verify_payload
 arbol-codex-driver:src/arbol_codex_driver/payload.py#verify_authority
+arbol-codex-driver:src/arbol_codex_driver/payload.py#bootstrap_entry
+arbol-codex-driver:src/arbol_codex_driver/process_identity.py#process_identity
+arbol-codex-driver:src/arbol_codex_driver/process_identity.py#boot_uuid
+arbol-codex-driver:src/arbol_codex_driver/admission.py#admit
+arbol-codex-driver:src/arbol_codex_driver/admission.py#Session
+arbol-codex-driver:bin/entry.py#bootstrap
 -->
 
 #### Requirements
@@ -303,3 +309,10 @@ ABR-40 actual-review correction: consume DRV-6's exact `-ISB` bootstrap/D.import
 ### ABR-34 static foundation checkpoint · 14 November 2026
 
 Published source `841c86b61c52aafc525c2721cf44cbe257436275` supplies only the first three accepted producer-plan leaves: bounded canonical identity values/private descriptor-relative durable file primitives, complete immutable M/D payload verification, and explicit registry gate/platform/scoped acceptance verification. These modules remain unconnected to CLI/state dispatch. They do not emit a Subscription proof, capability, acceptance, maintenance receipt or runtime qualification. Admission/bootstrap, lifetime/format/writer/offline operations and packaging remain future source work. Ruff, strict source-scoped mypy and source AST/diff checks passed without importing or executing the product; tests, providers, native profiles/credentials, normal Builds, gates, state conversion, installation and boot were not run. CDX-1.17 remains accepted/pending qualification; Source Refs above identify this partial foundation only. Indexed Mycel Origin/retrieval verification remains unavailable and no ingest/embedding occurred.
+
+
+### ABR-34 admission source checkpoint · 15 November 2026
+
+Published source `36afc09b7c13e069993e5bf823eb646843f95fe4` completes only accepted plan leaves1–8. The later batch adds the exact Darwin kernel-microsecond process identity, confined -ISB/bootstrap/import roots, exact normal main/helper offer/ready/go/started admission, independent writer leases, preregistered same-invocation helper API and durable terminal/unknown-custody settlement. Admission timestamps are UTC with six integer-preserved microsecond digits; historical Driver-state/native cleanup owner records are unchanged. Context is opened only after the postspawn offer, matching the provider's publication order. The helper API tracks in-flight spawning threads and retains admission if their final protocol effects remain uncertain. The existing excluded shell launcher was published through Forester's documented exact --skip-path reason; its -ISB change remains tracked and booked, without pretending that Mycel includes the excluded file.
+
+These are static source contributions, not an executable producer/qualification pass. Bootstrap now requires immutable payload metadata and live normal/maintenance authority; packaging and maintenance implementation remain incomplete, so direct new source invocation refuses and no source bypass is supplied. Leaf9 still owns moving the ordinary run shell startup-ledger write into its admitted parent; lifetime/format/administrative/CLI/capability/packaging integration and ABR-38 runner wiring remain future work. No Subscription proof, qualified acceptance, usable maintenance or positive Browser binding is claimed. Five explicit Python inputs pass source-scoped Ruff/strict mypy and AST-only parsing; shell syntax and whitespace checks pass. No product/kernel adapter/helper/vendor/API/provider/profile/credential execution, tests/runners/gates, migration, Build/package, installation, boot or indexing occurred. The final independent actual-source review and all ABR-38 runtime gates remain required; CDX-1.17 stays accepted/pending qualification.
