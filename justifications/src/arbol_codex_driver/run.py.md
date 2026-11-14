@@ -5,7 +5,7 @@ role: authored
 
 ## run
 
-Reason: Replace the legacy Codex request tuple with a validated UUID and pass only that identity to the inference app server.
+Reason: Bind canonical chatgpt launches to the native Codex home without Driver home writes and preserve handshake/process cleanup.
 
-Origins: ARC-4.7 · Intention i-e9e1fc16 · 2026-11-12
+Origins: CDX-1.1, CDX-1.2, CDX-1.3, CDX-1.5, CDX-1.9, CDX-2.1, DRV-0.4, DRV-0.10 · Intention i-636a5054 · 2026-11-14
 
