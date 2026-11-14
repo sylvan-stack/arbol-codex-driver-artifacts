@@ -41,7 +41,13 @@ Origins: CDX-1.1, CDX-1.2, CDX-1.6, DRV-1.2, DRV-1.13, DRV-0.12 · Intention i-4
 
 ## Subscriptions.sign_in
 
-Reason: Recognize an existing native ChatGPT account through account/read before starting a browser or device login.
+Reason: Never log out the native account during failed or cancelled sign-in; cancel only an owned actual login attempt before cleanup.
 
-Origins: CDX-1.6, CDX-1.9, CDX-1.7, CDX-1.8 · Intention i-d6aa751d · 2026-11-14
+Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-14
+
+## <before parse_record>
+
+Reason: Never log out the native account during failed or cancelled sign-in; cancel only an owned actual login attempt before cleanup.
+
+Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-14
 
