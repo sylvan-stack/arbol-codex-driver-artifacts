@@ -143,7 +143,13 @@ Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-
 
 ## verify_authority
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Reason: Require isolated immutable bootstrap and a live admission factory before CLI imports or state access
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
+
+## bootstrap_entry
+
+Reason: Require isolated immutable bootstrap and a live admission factory before CLI imports or state access
+
+Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
 
