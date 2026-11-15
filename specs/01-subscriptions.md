@@ -287,6 +287,9 @@ arbol-codex-driver:src/arbol_codex_driver/admission.py#Session
 arbol-codex-driver:src/arbol_codex_driver/app_server.py#startup_ledger
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#admit
+arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState
+arbol-codex-driver:src/arbol_codex_driver/identity.py#root_generation
+arbol-codex-driver:src/arbol_codex_driver/state.py#State.initialize
 arbol-codex-driver:bin/entry.py#bootstrap
 -->
 
@@ -328,3 +331,10 @@ Published source `d8d6aac2fb578c489a472d9ba8b72e55d00908f9` completes only accep
 The exclusive maintenance validator consumes only the exact registered entry, administrative argv/context/receipt/pending-operation/qualified M/D/gate/platform tuple, agreed session paths and live inherited exclusive descriptor. It reasserts exclusive flock on that open-file description and requires an independently opened descriptor to remain blocked; it never LOCK_UNs the parent's copy. Paths are canonical/private and archives remain outside state/registry. It neither reads target payload contents nor converts/repairs state, drains custody, writes result receipts or opens admission. Actual format2/state/lifetime/administrative dispatch and packaging remain future leaves11–34, so no usable maintenance, identity proof/capability, qualified acceptance or Browser binding is claimed.
 
 Source-scoped Ruff/strict mypy and AST parsing pass for app_server.py, run.py and maintenance.py. The generated notification-shell text passed syntax-only `/bin/sh -n -c` through AST literal extraction, without importing the product or executing that script/vendor. No tests, fixtures, runners, inventories, gates, product/native/provider/profile/credential/model/API execution, migration, package/Build, installation, boot, indexing, ingest or embedding occurred. Final independent actual-source review and ABR-38 runtime/gate qualification remain required. The unrelated CDX-2 working hunk and historical state/owner semantics were preserved.
+
+
+### ABR-34 local state-admission checkpoint · 15 November 2026
+
+Published source `de262af2faecb7590383ed5ed17fc722cdc656ec` completes accepted leaf 11, with managed Justifications `75817f5`. State initialization retains an independently opened close-on-exec shared `identity.guard` through state effects and output, with no destructor that releases it on object collection. Higher-format preflight is read-only; format/root generation are rechecked under the guard. Fresh qualified state publishes the format-2 fence and durable random root without materializing Subscription witnesses. Existing format 1 keeps legacy record behavior without automatic conversion or proof. Existing format 2 cannot recreate its missing guard or root; changed generation, unsafe state and local upgrade/maintenance markers refuse. No guard inode is replaced or unlinked.
+
+The new internal `State.assert_admitted()` returns the captured `IdentityState`; `State.close()` is available for explicit settled final-output integration in leaf 26. Until then the process retains its independently opened guard through exit, even if the local State object leaves scope. Proof capture, record/lifetime journals, administrative state effects, CLI/capability and package metadata remain later leaves; this is not a complete usable producer. All 37 Python source modules pass strict non-incremental mypy and AST parsing, and the two changed files pass Ruff/diff checks without importing the product. No tests, native/helper/kernel/API/provider/profile/credential execution, state creation/conversion, Build/gate, installation, boot or indexed retrieval was performed. ABR-38 and final independent actual-source/Arc review remain pending.
