@@ -195,3 +195,21 @@ Reason: Implement exact create/remove identity journal validation and conservati
 
 Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
 
+## LifetimeSnapshot
+
+Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+
+## LifetimeSnapshot.capture
+
+Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+
+## lifetime_matches
+
+Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+
