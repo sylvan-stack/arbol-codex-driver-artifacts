@@ -5,9 +5,9 @@ role: authored
 
 ## <before Operation>
 
-Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
+Reason: Stage only declared metadata and explicit absence from an immutable source under bound restore intent while retaining all live guards
 
-Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
+Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
 
 ## Operation
 
@@ -17,9 +17,9 @@ Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
 
 ## Operation.__enter__
 
-Reason: Bind local pending and complete checkpoints to exact exclusive maintenance authority and immutable before-manifest evidence
+Reason: Stage only declared metadata and explicit absence from an immutable source under bound restore intent while retaining all live guards
 
-Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
+Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
 
 ## Operation.__exit__
 
@@ -146,4 +146,16 @@ Origins: DRV-6.19, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-bccc50dc · 2026-
 Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
 
 Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
+
+## Operation.prepare_restore
+
+Reason: Stage only declared metadata and explicit absence from an immutable source under bound restore intent while retaining all live guards
+
+Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
+
+## Operation.restored_conversion
+
+Reason: Stage only declared metadata and explicit absence from an immutable source under bound restore intent while retaining all live guards
+
+Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
 

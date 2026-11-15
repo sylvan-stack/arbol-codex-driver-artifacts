@@ -23,9 +23,9 @@ Origins: DRV-6.19 · Intention i-6e995003 · 2026-11-15
 
 ## Archive.load
 
-Reason: Preserve immutable bounded metadata before images and exact same-attempt archive reuse for Codex maintenance
+Reason: Stage only declared metadata and explicit absence from an immutable source under bound restore intent while retaining all live guards
 
-Origins: DRV-6.19 · Intention i-6e995003 · 2026-11-15
+Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
 
 ## Archive.manifest
 
