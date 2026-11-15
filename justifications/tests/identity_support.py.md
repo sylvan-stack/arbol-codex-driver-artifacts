@@ -5,9 +5,9 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
 
 ## <end>
 
@@ -290,4 +290,106 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-
 Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
 
 Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## <before LocalInvocation>
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.__init__
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject._inputs
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject._publish
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject._read
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject._terminal
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.check_inputs
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.collect
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.prepare_legacy
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.request
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.spawn
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.state_image
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.stop
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## CodexLocalSubject.waiting_pair
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## LocalCapture
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## LocalInvocation
+
+Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+
+Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
 
