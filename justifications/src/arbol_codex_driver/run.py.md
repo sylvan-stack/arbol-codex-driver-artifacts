@@ -5,7 +5,7 @@ role: authored
 
 ## run
 
-Reason: Use native thread/resume refusal as conversation existence authority instead of reading native session directories.
+Reason: Move startup identity ledger into admitted parent and gate unchanged vendor exec on durable orphan evidence
 
-Origins: CDX-1.5, CDX-1.9, CDX-2.7, CDX-2.8, CDX-2.9, CDX-2.18 · Intention i-4fe40ad7 · 2026-11-14
+Origins: DRV-6.20, DRV-6.21, DRV-6.18, CDX-1.17 · Intention i-96473a98 · 2026-11-15
 
