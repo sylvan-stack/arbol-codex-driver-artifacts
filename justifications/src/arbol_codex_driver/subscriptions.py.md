@@ -47,7 +47,13 @@ Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-
 
 ## <before parse_record>
 
-Reason: Never log out the native account during failed or cancelled sign-in; cancel only an owned actual login attempt before cleanup.
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
 
-Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-14
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## Subscriptions.identity
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
 

@@ -5,9 +5,9 @@ role: authored
 
 ## <before state_format>
 
-Reason: Hold stable local format-2 admission and initialize durable root identity before ordinary state access
+Removed: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
 
-Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-11-15
+Removed by Intention i-ae52ca5d · 2026-11-15
 
 ## IdentityState
 
@@ -74,4 +74,34 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 Reason: Hold stable local format-2 admission and initialize durable root identity before ordinary state access
 
 Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-11-15
+
+## <before canonical_id>
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## IdentityState.capture_proof
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## IdentityState.require_proof
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## canonical_id
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## expected_proof
+
+Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
 
