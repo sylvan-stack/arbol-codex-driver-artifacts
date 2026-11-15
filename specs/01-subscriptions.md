@@ -286,6 +286,8 @@ arbol-codex-driver:src/arbol_codex_driver/admission.py#admit
 arbol-codex-driver:src/arbol_codex_driver/admission.py#Session
 arbol-codex-driver:src/arbol_codex_driver/app_server.py#startup_ledger
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance
+arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance.recheck
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#admit
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState
 arbol-codex-driver:src/arbol_codex_driver/identity.py#root_generation
@@ -418,3 +420,12 @@ arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#read_bytes
 arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#preserve
 arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#preserve_entry
 -->
+
+
+### ABR-34 local maintenance checkpoint ·15 November2026
+
+Accepted leaf22 is published as source `37b7bf097988ac4bd222c3944c5d26c69ebf9b04`, managed Justifications `d18d484a96c92822214cb5527be24e9f6d9fd31e`. `Operation` consumes only this invocation's entered/rechecked maintenance handoff before target preflight, independently opens/retains exclusive stable identity.guard, and never unlocks/replaces it. Format1 may establish the missing pre-identity guard only under the verified drained component fence; existing format2 cannot recreate a missing guard. Local pending/complete markers bind exact context generation/attempt/source/before-manifest hashes. Mismatched reuse refuses. Completion reconstructs the exact bounded child maintenance tuple only from format2/exact root, immutable same-attempt archive, matching local marker and operation-relative cleared journals. Targeted recovery preserves unrelated well-formed pending journals and their per-selector refusals; malformed metadata refuses closed. The provider alone publishes result.json, archives the complete marker and reopens admission.
+
+The module supplies checkpoints, not conversion/reset/restore/retire algorithms or CLI wiring. Two-file Ruff, strict non-incremental mypy over39 production modules, AST parsing those39 plus bin/entry.py without product imports and diff checks pass. Source and managed Justifications are pushed. No tests/fixtures/runners/inventories/gates, product/archive/helper/native/kernel/API/provider/profile/credential/model/state operation, Build/package/install, boot or separate indexing/ingest/embedding command ran. Final independent full-source review and ABR-38 remain required; no maintenance/runtime success is claimed.
+
+A subsequent static composition audit found that ordinary reap currently requires a dead progress receipt's former lifetime to match active current proof. Supported reset/restore changes generation, and targeted retirement changes witness, while preserving that progress; reserve can then refuse forever. No reproduction was run. The existing current-record/dead-owner rule in DRV-6 and captured-lifetime discard rule require separating fresh exact orphan-progress cleanup from authority of an old result. The Beat now proposes a narrow new unticked leaf23 for independent cold review before source changes. Former unticked algorithms23–36 become24–37. Completed source1–22 stays intact; no new progress/auth schema, native policy, positive proof or cross-lifetime verdict is accepted by that draft. Unrelated CDX-2 bytes remain untouched.
