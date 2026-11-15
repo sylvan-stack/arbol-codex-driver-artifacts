@@ -75,3 +75,9 @@ Reason: Implement quiescent same-generation format1 upgrade and reuse the canoni
 
 Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
 
+## read_lock
+
+Reason: Validate independent regular nonblocking no-follow descriptors before the existing lock and orphan-owner text reads without changing their grammar or owner semantics
+
+Origins: DRV-6.1, DRV-6.5, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.18, DRV-6.20, CDX-1.17 · Intention i-d5471a0c · 2026-11-15
+
