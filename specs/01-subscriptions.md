@@ -497,3 +497,20 @@ The fresh independent whole-source/static-input reviewer delivered **accepted wi
 Numeric info/build metadata contract1 intentionally remains the accepted baseline of leaves29/32. Shared Contract2 wording is a retained compatibility discrepancy: **ABR-38 must explicitly reconcile it before qualification**, including the five-repository/consumer composition. This source verdict does not certify Contract2 compliance. Subscription identity capability1 and payload contract DRV-browser-identity-1 are distinct from the numeric field. No concrete new identity-path failure or authorized version change was found. Keep this issue in the exact qualified tuple/evidence and future Backend composition hand-over, not an inferred source fix.
 
 ABR-34's implementation-only source scope is complete upon its final leaf38 publication. All registered producer/provider Builds, expanded executable runtime roots, actual M/D, launcher/gate/acceptance, runtime/full-gate qualification and genuine-boot/deployment tuples remain unproduced for this checkpoint. The copied public runtime archive/member hashes are static input bytes only. ABR-38 owns retained dev/archived runner admission wiring, all five complete ordinary gates, old/new format/proof/race/late-result/process/import/helper/custody/native/maintenance/archive/crash/retry/restore/retire/result/reopen cases, compatibility reconciliation and a separately scoped genuine-transition proposal/evidence. Final independent Arc Review and every consumer prerequisite remain intact. No product/package/generator/runtime/test/gate/owner-state action, index ingest or embedding ran during final publication. Unrelated CDX-2 bytes and all old checkpoints/candidates remain unchanged.
+
+
+### ABR-45 nested admission and helper declaration source · 15 November 2026
+
+Source `74a13d7772f4fdc56799cd1258a607df7865a2ba`, tree `37f003007efa9d729ace8ecee13e67625983bde2`, exposes the existing one-use helper handoff as prepare_helper and uses it for both synchronous and asynchronous spawning. The ticket retains its parent spawn obligation through acknowledgement, joins acknowledgement work before closing its owned socket, and forwards only its existing handshake descriptor. Both shipped execute_run bodies now independently admit the nested public bin/entry.py process while retaining request/control streams, environment, native HOME/config/auth and bounded cancellation cleanup. The archived body is shipped production orchestration; actual test methods and fixtures are unchanged.
+
+Immutable package declarations add only scripts/check_build.py and the reserved tests/identity_actor.py beside the public entry, requiring regular inventoried bytes. Missing future bodies refuse packaging; a filename is no actor-body admission. Numeric contract1 remains distinct from subscription identity capability1 and payload DRV-browser-identity-1. Managed per-leaf Justifications are published. This is implementation/source evidence only: complete gates, future runner/actor bodies, actual M/D/Build/acceptance and runtime qualification remain ABR-38. No product/package/generator/test/native execution or separate index ingest/embedding ran.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/admission.py#Session.prepare_helper
+arbol-codex-driver:src/arbol_codex_driver/admission.py#Session.spawn_helper
+arbol-codex-driver:src/arbol_codex_driver/admission.py#Session.spawn_helper_async
+arbol-codex-driver:src/arbol_codex_driver/admission.py#HelperHandoff
+arbol-codex-driver:src/arbol_codex_driver/dev.py#execute_run
+arbol-codex-driver:tests/mid/archived/src/arbol_codex_driver/dev.py#execute_run
+arbol-codex-driver:scripts/identity_package.py#emit
+-->
