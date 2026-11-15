@@ -35,7 +35,7 @@ Origins: DRV-0.17, DRV-1.28, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-8892b94
 
 ## Arbol Codex Driver > Identity source and qualification (15 November 2026)
 
-Reason: Document current identity and qualified maintenance source behavior while retaining native boundaries and explicitly dated historical workflows
+Reason: Clarify the same README leaf: absolute administrative path values versus the assertion flag and exact new-entry admission scope
 
-Origins: DRV-0.17, DRV-1.28, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-8892b944 · 2026-11-15
+Origins: DRV-0.17, DRV-1.28, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-00a22917 · 2026-11-15
 
