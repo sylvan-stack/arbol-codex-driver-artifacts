@@ -5,7 +5,43 @@ role: authored
 
 ## main
 
-Reason: Refuse canonical native creation, sign-out and removal before recovery, stopping, reservation or vendor effects, including force.
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
 
-Origins: CDX-1.1, CDX-1.2, CDX-1.6, DRV-1.2, DRV-1.13, DRV-0.12 · Intention i-42b1a84c · 2026-11-14
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+
+## entry
+
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+
+## <before main>
+
+Removed: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Removed by Intention i-b5c7ed68 · 2026-11-15
+
+## <before Invocation>
+
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+
+## Invocation
+
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+
+## Invocation.__init__
+
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+
+## Invocation.close
+
+Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+
+Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
 
