@@ -5,9 +5,9 @@ role: authored
 
 ## <before canonical>
 
-Reason: Emit exact complete immutable M and D only for a clean committed registered Build after all other payload bytes settle
+Reason: Declare exact Codex fixed qualification helpers without issuing authority
 
-Origins: DRV-0.17, DRV-0.15, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-04d802cf · 2026-11-15
+Origins: DRV-0.17, DRV-5.8, DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.3, BLD-0.15 · Intention i-f823a240 · 2026-11-15
 
 ## canonical
 
@@ -17,9 +17,9 @@ Origins: DRV-0.17, DRV-0.15, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-04d802c
 
 ## emit
 
-Reason: Emit exact complete immutable M and D only for a clean committed registered Build after all other payload bytes settle
+Reason: Declare exact Codex fixed qualification helpers without issuing authority
 
-Origins: DRV-0.17, DRV-0.15, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-04d802cf · 2026-11-15
+Origins: DRV-0.17, DRV-5.8, DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.3, BLD-0.15 · Intention i-f823a240 · 2026-11-15
 
 ## inventory
 
