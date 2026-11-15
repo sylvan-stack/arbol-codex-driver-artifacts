@@ -403,3 +403,18 @@ Run reservation, later reports and Chats settlement carry the same captured tupl
 The parser now recognizes the exact identity/expect and state upgrade/identity-reset/restore/identity-recover families, rejects duplicate/unknown/inapplicable arguments, requires each fixed flag/value and absolute canonical administrative paths, and treats quiescence solely as an assertion. This is grammar only: early CLI dispatch/settled State.close is leaf28, administrative archive/marker/conversion/reset/restore/recovery effects start at21, and capability/immutable packaging remain later work. No new executable producer, proof/capability/acceptance or maintenance success is claimed.
 
 Ruff passes over the authored six files; strict non-incremental mypy passes over37 production source modules, and AST parsing passes those37 plus bin/entry.py without product imports. Diff checks pass. No tests/fixtures/runners/inventories/gates, product/native/kernel/helper/API/provider/profile/credential/model execution, state creation/conversion, Build/package/install, boot, indexing, ingest or embedding occurred. Full indexed Origin/retrieval verification remains previously unavailable; deterministic local plan/paths/direct-Origin and Source Ref checks are recorded in the Beat. Source and managed Justifications are pushed; unrelated CDX-2 bytes are preserved. Shared DRV references remain coordinated separately. Final independent actual-source review and all ABR-38 runtime/gate qualification are still required.
+
+
+### ABR-34 immutable metadata archive checkpoint ·15 November2026
+
+Published source `e41d58b94b1e1f9cddc8f9b10b4df2a5e752a12e` adds metadata-only immutable archives with canonical bounded manifests, lexical paired presence/absence, exact raw before-image hashes, strict valid-source checks and same-attempt private preservation binding. Source-only Subscription directories may be genuinely absent from current state; the reader walks no-follow parent descriptors and treats only ENOENT as absence, while unsafe existing paths refuse. It creates no ordinary Subscription/record while taking a snapshot. Malformed bounded failed bytes are preserved as evidence but a null-format archive cannot authorize restoration. Records/auth/native homes/chat/live guard/registry authority remain outside the metadata allowlist.
+
+Interrupted private writer staging is retained outside the immutable entry, and complete entries are verified rather than rewritten. This completes source leaf21 only: local operation markers/results, conversion/reset/recovery/restore and early CLI integration remain subsequent work. Ruff, AST, strict no-incremental mypy over38 production modules and committed-file whitespace checks pass. No archive function, product/helper/native/API/profile/model/provider/credential/state operation, test/fixture/runner/inventory, Build/gate/package/install or boot was executed. Full independent source review and ABR-38 qualification remain pending.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#Archive
+arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#metadata_names
+arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#read_bytes
+arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#preserve
+arbol-codex-driver:src/arbol_codex_driver/identity_backup.py#preserve_entry
+-->
