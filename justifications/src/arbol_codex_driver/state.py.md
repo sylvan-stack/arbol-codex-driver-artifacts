@@ -63,3 +63,15 @@ Reason: Validate legacy record file descriptors before reading without blocking 
 
 Origins: DRV-6.17, DRV-6.18 · Intention i-951fe407 · 2026-11-15
 
+## State.with_subscription_lock
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## with_subscription_directory_lock
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+

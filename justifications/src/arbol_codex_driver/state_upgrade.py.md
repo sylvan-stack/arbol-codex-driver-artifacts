@@ -5,9 +5,9 @@ role: authored
 
 ## <before Operation>
 
-Reason: Bind local pending and complete checkpoints to exact exclusive maintenance authority and immutable before-manifest evidence
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
 
-Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
 
 ## Operation
 
@@ -98,4 +98,40 @@ Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
 Reason: Bind local pending and complete checkpoints to exact exclusive maintenance authority and immutable before-manifest evidence
 
 Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
+
+## Operation.convert
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## Operation.short_lock
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## Operation.subscriptions
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## Operation.upgrade
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## Operation.validate_metadata
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+
+## Operation.validate_records
+
+Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+
+Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
 
