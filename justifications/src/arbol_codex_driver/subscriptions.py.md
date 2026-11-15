@@ -71,9 +71,9 @@ Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-
 
 ## Subscriptions.require_remove_receipt
 
-Reason: Prepare and commit historical removal using original receipt and proven out-of-lock cleanup, preserving native refusal
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
 
-Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-11-15
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
 
 ## Subscriptions.settle_identity
 
@@ -122,4 +122,52 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
 
 Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+
+## Subscriptions.finish
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.reap
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.reserve
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.set_tool
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.stop_pending
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## parse_progress
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.progress_matches
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.same_progress
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
 

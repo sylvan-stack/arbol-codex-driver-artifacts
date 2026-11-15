@@ -77,9 +77,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 
 ## <before canonical_id>
 
-Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
 
-Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
 
 ## IdentityState.capture_proof
 
@@ -209,7 +209,19 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 
 ## lifetime_matches
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## LifetimeSnapshot.document
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## LifetimeSnapshot.parse
+
+Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+
+Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
 
