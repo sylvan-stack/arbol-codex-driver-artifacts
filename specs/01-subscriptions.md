@@ -288,6 +288,14 @@ arbol-codex-driver:src/arbol_codex_driver/app_server.py#startup_ledger
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance.recheck
 arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation.upgrade
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation.reset
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation.recover
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation.prepare_restore
+arbol-codex-driver:src/arbol_codex_driver/state_upgrade.py#Operation.restore
+arbol-codex-driver:src/arbol_codex_driver/state.py#with_subscription_directory_lock
+arbol-codex-driver:src/arbol_codex_driver/identity.py#RecoveryObservation
+arbol-codex-driver:src/arbol_codex_driver/identity.py#retire_pending
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#admit
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState
 arbol-codex-driver:src/arbol_codex_driver/identity.py#root_generation
@@ -429,3 +437,14 @@ Accepted leaf22 is published as source `37b7bf097988ac4bd222c3944c5d26c69ebf9b04
 The module supplies checkpoints, not conversion/reset/restore/retire algorithms or CLI wiring. Two-file Ruff, strict non-incremental mypy over39 production modules, AST parsing those39 plus bin/entry.py without product imports and diff checks pass. Source and managed Justifications are pushed. No tests/fixtures/runners/inventories/gates, product/archive/helper/native/kernel/API/provider/profile/credential/model/state operation, Build/package/install, boot or separate indexing/ingest/embedding command ran. Final independent full-source review and ABR-38 remain required; no maintenance/runtime success is claimed.
 
 A subsequent static composition audit found that ordinary reap currently requires a dead progress receipt's former lifetime to match active current proof. Supported reset/restore changes generation, and targeted retirement changes witness, while preserving that progress; reserve can then refuse forever. No reproduction was run. The existing current-record/dead-owner rule in DRV-6 and captured-lifetime discard rule require separating fresh exact orphan-progress cleanup from authority of an old result. The Beat now proposes a narrow new unticked leaf23 for independent cold review before source changes. Former unticked algorithms23–36 become24–37. Completed source1–22 stays intact; no new progress/auth schema, native policy, positive proof or cross-lifetime verdict is accepted by that draft. Unrelated CDX-2 bytes remain untouched.
+
+
+### ABR-34 recovery and offline-algorithm checkpoint ·15 November2026
+
+Published source `1b3a23c2ac5dc9b60244d5566d8a71a0f07ea4fa` completes accepted leaves23–28, current28/37. Fresh ordinary reaping now captures the full unchanged dead progress receipt plus validated current record/root/strict sidecar observation under the short lock, retains original process cleanup outside it, then deletes only that same receipt durably after unchanged/dead rechecks. It writes no verdict, witness or pending journal and retains settled signed-in records/successor progress. Stale merge refuses before get/reap. Format1/native cleanup behavior and all original delayed lifetime/attempt/auth checks remain.
+
+Exclusive algorithms now use the context's selected generation throughout immutable before-manifests, local markers, upgrade journals and retry results. Upgrade stages/fsyncs the root, publishes format2 before root proof and clears its exact journal last; repeated valid-format2 upgrade keeps its generation. Reset rotates only root identity, leaving witnesses/records/native/auth unchanged. Conservative recover retires only its archived pending witness under the canonical short lock, leaves records/credentials/progress as found, clears only target pending and preserves unrelated well-formed pending journals. The normal post-maintenance reaper can then dispose of the exact old dead progress without adopting an old result.
+
+Restore verifies source/hash and private metadata-only source/current union before replacements, preserves raw failed metadata and historical journals, binds durable restore intent and leaves live guards/registry/native state untouched. Only an actually empty canonical target may establish a new guard under exclusive restore authority; existing format2/unsafe state cannot recreate one. Declared absence removes identity metadata only. Historical journals remain read-only evidence, never current authority. Interrupted conversion-before publication can resume; once its format2 fence is crossed the same attempt resumes conversion without reapplying format1. Format1 internally reconverts through its own conversion-before/manifest.json and exact fresh context generation; format2 settles the same fresh generation. Source Subscription pending transactions are refused before restore mutation rather than fabricated cleanup; use a clean verified metadata source or the explicit conservative route. Exact local completion/result checks and provider-only result/reopen duties remain unchanged.
+
+All39 production modules pass strict non-incremental mypy; AST parsing passes those39 plus bin/entry.py without product imports; authored targets pass Ruff and diff checks. No tests/fixtures/runners/inventories/gates, product/archive/native/kernel/helper/API/provider/profile/credential/model/state operation, Build/package/install or boot ran; no separate indexing/ingest/embedding command was invoked. CLI dispatch/capability and immutable packaging remain leaves29 onward, so no executable maintenance/proof/qualified acceptance/Browser pass is claimed. Source/managed Justifications are pushed, Source Refs identify static contributions only, and unrelated CDX-2 bytes remain preserved. Final full-source independent review and ABR-38 remain pending.
