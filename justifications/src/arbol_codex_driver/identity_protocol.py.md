@@ -59,9 +59,9 @@ Origins: DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21 · Intention i-04a34b37 · 2026-
 
 ## PrivateDirectory.read
 
-Reason: Add bounded canonical identity values and private durable descriptor-relative protocol file primitives
+Reason: Refuse nonregular identity protocol paths before a blocking open can retain state admission
 
-Origins: DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21 · Intention i-04a34b37 · 2026-11-14
+Origins: DRV-6.17, DRV-6.18 · Intention i-92c47dad · 2026-11-15
 
 ## _safe_name
 
