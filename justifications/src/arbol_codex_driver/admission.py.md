@@ -221,15 +221,15 @@ Origins: DRV-6.21, DRV-6.18 · Intention i-5d845334 · 2026-11-14
 
 ## Session.spawn_helper
 
-Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
 
-Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 
 ## <before current_session>
 
-Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
 
-Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 
 ## Session.<before Session.finish>
 
@@ -251,9 +251,9 @@ Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 
 ## Session._spawn_helper
 
-Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+Removed: Expose one-use prepared Codex helper ticket while retaining custody accounting
 
-Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+Removed by Intention i-935800c0 · 2026-11-15
 
 ## Session.finish
 
@@ -266,4 +266,70 @@ Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
 Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
 
 Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+
+## <before HelperHandoff>
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff._release
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.acknowledge
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.close
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.context_path
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.environment
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.pass_fds
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## HelperHandoff.prefix
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## Session._end_spawn
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## Session.prepare_helper
+
+Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+
+Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 
