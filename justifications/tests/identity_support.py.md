@@ -35,15 +35,15 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.__init__
 
-Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
+Reason: Retain bounded actual unread helper stdout and stderr on every failed startup and cleanup path, including before selector setup, within the original shared deadline; preserve original errors, real waits and unresolved ownership.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-1d5e92de · 2026-11-15
 
 ## CodexH1Support._cleanup
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Retain bounded actual unread helper stdout and stderr on every failed startup and cleanup path, including before selector setup, within the original shared deadline; preserve original errors, real waits and unresolved ownership.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-1d5e92de · 2026-11-15
 
 ## CodexH1Support._finish_actor
 
@@ -53,9 +53,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support._pump
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Retain bounded actual unread helper stdout and stderr on every failed startup and cleanup path, including before selector setup, within the original shared deadline; preserve original errors, real waits and unresolved ownership.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-1d5e92de · 2026-11-15
 
 ## CodexH1Support._receive
 
@@ -71,9 +71,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.abort_before_session_finish
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Retain bounded actual unread helper stdout and stderr on every failed startup and cleanup path, including before selector setup, within the original shared deadline; preserve original errors, real waits and unresolved ownership.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-1d5e92de · 2026-11-15
 
 ## CodexH1Support.close_before_session_finish
 
