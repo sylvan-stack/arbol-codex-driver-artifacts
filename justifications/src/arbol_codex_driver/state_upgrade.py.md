@@ -159,3 +159,9 @@ Reason: Stage only declared metadata and explicit absence from an immutable sour
 
 Origins: DRV-6.18, DRV-6.19, DRV-1.30 · Intention i-db8d141f · 2026-11-15
 
+## Operation.restore
+
+Reason: Settle restored format1 or format2 with the same fresh context generation and exact immutable conversion evidence before result completion
+
+Origins: DRV-6.18, DRV-6.19, DRV-1.30, CDX-1.17 · Intention i-bb7e0e21 · 2026-11-15
+
