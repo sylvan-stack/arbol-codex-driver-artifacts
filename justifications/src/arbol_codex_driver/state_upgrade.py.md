@@ -135,3 +135,9 @@ Reason: Implement quiescent same-generation format1 upgrade and reuse the canoni
 
 Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
 
+## Operation.reset
+
+Reason: Rotate only the root generation under exact immutable same-attempt preservation and exclusive authority
+
+Origins: DRV-6.19, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-bccc50dc · 2026-11-15
+
