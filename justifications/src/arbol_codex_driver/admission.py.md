@@ -5,9 +5,9 @@ role: authored
 
 ## <before _read>
 
-Reason: Retain independent admission through helper work and durable terminal or unresolved custody disposition
+Reason: Spawn Codex async helper with joined one-use admission and bounded cleanup
 
-Origins: DRV-6.21, DRV-6.18, DRV-6.20 · Intention i-851cc0c7 · 2026-11-14
+Origins: DRV-5.8, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-beb26f03 · 2026-11-15
 
 ## Frames
 
@@ -287,9 +287,9 @@ Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 
 ## HelperHandoff.acknowledge
 
-Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+Reason: Spawn Codex async helper with joined one-use admission and bounded cleanup
 
-Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+Origins: DRV-5.8, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-beb26f03 · 2026-11-15
 
 ## HelperHandoff.close
 
@@ -332,4 +332,16 @@ Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
 
 Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+
+## Session.spawn_helper_async
+
+Reason: Spawn Codex async helper with joined one-use admission and bounded cleanup
+
+Origins: DRV-5.8, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-beb26f03 · 2026-11-15
+
+## _join_owned
+
+Reason: Spawn Codex async helper with joined one-use admission and bounded cleanup
+
+Origins: DRV-5.8, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-beb26f03 · 2026-11-15
 
