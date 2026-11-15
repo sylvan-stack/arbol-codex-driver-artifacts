@@ -35,9 +35,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.__init__
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
 
 ## CodexH1Support._cleanup
 
@@ -89,9 +89,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.run_h1
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
 
 ## FixtureFailure
 
@@ -200,4 +200,16 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
 
 Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+
+## CodexH1Support._observe_short_lock_origins
+
+Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
+
+## CodexH1Support._recheck_short_lock_origins
+
+Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
 
