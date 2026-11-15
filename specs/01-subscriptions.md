@@ -291,6 +291,8 @@ arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState
 arbol-codex-driver:src/arbol_codex_driver/identity.py#root_generation
 arbol-codex-driver:src/arbol_codex_driver/identity.py#expected_proof
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState.capture_proof
+arbol-codex-driver:src/arbol_codex_driver/identity.py#PendingIdentity
+arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityJournal
 arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.identity
 arbol-codex-driver:src/arbol_codex_driver/state.py#State.initialize
 arbol-codex-driver:bin/entry.py#bootstrap
@@ -353,3 +355,10 @@ This is a source contribution, with no executed proof/capability or usable produ
 ### ABR-34 bounded reader checkpoint · 15 November 2026
 
 Published source `28558413df390d385904a44d31074e55f0310105`, with managed Justifications `ab22c32`, adds O_NONBLOCK to the existing descriptor-relative private protocol reader. It can reach its regular-file check without waiting for a FIFO writer; no-follow, ownership/mode, inode, size/stability and durable publication checks remain unchanged. This narrow static correction is new implementation leaf 13 after an independently accepted plan amendment; the current plan has 35 leaves and 13 completed. Ruff, strict non-incremental mypy over all 37 production modules and diff checks pass. No FIFO was created, and no product/helper/native/API/test/gate/owner-state action was executed; ABR-38 still owns runtime refusal and preservation evidence. Journal continuation is now leaf 14; no public proof CLI/capability or complete producer claim is added.
+
+
+### ABR-34 journal source checkpoint · 15 November 2026
+
+Published source `bcb6d733fc4fc68883e17c7477191a4e3359cc1c` adds the exact four-field pending create/remove journal and short-lock settlement helper. Prepared remove remains unavailable without the original operation's proven cleanup; missing progress, process death or record absence is no success evidence. Only a validated committed outcome can settle automatically. Retirement/record deletion, committed phase and pending-marker removal use durable private publication/deletion. Prepared create can retain that exact witness for a valid new record or retire it; a retired/different witness is not silently reactivated or transplanted. The original live remove may cancel its prepared marker only before any cleanup effect, preserving active proof. The helper refuses canonical native chatgpt removal and introduces no public creation route or new record field. Its caller must validate any current record and original owner/attempt evidence while holding the canonical short lock; removal integration remains future work.
+
+One-file Ruff, strict non-incremental mypy over all37 production source modules, AST parsing of all37 without product imports and diff checks pass. No tests/fixtures/runners/inventories/gates, special-file/FIFO creation, product/native/kernel/helper/API/provider/profile/credential/model/state execution, Build/package/install, boot, indexing, ingest or embedding occurred. A separate static finding in the old state.read_json(Path.read_text) reader is allocated to a new independently reviewed source leaf before removal integration; the journal helper does not rewrite completed reader/source checkpoints or invent a legacy-record size limit. Source remains incomplete and unqualified; independent actual-source review and all ABR-38 qualification remain required.
