@@ -93,3 +93,9 @@ Reason: Validate exact live exclusive maintenance handoff and fixed per-session 
 
 Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-d5a115cd · 2026-11-15
 
+## Maintenance.recheck
+
+Reason: Bind local pending and complete checkpoints to exact exclusive maintenance authority and immutable before-manifest evidence
+
+Origins: DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-dbec0720 · 2026-11-15
+
