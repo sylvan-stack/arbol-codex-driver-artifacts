@@ -167,9 +167,9 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe
 
 ## IdentityJournal.settle
 
-Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
 
 ## PendingIdentity
 
@@ -236,4 +236,10 @@ Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-
 Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
 
 Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+
+## retire_pending
+
+Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
+
+Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
 

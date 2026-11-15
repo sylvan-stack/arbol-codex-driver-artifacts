@@ -5,9 +5,9 @@ role: authored
 
 ## <before Operation>
 
-Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
 
-Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
 
 ## Operation
 
@@ -125,9 +125,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-
 
 ## Operation.validate_metadata
 
-Reason: Implement quiescent same-generation format1 upgrade and reuse the canonical short lock without normal initialization
+Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
 
-Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-11-15
+Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
 
 ## Operation.validate_records
 
@@ -140,4 +140,10 @@ Origins: DRV-6.17, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-12630a4b · 2026-
 Reason: Rotate only the root generation under exact immutable same-attempt preservation and exclusive authority
 
 Origins: DRV-6.19, DRV-6.18, DRV-1.30, CDX-1.17 · Intention i-bccc50dc · 2026-11-15
+
+## Operation.recover
+
+Reason: Conservatively retire only the archived target journal witness under its canonical lock without changing account records or credentials
+
+Origins: DRV-6.17, DRV-6.18, DRV-6.20, DRV-1.29, DRV-1.30 · Intention i-cdfcc1e8 · 2026-11-15
 
