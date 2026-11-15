@@ -225,3 +225,15 @@ Reason: Bind private account progress and reaping to the captured Subscription l
 
 Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
 
+## RecoveryObservation
+
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+
+## RecoveryObservation.capture
+
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+

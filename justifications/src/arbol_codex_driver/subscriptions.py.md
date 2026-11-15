@@ -47,9 +47,9 @@ Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-
 
 ## <before parse_record>
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
 
 ## Subscriptions.identity
 
@@ -89,9 +89,9 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 
 ## Subscriptions.merge
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
 
 ## Subscriptions.models
 
@@ -131,9 +131,9 @@ Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-
 
 ## Subscriptions.reap
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
 
 ## Subscriptions.reserve
 
@@ -170,4 +170,10 @@ Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-
 Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
 
 Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+
+## Subscriptions.reap_legacy
+
+Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+
+Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
 
