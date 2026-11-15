@@ -5,15 +5,15 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
 
 ## <end>
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Removed: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Removed by Intention i-7776c4ab · 2026-11-15
 
 ## CodexH1Support
 
@@ -212,4 +212,82 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-
 Reason: Retain original physical state/subscriptions/chatgpt owner-mode-device-inode observations immediately after real H1 readiness and bind them into immutable preconditions before supplemental publication; never touch the short lock.
 
 Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-11-15
+
+## <before TerminalLocalResult>
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose.__enter__
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose.__exit__
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose.__init__
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose._close
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose._helper_rows
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose._original_fd
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose._site
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose._sole_thread
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## CodexTerminalClose.arm
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## TerminalHelperWitness
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+
+## TerminalLocalResult
+
+Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+
+Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
 
