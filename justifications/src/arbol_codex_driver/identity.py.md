@@ -29,9 +29,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 
 ## IdentityState.close
 
-Reason: Hold stable local format-2 admission and initialize durable root identity before ordinary state access
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
 
-Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-11-15
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
 
 ## IdentityState.lock
 
@@ -104,4 +104,94 @@ Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5
 Reason: Capture and compare local Subscription lifetime proof under the canonical short lock without authentication or vendor work
 
 Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-ae52ca5d · 2026-11-15
+
+## IdentityJournal
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal._directory
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal._matching_sidecar
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal._pending
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal._record_present
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal._same
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal.begin_remove
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal.cancel_remove
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal.complete_remove
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal.pending
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## IdentityJournal.settle
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## PendingIdentity
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## PendingIdentity.document
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## PendingIdentity.parse
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
+
+## subscription_sidecar
+
+Reason: Implement exact create/remove identity journal validation and conservative durable settlement under the caller short lock
+
+Origins: DRV-1.29, DRV-1.30, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-1ab80fe7 · 2026-11-15
 
