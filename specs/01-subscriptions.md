@@ -293,6 +293,29 @@ arbol-codex-driver:src/arbol_codex_driver/identity.py#expected_proof
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState.capture_proof
 arbol-codex-driver:src/arbol_codex_driver/identity.py#PendingIdentity
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityJournal
+arbol-codex-driver:src/arbol_codex_driver/identity.py#LifetimeSnapshot
+arbol-codex-driver:src/arbol_codex_driver/identity.py#lifetime_matches
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.observe
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.settle_identity
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.require_remove_receipt
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.merge
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.store_run_usage
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.reserve
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.finish
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.reap
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.set_tool
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.stop_pending
+arbol-codex-driver:src/arbol_codex_driver/run.py#run
+arbol-codex-driver:src/arbol_codex_driver/runs.py#same_reservation
+arbol-codex-driver:src/arbol_codex_driver/runs.py#Runs.reserve
+arbol-codex-driver:src/arbol_codex_driver/runs.py#Runs.recover
+arbol-codex-driver:src/arbol_codex_driver/runs.py#Runs.update
+arbol-codex-driver:src/arbol_codex_driver/runs.py#Runs.finish
+arbol-codex-driver:src/arbol_codex_driver/continuity.py#Chats.select
+arbol-codex-driver:src/arbol_codex_driver/continuity.py#Chats.settle
+arbol-codex-driver:src/arbol_codex_driver/continuity.py#Chats.matches
+arbol-codex-driver:src/arbol_codex_driver/arguments.py#parse_arguments
+arbol-codex-driver:src/arbol_codex_driver/arguments.py#validate_identity_arguments
 arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.identity
 arbol-codex-driver:src/arbol_codex_driver/state.py#State.initialize
 arbol-codex-driver:bin/entry.py#bootstrap
@@ -367,3 +390,16 @@ One-file Ruff, strict non-incremental mypy over all37 production source modules,
 ### ABR-34 legacy reader checkpoint · 15 November 2026
 
 Published source `eaa6283e90dbd005e4513548b71f71e17553d0ea`, with managed Justifications `c5237ae`, repairs the existing record/progress/run JSON reader. It opens without following a final symlink and without blocking on a special file, validates a regular-file descriptor before reading, and closes the descriptor on every path. Existing text decoding, JSON grammar, record sizes and missing/null/malformed outcomes remain; no canonical-JSON or 4096-byte legacy-record cap was added. This is accepted new leaf 15 of the 36-leaf plan, after the journal contribution in leaf 14. Source-only Ruff, strict non-incremental mypy over 37 modules and diff checks pass. No FIFO, product/test/runtime or owner-state action ran; full independent source review and ABR-38 evidence remain pending.
+
+
+### ABR-34 lifetime-writer and grammar checkpoint · 15 November 2026
+
+Published source `050fbc013cab40f8fa0ed0ff4c544a8ffc4192cb` completes accepted leaves16–20; current progress is20/36. Historical removal now binds its original owner/attempt and captured witness to durable prepared/committed settlement. Permitted home/chat cleanup runs outside the short lock and deletion errors preserve ambiguity; process death, missing progress or absent records never prove cleanup. The canonical native chatgpt refusal remains before effects. Relabeling and auth metadata preserve existing proof; native HOME/configuration/account-read/cancel-without-logout and historical Owner semantics are unchanged.
+
+`LifetimeSnapshot` is an internal immutable subscription/generation/witness tuple, captured with the validated local record under the short lock. Delayed check/usage/model/auth-verdict/run-derived updates compare it before record mutation, retaining the old auth revision checks. Private sign-in progress and run/chat metadata store the strict tuple as `lifetime`; no field is added to parse_record or the public catalogue. Progress reserve/finish/set_tool/stop_pending/reap compare owner/attempt plus that captured evidence; missing format2 evidence is unavailable, never inferred from current proof. Reap can preserve existing process cleanup but cannot erase a pending journal or mutate a newer lifetime. The original live remove may commit only its own prepared witness and receipt.
+
+Run reservation, later reports and Chats settlement carry the same captured tuple. Format2 maps additionally receive an independent random private `revision`; optimistic publication compares the captured map, and failed/orphaned run deletion requires the exact captured revision and lifetime. A later same-conversation map cannot be erased from a matching conversation id alone. Missing legacy map/run lifetime evidence is not promoted to format2 authority; format1 reads/writes retain their legacy route. Exact reservation metadata and orphan process cleanup remain available after Subscription retirement, while delayed Subscription/map effects are fenced. Public run-list fields and native thread-resume transport remain unchanged.
+
+The parser now recognizes the exact identity/expect and state upgrade/identity-reset/restore/identity-recover families, rejects duplicate/unknown/inapplicable arguments, requires each fixed flag/value and absolute canonical administrative paths, and treats quiescence solely as an assertion. This is grammar only: early CLI dispatch/settled State.close is leaf28, administrative archive/marker/conversion/reset/restore/recovery effects start at21, and capability/immutable packaging remain later work. No new executable producer, proof/capability/acceptance or maintenance success is claimed.
+
+Ruff passes over the authored six files; strict non-incremental mypy passes over37 production source modules, and AST parsing passes those37 plus bin/entry.py without product imports. Diff checks pass. No tests/fixtures/runners/inventories/gates, product/native/kernel/helper/API/provider/profile/credential/model execution, state creation/conversion, Build/package/install, boot, indexing, ingest or embedding occurred. Full indexed Origin/retrieval verification remains previously unavailable; deterministic local plan/paths/direct-Origin and Source Ref checks are recorded in the Beat. Source and managed Justifications are pushed; unrelated CDX-2 bytes are preserved. Shared DRV references remain coordinated separately. Final independent actual-source review and all ABR-38 runtime/gate qualification are still required.
