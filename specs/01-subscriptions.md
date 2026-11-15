@@ -289,6 +289,9 @@ arbol-codex-driver:src/arbol_codex_driver/maintenance.py#Maintenance
 arbol-codex-driver:src/arbol_codex_driver/maintenance.py#admit
 arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState
 arbol-codex-driver:src/arbol_codex_driver/identity.py#root_generation
+arbol-codex-driver:src/arbol_codex_driver/identity.py#expected_proof
+arbol-codex-driver:src/arbol_codex_driver/identity.py#IdentityState.capture_proof
+arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.identity
 arbol-codex-driver:src/arbol_codex_driver/state.py#State.initialize
 arbol-codex-driver:bin/entry.py#bootstrap
 -->
@@ -338,3 +341,10 @@ Source-scoped Ruff/strict mypy and AST parsing pass for app_server.py, run.py an
 Published source `de262af2faecb7590383ed5ed17fc722cdc656ec` completes accepted leaf 11, with managed Justifications `75817f5`. State initialization retains an independently opened close-on-exec shared `identity.guard` through state effects and output, with no destructor that releases it on object collection. Higher-format preflight is read-only; format/root generation are rechecked under the guard. Fresh qualified state publishes the format-2 fence and durable random root without materializing Subscription witnesses. Existing format 1 keeps legacy record behavior without automatic conversion or proof. Existing format 2 cannot recreate its missing guard or root; changed generation, unsafe state and local upgrade/maintenance markers refuse. No guard inode is replaced or unlinked.
 
 The new internal `State.assert_admitted()` returns the captured `IdentityState`; `State.close()` is available for explicit settled final-output integration in leaf 26. Until then the process retains its independently opened guard through exit, even if the local State object leaves scope. Proof capture, record/lifetime journals, administrative state effects, CLI/capability and package metadata remain later leaves; this is not a complete usable producer. All 37 Python source modules pass strict non-incremental mypy and AST parsing, and the two changed files pass Ruff/diff checks without importing the product. No tests, native/helper/kernel/API/provider/profile/credential execution, state creation/conversion, Build/gate, installation, boot or indexed retrieval was performed. ABR-38 and final independent actual-source/Arc review remain pending.
+
+
+### ABR-34 local proof checkpoint · 15 November 2026
+
+Published source `fe6e88f123c71b4822ea3960976a9ef37b413368` completes accepted leaf 12, with managed Justifications `4f9a6d7`. The internal `Subscriptions.identity` path validates the mandatory exact safe selector and canonical expected pair, refuses format 1 with the specified upgrade remedy, and uses the existing canonical short lock. It validates only the local current record or implicit `chatgpt`; it never calls get/reap, settings-dependent authentication, app-server, vendor discovery or an application database. Under the same lock it refuses a pending journal, validates the strict sidecar, durably materializes a fresh independent witness when needed, compares captured generation/witness and returns only the bounded proof. A newly materialized witness cannot acknowledge an old expectation. Ordinary list, native account behavior, public record shape and application UUID authority are unchanged.
+
+This is a source contribution, with no executed proof/capability or usable producer claim. CLI grammar/dispatch/capability and create/remove/lifetime/admin/packaging integration remain later leaves. Ruff on both changed files, strict non-incremental mypy and AST parsing over all 37 production Python modules, plus diff checks pass. No product, native/helper/kernel/API/provider/profile/credential/model, test/gate/Build, state creation/conversion, installation or boot execution occurred. Full independent actual-source review and ABR-38 qualification remain pending.
