@@ -5,9 +5,9 @@ role: authored
 
 ## <before H1CaseBinding>
 
-Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
 
-Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 
 ## H1CaseBinding
 
@@ -215,9 +215,9 @@ Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
 ## public_subscription_request
 
-Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
 
-Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 
 ## <before install_account_peer>
 
@@ -266,4 +266,28 @@ Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175f
 Reason: Qualify actual missing and corrupt local proof handling with independent record, lineage and guard preservation checks.
 
 Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175fd · 2026-11-16
+
+## LocalIdentityTests._create_refusal
+
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+
+## LocalIdentityTests._settle_historical_create
+
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+
+## LocalIdentityTests.test_historical_create_journal_settles_only_the_exact_archived_witness
+
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+
+## LocalIdentityTests.test_public_create_cannot_add_a_second_chatgpt_subscription
+
+Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+
+Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 
