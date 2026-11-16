@@ -101,9 +101,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## <before LifetimeRaceTests>
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Removed: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Removed by Intention i-c000a42f · 2026-11-16
 
 ## LifetimeRaceTests
 
@@ -113,9 +113,9 @@ Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
 
 ## LifetimeRaceTests._delayed_account_reply
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
 
 ## LifetimeRaceTests._late_map_cleanup
 
@@ -218,4 +218,28 @@ Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
 
 Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+
+## <before install_account_peer>
+
+Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+
+Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+
+## LocalIdentityTests._relabel_and_recognize
+
+Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+
+Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+
+## LocalIdentityTests.test_relabel_and_recognizing_existing_login_retain_the_original_proof
+
+Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+
+Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+
+## install_account_peer
+
+Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+
+Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
 
