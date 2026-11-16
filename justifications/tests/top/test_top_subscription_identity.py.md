@@ -243,3 +243,27 @@ Reason: Qualify proof retention across actual public relabel and existing-login 
 
 Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
 
+## LocalIdentityTests._missing_sidecar
+
+Reason: Qualify actual missing and corrupt local proof handling with independent record, lineage and guard preservation checks.
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175fd · 2026-11-16
+
+## LocalIdentityTests._proof_refusal
+
+Reason: Qualify actual missing and corrupt local proof handling with independent record, lineage and guard preservation checks.
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175fd · 2026-11-16
+
+## LocalIdentityTests.test_corrupt_sidecar_and_lost_or_corrupt_root_refuse_without_regenerating_proof
+
+Reason: Qualify actual missing and corrupt local proof handling with independent record, lineage and guard preservation checks.
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175fd · 2026-11-16
+
+## LocalIdentityTests.test_missing_sidecar_materializes_a_new_witness_and_rejects_old_expectation
+
+Reason: Qualify actual missing and corrupt local proof handling with independent record, lineage and guard preservation checks.
+
+Origins: DRV-1.28, DRV-1.29, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-e2f175fd · 2026-11-16
+
