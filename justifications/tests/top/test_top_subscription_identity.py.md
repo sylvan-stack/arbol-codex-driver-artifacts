@@ -5,9 +5,9 @@ role: authored
 
 ## <before H1CaseBinding>
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
 ## H1CaseBinding
 
@@ -59,9 +59,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## LocalIdentityTests._failure
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
 ## LocalIdentityTests._interrupted_refusals
 
@@ -188,4 +188,34 @@ Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
 Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
 
 Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+
+## LocalIdentityTests._historical_removal
+
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+
+## LocalIdentityTests._native_refusals
+
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+
+## LocalIdentityTests.test_native_sign_out_and_removal_refuse_even_with_force_without_changing_proof
+
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+
+## LocalIdentityTests.test_public_removal_retires_only_the_historical_fixture_subscription
+
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+
+## public_subscription_request
+
+Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+
+Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
