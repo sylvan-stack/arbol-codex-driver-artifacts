@@ -5,9 +5,9 @@ role: authored
 
 ## <before Entry>
 
-Reason: Validate the complete fixed-root immutable producer payload and canonical M/D declaration
+Reason: Candidate admission must protect the account registry even when HOME is set to a disposable installation.
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-07f84efc · 2026-11-14
+Origins: ARC-5.5 · Intention i-b6fb1987 · 2026-11-19
 
 ## Declaration
 
@@ -143,9 +143,9 @@ Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-
 
 ## verify_authority
 
-Reason: Require isolated immutable bootstrap and a live admission factory before CLI imports or state access
+Reason: Candidate admission must protect the account registry even when HOME is set to a disposable installation.
 
-Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
+Origins: ARC-5.5 · Intention i-b6fb1987 · 2026-11-19
 
 ## bootstrap_entry
 
