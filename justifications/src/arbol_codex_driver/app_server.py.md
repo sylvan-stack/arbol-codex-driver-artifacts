@@ -5,9 +5,9 @@ role: authored
 
 ## AppServer.start
 
-Reason: Pass Steady Cue Cards to Codex’s current turn
+Reason: Pass a feature list to Codex native runs that already carry Cue Cards
 
-Origins: STE-0.21 · Intention i-0ba92f62 · 2026-11-19
+Origins: STE-0.21 · Intention i-3d23069a · 2026-11-19
 
 ## validate_driver_config
 
