@@ -35,7 +35,7 @@ Origins: DRV-0.17, DRV-1.28, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-8892b94
 
 ## Arbol Codex Driver > Identity source and qualification (15 November 2026)
 
-Reason: Clarify the same README leaf: absolute administrative path values versus the assertion flag and exact new-entry admission scope
+Reason: Document the moved default, the isolated override and the state-relative native home.
 
-Origins: DRV-0.17, DRV-1.28, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-00a22917 · 2026-11-15
+Origins: ARC-5.5, ARC-5.9 · Intention i-1ebd4218 · 2026-11-19
 
