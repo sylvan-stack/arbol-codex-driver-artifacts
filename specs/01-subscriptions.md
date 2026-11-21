@@ -11,6 +11,12 @@ How the Codex Driver meets [DRV-1](../../arbol/driver-contract/01-subscriptions.
 
 Current qualification uses only an already registered, signed-in real Subscription and its existing native state/home binding. Test profiles are prohibited. Verify the actual existing profile before live launches; do not create, alias, copy or sign in a profile, and do not redirect its credentials into disposable state. Normal vendor refresh and ordinary uniquely identified run/continuity metadata remain allowed. Keep application databases, runtime, Build registries and raw evidence private and separate. This supersedes the mandatory `test-chatgpt`/test-state selection in earlier qualification instructions while retaining those earlier descriptions, decisions and observations as history. The active shared rule is [DRV-5](../../arbol/driver-contract/05-conformance.md); current CLI selection is documented in the code repository's `TESTS.md`.
 
+## Native Codex authentication · owner decision, 21 November 2026
+
+[OG-5](/Users/msix/Artifacts/goals/OG-5.md) leaves authentication in Codex. The owner signs in and out directly in the harness and uses its existing `~/.codex` profile. Arbol observes nonsecret ChatGPT status through the app server and issues its inference and account-report requests against that native profile. Codex alone manages any token and its refresh.
+
+The compatibility `subscriptions sign-in` action refreshes the link to an already signed-in native account. The Driver never requests a login, presents a vendor URL or code, requests credential refresh, or signs the owner out. The sole runnable selector is `chatgpt`. Other local records, if retained, cannot start a native session.
+
 ## Scope
 
 Covered: the `chatgpt` family, the home and environment the tool is given, sign-in and sign-out, status checks, usage, the model catalog.
@@ -50,7 +56,7 @@ arbol-codex-driver:src/arbol_codex_driver/app_server.py#AppServer.start
 arbol-codex-driver:src/arbol_codex_driver/subscriptions.py#Subscriptions.app_server_home
 -->
 
-Only the test Subscription `test-chatgpt` of probes and live checks keeps a home of its own, in the test state directory and readable by the owner only. It is passed as `CODEX_HOME`, so a probe never starts the tool in `~/.codex` ([DRV-D44](../../arbol/driver-contract/05-conformance.md#decisions)).
+Historically the test Subscription `test-chatgpt` of probes and live checks kept a home of its own, in the test state directory and readable by the owner only. The old probe passed it as `CODEX_HOME` ([DRV-D44](../../arbol/driver-contract/05-conformance.md#decisions)).
 
 Observed until 19 October 2026: every Subscription had a folder of its own in the state directory, passed to the tool as `CODEX_HOME`. The Driver wrote the tool's configuration there, and the tool kept the Subscription's login there.
 
@@ -64,7 +70,9 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#codex_home`
 - `arbol_deprecated_v1:drivers/codex/arbol_driver_codex/session.py#validate_config`
 
-### Signing in and out
+### Historical Arbol-mediated sign-in and sign-out
+
+The flow below predates OG-5 and is withdrawn for active qualification.
 
 Proposed. The Driver starts an app-server in `~/.codex` and asks it to log in. Signing `chatgpt` in is signing `codex` in on this Mac, for every session of it.
 
@@ -106,7 +114,9 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 ### Status check
 
-`check` starts an app-server in the home and sends `account/read` with `refreshToken` set, which makes the tool renew its login with the vendor before answering. An account of type `chatgpt` means `signed_in`; its e-mail address and plan are stored with the Subscription. No account means the login is gone: a Subscription that was `signed_in` moves to `needs_attention` with the remedy "sign in again". Any other account type in the home is reported as `needs_attention` as well, because this family only covers ChatGPT logins.
+For `chatgpt`, send `account/read` with `refreshToken: false` to the configured native app server. Only a ChatGPT Subscription response confirms the account. Report a typed remedy to sign in directly in Codex when needed. Refresh the local record through its existing revision and lifetime protections. The older request for a refresh is historical.
+
+Before OG-5, `check` started an app-server in the home and sent `account/read` with `refreshToken` set, which makes the tool renew its login with the vendor before answering. An account of type `chatgpt` means `signed_in`; its e-mail address and plan are stored with the Subscription. No account means the login is gone: a Subscription that was `signed_in` moves to `needs_attention` with the remedy "sign in again". Any other account type in the home is reported as `needs_attention` as well, because this family only covers ChatGPT logins.
 
 Observed with the installed tool: without `refreshToken` the request is answered at once from the home, without contacting the vendor; with it, the answer took about a second and the login file was rewritten.
 
@@ -182,19 +192,19 @@ Current records and source/package provenance: `~/Artifacts/arbol-codex-driver/r
 | ID | The Codex Driver must… | Refines | Origin | Verified by |
 |---|---|---|---|---|
 | CDX-1.1 | offer the family `chatgpt` (vendor login, no settings), with one Subscription from the start, named `chatgpt`, which is the default | DRV-1.1 | Kept | Codex Python: `C1`, `C10`, `Accounts.test_local_concurrent_creation_update_preserves_owner_settings_and_remove_isolated` |
-| CDX-1.2 | set no `CODEX_HOME` for a child process of `chatgpt`, so that the tool runs in `~/.codex` on the owner's own sign-in; pass a home of its own, readable by the owner only, only for the test Subscription of probes and live checks; refuse to create a second Subscription of the family with `invalid_input` | DRV-1.2 | Changed | unit; contract |
-| CDX-1.3 | stop an app-server whose handshake answer names another home than `~/.codex`, or than its own home for the test Subscription | DRV-1.2 | New | unit |
+| CDX-1.2 | use the native default `~/.codex` profile for the sole runnable `chatgpt` route. Set no `CODEX_HOME` in ordinary operation. Refuse alternate-account execution or fallback | DRV-1.2 | Changed by OG-5 | pending native-boundary qualification |
+| CDX-1.3 | abort a native app-server operation whose handshake names a configuration home other than the default `~/.codex` | DRV-1.2 | Changed by OG-5 | pending native-boundary qualification |
 | CDX-1.4 | build each child's environment from an allow-list; no inherited `OPENAI_*` or `CODEX_*` variable reaches the tool | DRV-0.5 | Changed | Codex Python: `C8`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup`, `Foundation.test_arguments_settings_environment_and_error_sanitization` |
 | CDX-1.5 | write nothing in `~/.codex`: no configuration file of its own, no copy, no change. Give the settings a run needs as options of its command line (CDX-2.2), and read nothing there but what CDX-3.14 names | DRV-0.4 | Changed | contract; probe |
-| CDX-1.6 | sign in only through the app-server's `account/login/start` and `account/login/cancel`, and hold no ChatGPT credential itself. Refuse sign-out and removal of `chatgpt` with `invalid_input`; send `account/logout` only in the home of the test Subscription | DRV-1.8 | Changed | unit; contract |
-| CDX-1.7 | offer both the sign-in on this machine and the device-code sign-in, the second when `sign-in` is called with `--by-code` | DRV-1.5 | New | Codex Python: `C2`, `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials` |
-| CDX-1.8 | keep the app-server of a pending sign-in running until the tool reports completion, the attempt is cancelled or it times out, and leave no process behind afterwards | DRV-0.10 | New | Codex Python: `C2`, `C6`, `AppServerTests.test_cancelled_request_leaves_transport_available_and_preabort_sends_nothing`, `AppServerTests.test_cleanup_survives_capture_failure_and_ends_ignoring_descendant`, `AppServerTests.test_startup_wrong_home_config_and_cancellation_gives_eof_before_force` |
+| CDX-1.6 | leave all login and logout operations to native Codex. The Arbol compatibility sign-in action checks the already active account. Refuse sign-out and removal of the protected default record | DRV-1.8 | Changed by OG-5 | pending native-boundary qualification |
+| CDX-1.7 | refuse the obsolete `--by-code` mode with a remedy to sign in in Codex and accept no authentication codes | DRV-1.5 | Changed by OG-5 | pending native-boundary qualification |
+| CDX-1.8 | never initiate, cancel or forward a native authentication operation. Preserve the bounded lifetime and cancellation of each nonsecret native observation | DRV-0.10 | Changed by OG-5 | pending native-boundary qualification |
 | CDX-1.9 | never read, copy or log the login the tool stores in a home | DRV-1.3 | Changed | Codex Python: `C7`, `Accounts.test_unsigned_refusals_and_malformed_state_do_not_start_vendor_or_disclose_contents` |
-| CDX-1.10 | check a Subscription with `account/read` and a renewal of the login, and move it to `needs_attention` when the home holds no ChatGPT account | DRV-1.7 | Changed | Codex Python: `C4`, `C28`, `Accounts.test_usage_last_good_cache_rejection_and_catalog_fallback`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
+| CDX-1.10 | observe the selected native ChatGPT account using `account/read` with `refreshToken: false`. Protect local status writes by the original lifetime and revision. Report a direct native sign-in remedy when the account is unavailable | DRV-1.7 | Changed by OG-5 | pending native-boundary qualification |
 | CDX-1.11 | build the usage report from `account/rateLimits/read` by the table above | DRV-1.17 | Changed | Codex Python: `C41`, `Accounts.test_usage_last_good_cache_rejection_and_catalog_fallback`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
 | CDX-1.12 | build the model catalog from `model/list`, all pages, without hidden models | DRV-1.20 | Changed | Codex Python: `C41`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
 | CDX-1.13 | make no request of its own to a ChatGPT or OpenAI address | DRV-1.19 | Changed | Codex Python: `C41`, `AppServerTests.test_private_home_configuration_clean_environment_and_owner_cleanup` |
-| CDX-1.14 | let only one sign-in on this machine be pending across all its Subscriptions, and report a sign-in ended by another login on the machine as `failed` with that reason | DRV-1.5 | New | Codex Python: `C2`, `Accounts.test_login_replacement_cancels_pending_and_sign_out_clears_credentials` |
+| CDX-1.14 | fence older ambiguous authentication progress until the native operation is known to have ended. Recover only proven dead local metadata without signalling the native authentication process | DRV-1.5 | Changed by OG-5 | pending native-boundary qualification |
 | CDX-1.15 | read a usage window's kind from its length | DRV-1.17 | New | Codex Python: `C41`, `Foundation.test_catalog_pagination_fallback_usage_and_unknown_identifiers` |
 | CDX-1.16 | leave `resource` absent on every usage window while the app server names no unit for a window, and never guess it (CDX-D31) | DRV-1.27 | New | Codex Python: `C41`, `C30`, `Foundation.test_usage_windows_carry_no_resource_the_app_server_does_not_state`; probe: `research/app-server-rate-limit-schema-2026-10-26.md` |
 
@@ -348,7 +358,7 @@ arbol-codex-driver:bin/entry.py#bootstrap
 
 | ID | Requirement | Refines | Origin | Verified by |
 |---|---|---|---|---|
-| CDX-1.17 | implement revision-1 local capture/compare and format-2 lifetime evidence with the Driver-specific rules above; preserve ordinary catalogue/auth/refusal behavior | DRV-0.17, DRV-1.28–1.30, DRV-6.17–6.20 | BRW-D32 | pending ABR-38; application ABR-19/21 |
+| CDX-1.17 | implement revision-1 local capture/compare and format-2 lifetime evidence with the Driver-specific rules above; preserve ordinary catalogue and refusal behavior, including native-only status changes | DRV-0.17, DRV-1.28–1.30, DRV-6.17–6.20 | BRW-D32 | pending ABR-38; application ABR-19/21 |
 
 
 
