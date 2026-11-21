@@ -11,9 +11,9 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.update
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.app_server_home
 
@@ -29,15 +29,15 @@ Origins: CDX-1.1, CDX-1.2, CDX-1.6, DRV-1.2, DRV-1.13, DRV-0.12 · Intention i-4
 
 ## Subscriptions.remove
 
-Reason: Prepare and commit historical removal using original receipt and proven out-of-lock cleanup, preserving native refusal
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.sign_out
 
-Reason: Refuse canonical native creation, sign-out and removal before recovery, stopping, reservation or vendor effects, including force.
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: CDX-1.1, CDX-1.2, CDX-1.6, DRV-1.2, DRV-1.13, DRV-0.12 · Intention i-42b1a84c · 2026-11-14
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.sign_in
 
@@ -65,15 +65,15 @@ Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-
 
 ## Subscriptions.remove_owned_trees
 
-Reason: Prepare and commit historical removal using original receipt and proven out-of-lock cleanup, preserving native refusal
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.require_remove_receipt
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.settle_identity
 
@@ -125,39 +125,39 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.finish
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.reap
 
-Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.reserve
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.set_tool
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Removed: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Removed by Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.stop_pending
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Removed: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Removed by Intention i-aeab5d1f · 2026-11-21
 
 ## parse_progress
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.progress_matches
 
@@ -167,15 +167,15 @@ Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-
 
 ## Subscriptions.same_progress
 
-Reason: Bind private account progress and reaping to the captured Subscription lifetime as well as its original owner and attempt
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.reap_legacy
 
-Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## Subscriptions.require_signed_in
 
@@ -185,9 +185,9 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## <before native_sign_in_required>
 
-Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
 
-Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
 ## native_sign_in_required
 
@@ -206,4 +206,10 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 Removed: Remove the application login exchange and preserve only native status and conditional local persistence.
 
 Removed by Intention i-2e48f12b · 2026-11-21
+
+## inactive_progress
+
+Reason: Fence legacy sign-in and make all remaining Arbol record changes local without touching native credentials.
+
+Origins: CDX-1.6, CDX-1.14, DRV-0.14, DRV-1.13, OG-5 · Intention i-aeab5d1f · 2026-11-21
 
