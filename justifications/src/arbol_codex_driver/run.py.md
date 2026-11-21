@@ -5,13 +5,13 @@ role: authored
 
 ## run
 
-Reason: Pass a feature list to Codex native runs that already carry Cue Cards
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: STE-0.21 · Intention i-3d23069a · 2026-11-19
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## <before interrupt_turns>
 
-Reason: Carry exact private lifetime snapshots through run reservations and chat-map settlement while preserving independent orphan process cleanup
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-ca35f06a · 2026-11-15
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 

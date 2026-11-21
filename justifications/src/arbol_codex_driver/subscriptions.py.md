@@ -5,9 +5,9 @@ role: authored
 
 ## Subscriptions.start
 
-Reason: Bind canonical chatgpt launches to the native Codex home without Driver home writes and preserve handshake/process cleanup.
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: CDX-1.1, CDX-1.2, CDX-1.3, CDX-1.5, CDX-1.9, CDX-2.1, DRV-0.4, DRV-0.10 · Intention i-636a5054 · 2026-11-14
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.update
 
@@ -17,9 +17,9 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 
 ## Subscriptions.app_server_home
 
-Reason: Bind canonical chatgpt launches to the native Codex home without Driver home writes and preserve handshake/process cleanup.
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: CDX-1.1, CDX-1.2, CDX-1.3, CDX-1.5, CDX-1.9, CDX-2.1, DRV-0.4, DRV-0.10 · Intention i-636a5054 · 2026-11-14
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.create
 
@@ -47,9 +47,9 @@ Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-
 
 ## <before parse_record>
 
-Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.identity
 
@@ -95,9 +95,9 @@ Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-
 
 ## Subscriptions.models
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.run_report
 
@@ -113,15 +113,15 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 
 ## Subscriptions.usage
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.observe
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## Subscriptions.finish
 
@@ -176,4 +176,28 @@ Origins: DRV-6.17, DRV-6.20, DRV-1.29, CDX-1.17 · Intention i-128ca76c · 2026-
 Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
 
 Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+
+## Subscriptions.require_signed_in
+
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+
+## <before native_sign_in_required>
+
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+
+## native_sign_in_required
+
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+
+## read_native_account
+
+Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+
+Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
