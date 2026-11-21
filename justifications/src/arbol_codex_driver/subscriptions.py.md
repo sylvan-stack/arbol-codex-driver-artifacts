@@ -83,21 +83,21 @@ Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-
 
 ## Subscriptions.check
 
-Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
+Reason: Fence pending native activity before any native operation, reject stale account writes and preserve cancellation across fallbacks
 
-Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
+Origins: CDX-1.8, CDX-1.10, CDX-1.14, CDX-1.17, DRV-1.11 · Intention i-8d8c37d6 · 2026-11-21
 
 ## Subscriptions.merge
 
-Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
+Reason: Fence pending native activity before any native operation, reject stale account writes and preserve cancellation across fallbacks
 
-Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
+Origins: CDX-1.8, CDX-1.10, CDX-1.14, CDX-1.17, DRV-1.11 · Intention i-8d8c37d6 · 2026-11-21
 
 ## Subscriptions.models
 
-Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+Reason: Fence pending native activity before any native operation, reject stale account writes and preserve cancellation across fallbacks
 
-Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+Origins: CDX-1.8, CDX-1.10, CDX-1.14, CDX-1.17, DRV-1.11 · Intention i-8d8c37d6 · 2026-11-21
 
 ## Subscriptions.run_report
 
@@ -113,15 +113,15 @@ Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-
 
 ## Subscriptions.usage
 
-Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+Reason: Fence pending native activity before any native operation, reject stale account writes and preserve cancellation across fallbacks
 
-Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+Origins: CDX-1.8, CDX-1.10, CDX-1.14, CDX-1.17, DRV-1.11 · Intention i-8d8c37d6 · 2026-11-21
 
 ## Subscriptions.observe
 
-Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+Reason: Fence pending native activity before any native operation, reject stale account writes and preserve cancellation across fallbacks
 
-Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+Origins: CDX-1.8, CDX-1.10, CDX-1.14, CDX-1.17, DRV-1.11 · Intention i-8d8c37d6 · 2026-11-21
 
 ## Subscriptions.finish
 
