@@ -41,9 +41,9 @@ Origins: CDX-1.1, CDX-1.2, CDX-1.6, DRV-1.2, DRV-1.13, DRV-0.12 · Intention i-4
 
 ## Subscriptions.sign_in
 
-Reason: Never log out the native account during failed or cancelled sign-in; cancel only an owned actual login attempt before cleanup.
+Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
 
-Origins: CDX-1.6, CDX-1.8, CDX-1.9, DRV-0.10 · Intention i-6bd215a2 · 2026-11-14
+Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
 
 ## <before parse_record>
 
@@ -83,15 +83,15 @@ Origins: DRV-1.29, DRV-6.17, DRV-6.20, CDX-1.17 · Intention i-9d29aa8d · 2026-
 
 ## Subscriptions.check
 
-Reason: Carry an explicit internal lifetime snapshot through delayed record and usage updates while preserving public records
+Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
 
-Origins: DRV-1.29, DRV-1.30, DRV-6.20, CDX-1.17 · Intention i-37786378 · 2026-11-15
+Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
 
 ## Subscriptions.merge
 
-Reason: Recover only unchanged dead progress under fresh admission and keep stale delayed results out of ordinary reaping
+Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
 
-Origins: DRV-6.2, DRV-6.4, DRV-6.6, DRV-6.10, DRV-6.17, DRV-6.19, DRV-6.20, DRV-1.29, CDX-1.8, CDX-1.17 · Intention i-b5245024 · 2026-11-15
+Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
 
 ## Subscriptions.models
 
@@ -185,9 +185,9 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 
 ## <before native_sign_in_required>
 
-Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
+Reason: Remove the application login exchange and preserve only native status and conditional local persistence.
 
-Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+Origins: CDX-1.6, CDX-1.10, DRV-1.25, OG-5 · Intention i-2e48f12b · 2026-11-21
 
 ## native_sign_in_required
 
@@ -200,4 +200,10 @@ Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
 Reason: Use the real default Codex account and preserve typed refusal before any alternate native route starts.
 
 Origins: CDX-1.2, CDX-1.10, DRV-1.11, OG-5 · Intention i-0a5490e3 · 2026-11-21
+
+## Subscriptions.local_login
+
+Removed: Remove the application login exchange and preserve only native status and conditional local persistence.
+
+Removed by Intention i-2e48f12b · 2026-11-21
 
