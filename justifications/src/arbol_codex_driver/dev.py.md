@@ -23,9 +23,9 @@ Intention i-8156e72a · 2026-11-11
 
 ## probe
 
-Skipped: Static baseline repair; no specification behaviour changes
+Reason: Disable the historical login probe and document the native Codex remedy and gate scope.
 
-Intention i-8156e72a · 2026-11-11
+Origins: CDX-1.2, CDX-1.6, CDX-1.7, OG-5 · Intention i-0cfb4a40 · 2026-11-21
 
 ## check_account
 
