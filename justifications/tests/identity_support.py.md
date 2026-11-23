@@ -215,9 +215,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-b2c2c405 · 2026-
 
 ## <before TerminalLocalResult>
 
-Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+Removed: Implement only post-admission Codex phase helpers using the exact entered checker Session
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+Removed by Intention i-36571bff · 2026-11-23
 
 ## CodexTerminalClose
 
@@ -392,4 +392,40 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
 
 Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+
+## <before CodexPostAdmissionPhase>
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+
+## CodexPostAdmissionPhase
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+
+## CodexPostAdmissionPhase.__enter__
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+
+## CodexPostAdmissionPhase.__exit__
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+
+## CodexPostAdmissionPhase.__init__
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+
+## CodexPostAdmissionPhase.record
+
+Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
 
