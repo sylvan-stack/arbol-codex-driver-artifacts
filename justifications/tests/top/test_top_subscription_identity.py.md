@@ -197,9 +197,9 @@ Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
 ## LocalIdentityTests._native_refusals
 
-Reason: Qualify ordinary Codex native account refusals without changing native files or Subscription lifetime evidence.
+Reason: The native refusal case must expect the refusal and remedy the reviewed source gives for sign-out of chatgpt
 
-Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
+Origins: CDX-1.6, CDX-1.17 · Intention i-82bd4a81 · 2026-11-23
 
 ## LocalIdentityTests.test_native_sign_out_and_removal_refuse_even_with_force_without_changing_proof
 
