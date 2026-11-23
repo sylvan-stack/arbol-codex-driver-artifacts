@@ -41,9 +41,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 
 ## IdentityState.open
 
-Reason: Hold stable local format-2 admission and initialize durable root identity before ordinary state access
+Reason: Require format 2 in normal Codex Driver state admission while preserving exclusive conversion.
 
-Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-11-15
+Origins: DRV-6.17, DRV-6.18 · Intention i-1118c20b · 2026-11-23
 
 ## _prepare_directory
 
