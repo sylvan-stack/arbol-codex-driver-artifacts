@@ -11,7 +11,19 @@ Origins: ARC-4.7 · Intention i-fd960de4 · 2026-11-12
 
 ## Tests: arbol-codex-driver > Real existing profiles for live qualification · 12 November 2026
 
-Reason: Document the layout-2 Codex state and the real-profile override.
+Removed: The inventories and README must name the retired and adapted cases, the native-only probe, the real chatgpt account and the stand-in account rule
 
-Origins: ARC-5.1, ARC-5.5, ARC-5.9 · Intention i-38cd051f · 2026-11-19
+Removed by Intention i-ab0ad6df · 2026-11-23
+
+## Tests: arbol-codex-driver > Selection and limits
+
+Reason: The inventories and README must name the retired and adapted cases, the native-only probe, the real chatgpt account and the stand-in account rule
+
+Origins: CDX-1.6, CDX-1.8, BLD-0.5 · Intention i-ab0ad6df · 2026-11-23
+
+## Tests: arbol-codex-driver > Real native ChatGPT Subscription · ABR-64 · 23 November 2026
+
+Reason: The inventories and README must name the retired and adapted cases, the native-only probe, the real chatgpt account and the stand-in account rule
+
+Origins: CDX-1.6, CDX-1.8, BLD-0.5 · Intention i-ab0ad6df · 2026-11-23
 
