@@ -5,13 +5,37 @@ role: authored
 
 ## <before fixture_models>
 
-Reason: CDX-2.22: the Codex stand-in plays C44 and records the Arbol identity the app-server was launched with
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
 
-Origins: CDX-2.22, DRV-5.9 · Intention i-0423cede · 2026-11-11
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
 
 ## environment_checks
 
-Reason: CDX-2.22: the Codex stand-in plays C44 and records the Arbol identity the app-server was launched with
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
 
-Origins: CDX-2.22, DRV-5.9 · Intention i-0423cede · 2026-11-11
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
+
+## stand_in
+
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
+
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
+
+## app_server_arguments
+
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
+
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
+
+## native_home
+
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
+
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
+
+## open_native_home
+
+Reason: The stand-ins must serve the default native Codex home and the Driver's fixed app-server options, as the Driver has launched Codex since the native-home change
+
+Origins: CDX-1.2 · Intention i-ce294342 · 2026-11-23
 
