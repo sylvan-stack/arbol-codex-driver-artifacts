@@ -5,9 +5,9 @@ role: authored
 
 ## <before H1CaseBinding>
 
-Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+Reason: Delegate fixed public Subscription operations to checked provider route
 
-Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-7a65e1d6 · 2026-11-23
 
 ## H1CaseBinding
 
@@ -215,9 +215,9 @@ Origins: DRV-1.29, DRV-1.30, CDX-1.17 · Intention i-abb9873b · 2026-11-16
 
 ## public_subscription_request
 
-Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
+Reason: Delegate fixed public Subscription operations to checked provider route
 
-Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-7a65e1d6 · 2026-11-23
 
 ## <before install_account_peer>
 
