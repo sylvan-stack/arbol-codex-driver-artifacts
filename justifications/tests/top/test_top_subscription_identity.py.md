@@ -113,9 +113,9 @@ Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
 
 ## LifetimeRaceTests._delayed_account_reply
 
-Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+Removed: The delayed account and usage case observes a historical Subscription, which the source refuses before any native start; it is archived
 
-Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+Removed by Intention i-5b4321d8 · 2026-11-23
 
 ## LifetimeRaceTests._late_map_cleanup
 
@@ -137,9 +137,9 @@ Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
 
 ## LifetimeRaceTests._observe_delayed_result
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Removed: The delayed account and usage case observes a historical Subscription, which the source refuses before any native start; it is archived
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Removed by Intention i-5b4321d8 · 2026-11-23
 
 ## LifetimeRaceTests._reap_predecessor
 
@@ -167,9 +167,9 @@ Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
 
 ## LifetimeRaceTests.test_delayed_account_check_and_usage_preserve_successor_of_same_identifier
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Removed: The delayed account and usage case observes a historical Subscription, which the source refuses before any native start; it is archived
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Removed by Intention i-5b4321d8 · 2026-11-23
 
 ## LifetimeRaceTests.test_failed_run_cannot_remove_a_newer_map_revision_for_the_same_conversation
 
@@ -221,9 +221,9 @@ Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 
 ## <before install_account_peer>
 
-Reason: The Driver passes no CODEX_HOME, so the private account peer must answer the default native home under the fixture home
+Reason: The delayed account and usage case observes a historical Subscription, which the source refuses before any native start; it is archived
 
-Origins: CDX-1.10, CDX-1.17, DRV-1.29 · Intention i-1b1fd517 · 2026-11-23
+Origins: CDX-1.2, CDX-1.17 · Intention i-5b4321d8 · 2026-11-23
 
 ## LocalIdentityTests._relabel_and_recognize
 
@@ -290,4 +290,10 @@ Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 Reason: Qualify the refusal of an additional public Codex Subscription and the exact historical create-journal recovery boundary.
 
 Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
+
+## <end>
+
+Reason: The delayed account and usage case observes a historical Subscription, which the source refuses before any native start; it is archived
+
+Origins: CDX-1.2, CDX-1.17 · Intention i-5b4321d8 · 2026-11-23
 
