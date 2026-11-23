@@ -173,9 +173,9 @@ Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## _registered_payload
 
-Reason: Resolve and verify the committed Codex Driver and provider packages
+Reason: Resolve package-internal entry directories before verifying the installed Codex launcher
 
-Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
+Origins: DRV-6.22 · Intention i-8c711f35 · 2026-11-23
 
 ## _registration
 
