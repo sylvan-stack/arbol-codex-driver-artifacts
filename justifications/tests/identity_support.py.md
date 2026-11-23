@@ -35,9 +35,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.__init__
 
-Reason: Retain bounded actual unread helper stdout and stderr on every failed startup and cleanup path, including before selector setup, within the original shared deadline; preserve original errors, real waits and unresolved ownership.
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-1d5e92de · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
 ## CodexH1Support._cleanup
 
@@ -155,9 +155,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## SuiteControl.__init__
 
-Reason: Author Codex full-local-inventory report/local-results and real-ticket H1 stdio latch support under4da; actual Session/activity retained until all H1 output/ACK/direct-child resources finish; source-only.
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
 ## SuiteControl.close
 
@@ -407,25 +407,25 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-1
 
 ## CodexPostAdmissionPhase.__enter__
 
-Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
 ## CodexPostAdmissionPhase.__exit__
 
-Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
 ## CodexPostAdmissionPhase.__init__
 
-Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
 ## CodexPostAdmissionPhase.record
 
-Reason: Implement only post-admission Codex phase helpers using the exact entered checker Session
+Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-36571bff · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
 
