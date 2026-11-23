@@ -143,15 +143,15 @@ Removed by Intention i-5b4321d8 · 2026-11-23
 
 ## LifetimeRaceTests._reap_predecessor
 
-Reason: Only a dead local-only receipt is recovered; an older ambiguous sign-in receipt stays fenced, and a stale finish no longer raises
+Reason: Remove fictional signed-in local identity seeds while preserving real lifetime controls
 
-Origins: CDX-1.14, CDX-1.17 · Intention i-640374bd · 2026-11-23
+Origins: DRV-6.20 · Intention i-8b17241c · 2026-11-23
 
 ## LifetimeRaceTests._record
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Reason: Remove fictional signed-in local identity seeds while preserving real lifetime controls
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Origins: DRV-6.20 · Intention i-8b17241c · 2026-11-23
 
 ## LifetimeRaceTests._retire_and_replace
 
@@ -227,9 +227,9 @@ Origins: CDX-1.2, CDX-1.17 · Intention i-5b4321d8 · 2026-11-23
 
 ## LocalIdentityTests._relabel_and_recognize
 
-Reason: The Driver passes no CODEX_HOME, so the private account peer must answer the default native home under the fixture home
+Reason: Remove fictional signed-in local identity seeds while preserving real lifetime controls
 
-Origins: CDX-1.10, CDX-1.17, DRV-1.29 · Intention i-1b1fd517 · 2026-11-23
+Origins: DRV-6.20 · Intention i-8b17241c · 2026-11-23
 
 ## LocalIdentityTests.test_relabel_and_recognizing_existing_login_retain_the_original_proof
 
