@@ -41,9 +41,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 
 ## IdentityState.open
 
-Reason: Require format 2 in normal Codex Driver state admission while preserving exclusive conversion.
+Reason: Name the Driver state layout clearly when normal startup refuses an old store.
 
-Origins: DRV-6.17, DRV-6.18 · Intention i-1118c20b · 2026-11-23
+Origins: DRV-6.17, DRV-6.18 · Intention i-5c5219f7 · 2026-11-23
 
 ## _prepare_directory
 
