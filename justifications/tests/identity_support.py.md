@@ -5,9 +5,9 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## <end>
 
@@ -353,15 +353,15 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.request
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexLocalSubject.spawn
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexLocalSubject.state_image
 
@@ -371,9 +371,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.stop
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexLocalSubject.waiting_pair
 
@@ -437,9 +437,9 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-1
 
 ## CodexWholeUnitResult.__init__
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexWholeUnitResult._case_id
 
@@ -455,19 +455,73 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-1
 
 ## CodexWholeUnitResult.complete
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexWholeUnitResult.startTest
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
 ## CodexWholeUnitResult.stopTest
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexLocalSubject._reap_process
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexLocalSubject._spawn_subscription
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexLocalSubject.spawn_subscription
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addError
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addExpectedFailure
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addFailure
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addSkip
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addSubTest
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## CodexWholeUnitResult.addUnexpectedSuccess
+
+Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
 
