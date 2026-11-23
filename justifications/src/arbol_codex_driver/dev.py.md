@@ -23,9 +23,9 @@ Intention i-8156e72a · 2026-11-11
 
 ## probe
 
-Reason: Disable the historical login probe and document the native Codex remedy and gate scope.
+Reason: The product probe entry refused pending a native-only replacement; it now loads that replacement, which starts no authentication
 
-Origins: CDX-1.2, CDX-1.6, CDX-1.7, OG-5 · Intention i-0cfb4a40 · 2026-11-21
+Origins: CDX-1.8 · Intention i-343827ad · 2026-11-23
 
 ## check_account
 
