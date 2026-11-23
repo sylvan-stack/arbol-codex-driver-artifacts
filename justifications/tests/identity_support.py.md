@@ -305,15 +305,15 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.__init__
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: The shared fixtures must use the canonical chatgpt record and the default native home, and hold no credential file
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: CDX-1.2, CDX-1.8 · Intention i-7f45e459 · 2026-11-23
 
 ## CodexLocalSubject._inputs
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: The shared fixtures must use the canonical chatgpt record and the default native home, and hold no credential file
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: CDX-1.2, CDX-1.8 · Intention i-7f45e459 · 2026-11-23
 
 ## CodexLocalSubject._publish
 
@@ -335,9 +335,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.check_inputs
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: The shared fixtures must use the canonical chatgpt record and the default native home, and hold no credential file
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: CDX-1.2, CDX-1.8 · Intention i-7f45e459 · 2026-11-23
 
 ## CodexLocalSubject.collect
 
