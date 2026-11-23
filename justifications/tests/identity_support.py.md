@@ -5,9 +5,9 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+Reason: Keep the incomplete Codex external allocation fail-closed before terminal admission
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+Origins: DRV-6.21 · Intention i-91239bdd · 2026-11-23
 
 ## <end>
 
@@ -275,9 +275,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-
 
 ## CodexTerminalClose.arm
 
-Reason: Author fixed af1 Codex final owning-finish fixture support: actual settled/intent/armed evidence before real finish, saved original admission FD and actual code-object close matching, one real close after self STOP/CONT, no postterminal application output or manual second finish; source-only and publication-fenced.
+Reason: Keep the incomplete Codex external allocation fail-closed before terminal admission
 
-Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-7776c4ab · 2026-11-15
+Origins: DRV-6.21 · Intention i-91239bdd · 2026-11-23
 
 ## TerminalHelperWitness
 
