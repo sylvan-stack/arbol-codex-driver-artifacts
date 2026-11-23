@@ -11,7 +11,7 @@ Intention i-8156e72a · 2026-11-11
 
 ## live
 
-Reason: Use only verified existing real Codex profiles through the complete genuine inference gate
+Reason: The build and live checks qualify only the existing native chatgpt Subscription, on layout-2 state
 
-Origins: ARC-4.7 · Intention i-fd960de4 · 2026-11-12
+Origins: CDX-1.2, CDX-1.10, BLD-0.5 · Intention i-e7b08dbd · 2026-11-23
 
