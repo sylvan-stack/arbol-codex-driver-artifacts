@@ -110,8 +110,16 @@ The feature that lets the agent start sub-agents is on in the tool as shipped, a
 |---|---|
 | The agent starts a sub-agent | On the run's thread: an item `subAgentActivity` of kind `started`, with the sub-agent's path and `agentThreadId`, the thread the sub-agent works on |
 | The sub-agent works | Ordinary notifications that name the sub-agent's thread: `turn/started`, the items of its commands and messages, `turn/completed` |
+| An agent interacts with another agent | On the sending agent's thread: an item `subAgentActivity` of kind `interacted` |
+| Codex accepts an agent's request to interrupt another agent | On the requesting agent's thread: an item `subAgentActivity` of kind `interrupted` |
 | The agent waits | On the run's thread: an item `collabAgentToolCall` whose `tool` is `wait` |
 | The sub-agent ends | On the run's thread: an item `subAgentActivity` of kind `completed` with the same `agentThreadId` |
+
+The Driver passes over `interacted` and `interrupted` after validating their activity fields. The child's own turn notifications track whether its turn is active.
+
+<!-- sources:
+arbol-codex-driver:src/arbol_codex_driver/run_events.py#RunEvents.agent_activity
+-->
 
 The Driver turns this into the contract's events as follows. The `subAgentActivity` items of one sub-agent are one tool call named `spawn_agent`: `tool_started` at kind `started`, `tool_finished` at kind `completed`, with `agentThreadId` as the call's identifier. Every notification that names that thread becomes the event it would be on the run's own thread, with `parentCallId` set to that identifier, and its messages are no part of the answer (DRV-3.24). An item `collabAgentToolCall` is a tool call under the name in its `tool`. Where the agent waits for its sub-agent inside the turn, the turn's `turn/completed` is the end of the run. A sub-agent whose turn is still active when the run's turn completes is waited for (CDX-2, DRV-3.32). A sub-agent is stopped by a `turn/interrupt` for its own thread and turn; stopping the run's turn alone lets it work on (CDX-2).
 
@@ -195,6 +203,7 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 | ID | Question | Proposed default | Outcome |
 |---|---|---|---|
+| CDX-D32 | How does the Driver handle sub-agent interaction and interrupt acknowledgements? | Accept both activity kinds. Keep spawn boundaries tied to `started` and `completed` and use child turn notifications to track active work. | Technical correction, 23 November 2026. Codex CLI 0.162.1 sends these kinds as sub-agent activity. |
 | CDX-D29 | Does the owner's `notify` in `~/.codex/config.toml` run for a Driver run? Today it tells the Computer Use program each time a turn has ended | Yes, as the owner set it: a run has everything the owner set up for `codex` (DRV-D42), and the Driver gives no `-c notify=[]`. The cost: the program is told of every turn of an Arbol run, as of every turn of the owner's own sessions. The other choice clears `notify` for each run with `-c notify=[]` | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
 | CDX-D30 | The Driver no longer hands the owner's MCP tables to the tool (DRV-D42). Does it still remove their strings from events and text output (CDX-D25)? | Yes. It reads the tables `[mcp_servers]` of `~/.codex/config.toml`, and nothing else there, at the start of a run with tools, only to learn which strings to hide, and passes them nowhere. A file it cannot read leaves nothing to hide and refuses no run. The other choice reads nothing of `~/.codex`, and a key the tool repeats in a message would then reach the caller | Open: technical consequence of DRV-D42, proposed 19 October 2026 |
 | CDX-D22 | How do owner MCP servers reach a resumed run, and how is invalid owner configuration reported? | Read the owner tables once at the start of a tools-enabled run and send the same transient config with either thread/start or thread/resume. Missing setup is empty; invalid setup fails with a fixed nonsecret invalid_input message. Scrub owner table strings from vendor diagnostics without changing tool results | Decided 7 October 2026 during SYL-90, a technical choice. The installed stable ThreadStartParams and ThreadResumeParams schemas both accept config; no experimental protocol or persistent copy is needed. Its diagnostic-only redaction scope is superseded by CDX-D25 below. Superseded on 19 October 2026 by DRV-D42: the tool reads the owner's MCP servers from `~/.codex` itself, the Driver hands none over, and invalid owner setup no longer refuses a run |
