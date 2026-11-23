@@ -5,9 +5,9 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
 ## <end>
 
@@ -35,9 +35,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## CodexH1Support.__init__
 
-Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
 ## CodexH1Support._cleanup
 
@@ -155,9 +155,9 @@ Origins: DRV-5.11, DRV-6.20, DRV-6.21, CDX-1.17 · Intention i-e0b98cdb · 2026-
 
 ## SuiteControl.__init__
 
-Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
 ## SuiteControl.close
 
@@ -359,9 +359,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.spawn
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
 ## CodexLocalSubject.state_image
 
@@ -419,13 +419,55 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-1
 
 ## CodexPostAdmissionPhase.__init__
 
-Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
 ## CodexPostAdmissionPhase.record
 
 Reason: Repair reviewed post-admission cleanup and bind complete fixed phase evidence to the actual candidate runner
 
 Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-d16bba77 · 2026-11-23
+
+## CodexWholeUnitResult
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult.__init__
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult._case_id
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult.addSuccess
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult.complete
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult.startTest
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+
+## CodexWholeUnitResult.stopTest
+
+Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+
+Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
 
