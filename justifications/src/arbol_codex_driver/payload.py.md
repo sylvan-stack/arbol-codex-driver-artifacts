@@ -5,9 +5,9 @@ role: authored
 
 ## <before Entry>
 
-Reason: Candidate admission must protect the account registry even when HOME is set to a disposable installation.
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: ARC-5.5 · Intention i-b6fb1987 · 2026-11-19
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## Declaration
 
@@ -113,43 +113,73 @@ Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-
 
 ## _launcher
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## _provider
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## _registered_root
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Removed: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Removed by Intention i-39939e11 · 2026-11-23
 
 ## _required
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## registry_identity
 
-Reason: Verify the explicit registry gate and scoped qualification tuple without issuing authority or admitting execution
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: DRV-0.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-762178e8 · 2026-11-14
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## verify_authority
 
-Reason: Candidate admission must protect the account registry even when HOME is set to a disposable installation.
+Reason: Resolve and verify the committed Codex Driver and provider packages
 
-Origins: ARC-5.5 · Intention i-b6fb1987 · 2026-11-19
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
 ## bootstrap_entry
 
 Reason: Require isolated immutable bootstrap and a live admission factory before CLI imports or state access
 
 Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
+
+## _installed_registry
+
+Reason: Resolve and verify the committed Codex Driver and provider packages
+
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
+
+## _owner_home
+
+Reason: Resolve and verify the committed Codex Driver and provider packages
+
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
+
+## _payload_root
+
+Reason: Resolve and verify the committed Codex Driver and provider packages
+
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
+
+## _registered_payload
+
+Reason: Resolve and verify the committed Codex Driver and provider packages
+
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
+
+## _registration
+
+Reason: Resolve and verify the committed Codex Driver and provider packages
+
+Origins: DRV-6.22 · Intention i-39939e11 · 2026-11-23
 
