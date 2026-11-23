@@ -221,15 +221,15 @@ Origins: DRV-1.29, DRV-6.17, CDX-1.17 · Intention i-2b1b2938 · 2026-11-16
 
 ## <before install_account_peer>
 
-Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+Reason: The Driver passes no CODEX_HOME, so the private account peer must answer the default native home under the fixture home
 
-Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+Origins: CDX-1.10, CDX-1.17, DRV-1.29 · Intention i-1b1fd517 · 2026-11-23
 
 ## LocalIdentityTests._relabel_and_recognize
 
-Reason: Qualify proof retention across actual public relabel and existing-login recognition with changed persisted metadata.
+Reason: The Driver passes no CODEX_HOME, so the private account peer must answer the default native home under the fixture home
 
-Origins: DRV-1.28, DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-c000a42f · 2026-11-16
+Origins: CDX-1.10, CDX-1.17, DRV-1.29 · Intention i-1b1fd517 · 2026-11-23
 
 ## LocalIdentityTests.test_relabel_and_recognizing_existing_login_retain_the_original_proof
 
