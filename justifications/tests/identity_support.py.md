@@ -5,9 +5,9 @@ role: authored
 
 ## <before FixtureFailure>
 
-Reason: Keep the incomplete Codex external allocation fail-closed before terminal admission
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-6.21 · Intention i-91239bdd · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## <end>
 
@@ -305,9 +305,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject.__init__
 
-Reason: The shared fixtures must use the canonical chatgpt record and the default native home, and hold no credential file
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: CDX-1.2, CDX-1.8 · Intention i-7f45e459 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexLocalSubject._inputs
 
@@ -329,9 +329,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## CodexLocalSubject._terminal
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexLocalSubject.check_inputs
 
@@ -341,9 +341,9 @@ Origins: CDX-1.2, CDX-1.8 · Intention i-7f45e459 · 2026-11-23
 
 ## CodexLocalSubject.collect
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexLocalSubject.prepare_legacy
 
@@ -389,9 +389,9 @@ Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5
 
 ## LocalInvocation
 
-Reason: Observe real admitted Codex proof contention, persisted signed-out identity, and format 1 and interrupted conversion compatibility.
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-0.17, DRV-1.28, DRV-1.30, DRV-6.17, CDX-1.17 · Intention i-8b799a5d · 2026-11-15
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## <before CodexPostAdmissionPhase>
 
@@ -437,9 +437,9 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-1
 
 ## CodexWholeUnitResult.__init__
 
-Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexWholeUnitResult._case_id
 
@@ -449,9 +449,9 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-1
 
 ## CodexWholeUnitResult.addSuccess
 
-Reason: Bind the prospective full Codex schedule, deferred observations and admitted local callbacks to fixed source
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-fb73dc48 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexWholeUnitResult.complete
 
@@ -461,15 +461,15 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-1
 
 ## CodexWholeUnitResult.startTest
 
-Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexWholeUnitResult.stopTest
 
-Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexLocalSubject._reap_process
 
@@ -479,9 +479,9 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-1
 
 ## CodexLocalSubject._spawn_subscription
 
-Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
+Reason: Bind Codex case-owned public calls to original provider custody
 
-Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
 ## CodexLocalSubject.spawn_subscription
 
@@ -524,4 +524,28 @@ Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-1
 Reason: Share fixed Subscription provider operations with verified child cleanup and actual local result callbacks
 
 Origins: DRV-5.11, DRV-6.21, CDX-1.17, BLD-0.5 · Intention i-b8693428 · 2026-11-23
+
+## <before CodexWholeUnitResult>
+
+Reason: Bind Codex case-owned public calls to original provider custody
+
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
+
+## _PublicCallCase
+
+Reason: Bind Codex case-owned public calls to original provider custody
+
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
+
+## _PublicCallCase.__init__
+
+Reason: Bind Codex case-owned public calls to original provider custody
+
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
+
+## _PublicCallCase.append
+
+Reason: Bind Codex case-owned public calls to original provider custody
+
+Origins: DRV-6.21 · Intention i-963f384c · 2026-11-23
 
