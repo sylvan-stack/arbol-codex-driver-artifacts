@@ -143,9 +143,9 @@ Removed by Intention i-5b4321d8 · 2026-11-23
 
 ## LifetimeRaceTests._reap_predecessor
 
-Reason: Qualify that stale Codex authentication, usage and run cleanup preserve the successor Subscription proof, record and chat map.
+Reason: Only a dead local-only receipt is recovered; an older ambiguous sign-in receipt stays fenced, and a stale finish no longer raises
 
-Origins: DRV-1.29, DRV-6.20, CDX-1.17 · Intention i-6fb3b2e9 · 2026-11-16
+Origins: CDX-1.14, CDX-1.17 · Intention i-640374bd · 2026-11-23
 
 ## LifetimeRaceTests._record
 
