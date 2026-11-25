@@ -5,13 +5,13 @@ role: authored
 
 ## RunRequest
 
-Reason: Pass Steady Cue Cards to Codex’s current turn
+Reason: Use the native Codex app-server defaults and owner approval boundary for Arbol runs.
 
-Origins: STE-0.21 · Intention i-0ba92f62 · 2026-11-19
+Origins: OG-8 · Intention i-30e1d5ae · 2026-11-25
 
 ## read_run_request
 
-Reason: Pass Steady Cue Cards to Codex’s current turn
+Reason: Use the native Codex app-server defaults and owner approval boundary for Arbol runs.
 
-Origins: STE-0.21 · Intention i-0ba92f62 · 2026-11-19
+Origins: OG-8 · Intention i-30e1d5ae · 2026-11-25
 
