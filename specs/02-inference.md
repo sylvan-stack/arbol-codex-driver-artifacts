@@ -5,6 +5,16 @@ status: accepted
 ---
 # Codex Driver · 02 Inference
 
+## Native provider behavior · 25 November 2026
+
+[OG-7](/Users/msix/Artifacts/goals/OG-7.md) and [OG-8](/Users/msix/Artifacts/goals/OG-8.md) govern the Codex Driver. The Driver starts the ordinary app-server with the native `~/.codex` home. It leaves memory, update, analytics, web search, approvals, sandbox defaults and hook settings to Codex. It preserves explicit caller inputs such as a model, effort, service tier and the read-only boundary used for the caller's tools-off route. It supplies the requested working directory or the Driver command's current working directory. An approval that requires a person is declined when the Driver has no approval channel.
+
+Codex saves native history according to its configuration. The Driver resumes an existing thread by its native ID. A missing or refused native thread with earlier Arbol messages starts a normal new thread using labelled prompt context. The Driver does not inject synthetic items into the thread or request ephemeral history. This supersedes the prior forced startup options, automatic approvals and continuation conventions in CDX-2 and CDX-3.
+
+| ID | Codex Driver must | Origin |
+|---|---|---|
+| CDX-2.23 | Preserve native app-server behavior and provider-owned Chat Session files, and recover missing native continuity with labelled request history | OG-7, OG-8 |
+
 How the Codex Driver meets [DRV-2](../../arbol/driver-contract/02-inference.md) with `codex app-server`. Every run is one app-server process, started in the tool's default home, `~/.codex`, given one thread and one turn, and ended when the turn is over. It matters because the installed tool behaves differently from what version 1 assumed in ways that decide the design: interrupting a turn does not stop the command it runs, a missing login is noticed only after fifteen seconds of retries, and neither model nor effort is checked before the vendor rejects them.
 
 Everything stated here about the installed tool was observed on 5 October 2026 with `codex-cli` 0.159.2 and is recorded in the [probe record](../research/tool-probes-2026-10-05.md).
