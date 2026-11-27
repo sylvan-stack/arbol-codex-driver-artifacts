@@ -53,9 +53,9 @@ Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-
 
 ## _qualified
 
-Reason: Hold stable local format-2 admission and initialize durable root identity before ordinary state access
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-6.17, DRV-6.18, DRV-6.19, DRV-6.21 · Intention i-c58ed4c9 · 2026-11-15
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## _sync
 

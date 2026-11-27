@@ -5,15 +5,15 @@ role: authored
 
 ## main
 
-Reason: Move the Driver default under the shared private installation without changing state-relative native homes or the override.
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: ARC-5.5, ARC-5.9 · Intention i-389f8a9c · 2026-11-19
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## entry
 
-Reason: Dispatch only admitted local proof or exact maintenance before normal settings and retain both state and process authority through joined cleanup and output
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-0.17, DRV-1.28, DRV-6.17, DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-b5c7ed68 · 2026-11-15
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## <before main>
 
@@ -23,9 +23,9 @@ Removed by Intention i-b5c7ed68 · 2026-11-15
 
 ## <before Invocation>
 
-Reason: Move the Driver default under the shared private installation without changing state-relative native homes or the override.
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: ARC-5.5, ARC-5.9 · Intention i-389f8a9c · 2026-11-19
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## Invocation
 

@@ -17,9 +17,9 @@ Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
 
 ## bootstrap
 
-Reason: Require isolated immutable bootstrap and a live admission factory before CLI imports or state access
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-6.21, DRV-6.18, DRV-0.17 · Intention i-13d7fd19 · 2026-11-14
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## confined
 

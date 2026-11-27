@@ -227,9 +227,9 @@ Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
 
 ## <before current_session>
 
-Reason: Expose one-use prepared Codex helper ticket while retaining custody accounting
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-6.18, DRV-6.21, CDX-1.17 · Intention i-935800c0 · 2026-11-15
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## Session.<before Session.finish>
 
