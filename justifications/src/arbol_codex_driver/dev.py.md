@@ -5,9 +5,9 @@ role: authored
 
 ## <before read_schema>
 
-Reason: Admit public Codex development run child through its exact helper entry
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-5.6, DRV-5.8, DRV-5.10, DRV-6.21, CDX-1.17 · Intention i-bab4219f · 2026-11-15
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## _mid_tier_namespace
 
@@ -35,7 +35,7 @@ Origins: ARC-4.7 · Intention i-fd960de4 · 2026-11-12
 
 ## execute_run
 
-Reason: Admit public Codex development run child through its exact helper entry
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: DRV-5.6, DRV-5.8, DRV-5.10, DRV-6.21, CDX-1.17 · Intention i-bab4219f · 2026-11-15
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 

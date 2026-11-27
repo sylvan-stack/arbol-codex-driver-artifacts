@@ -5,9 +5,9 @@ role: authored
 
 ## AppServer.start
 
-Reason: Use the native Codex app-server defaults and owner approval boundary for Arbol runs.
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: OG-8 · Intention i-30e1d5ae · 2026-11-25
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## validate_driver_config
 
@@ -35,9 +35,9 @@ Removed by Intention i-96473a98 · 2026-11-15
 
 ## <before startup_ledger>
 
-Reason: Use the native Codex app-server defaults and owner approval boundary for Arbol runs.
+Reason: Launch Codex through its own installed package while preserving its existing local account and state identity
 
-Origins: OG-8 · Intention i-30e1d5ae · 2026-11-25
+Origins: CDX-0.3, DRV-0.8, DRV-0.15 · Intention i-4cb0c94a · 2026-11-27
 
 ## startup_ledger
 
